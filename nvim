@@ -1,7 +1,6 @@
 " Plugins {{
 call plug#begin()
-	" Plug 'itchyny/lightline.vim'
-	Plug 'morhetz/gruvbox'
+	Plug 'andreasvc/vim-256noir'
 	Plug 'mhinz/vim-startify'
 	Plug 'justinmk/vim-sneak'
 	Plug 'sheerun/vim-polyglot'
@@ -30,7 +29,7 @@ set linebreak
 set breakindent
 set showbreak=>\
 set cpoptions+=n
-" or
+" }} or {{
 " set nowrap
 " set sidescroll=1
 " set sidescrolloff=8
@@ -44,13 +43,8 @@ nmap <Leader>x :q<CR>
 
 " Colors {{
 set termguicolors
-set background=dark
-colorscheme gruvbox
-" }}
-
-" Lightline {{
-" set noshowmode
-" let g:lightline = {
-" 	\ 'colorscheme': 'gruvbox',
-" 	\ }
+colorscheme 256_noir
+highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
+autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 " }}
