@@ -1,8 +1,8 @@
 " Plugins {{
 call plug#begin()
+	" Plug 'itchyny/lightline.vim'
 	Plug 'morhetz/gruvbox'
 	Plug 'mhinz/vim-startify'
-	Plug 'itchyny/lightline.vim'
 	Plug 'justinmk/vim-sneak'
 	Plug 'sheerun/vim-polyglot'
 call plug#end()
@@ -49,8 +49,8 @@ colorscheme gruvbox
 " }}
 
 " Lightline {{
-set noshowmode
-let g:lightline = {
-	\ 'colorscheme': 'gruvbox',
-	\ }
+" set noshowmode
+" let g:lightline = {
+" 	\ 'colorscheme': 'gruvbox',
+" 	\ }
 " }}
