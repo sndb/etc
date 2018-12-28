@@ -1,0 +1,56 @@
+" Plugins {{
+call plug#begin()
+	Plug 'morhetz/gruvbox'
+	Plug 'mhinz/vim-startify'
+	Plug 'itchyny/lightline.vim'
+	Plug 'justinmk/vim-sneak'
+	Plug 'sheerun/vim-polyglot'
+call plug#end()
+" }}
+
+" Options {{
+set ruler
+set number relativenumber
+set cursorline
+set colorcolumn=80
+set noexpandtab
+set tabstop=8
+set shiftwidth=8
+set ignorecase
+set smartcase
+set gdefault
+set scrolloff=4
+set textwidth=0
+set list listchars=tab:\|\ ,trail:-,nbsp:+
+" }}
+
+" Wrapping {{
+set wrap
+set linebreak
+set breakindent
+set showbreak=>\
+set cpoptions+=n
+" or
+" set nowrap
+" set sidescroll=1
+" set sidescrolloff=8
+" }}
+
+" Mappings {{
+nmap <Leader>n :nohl<CR>
+nmap <Leader>s :update<CR>
+nmap <Leader>x :q<CR>
+" }}
+
+" Colors {{
+set termguicolors
+set background=dark
+colorscheme gruvbox
+" }}
+
+" Lightline {{
+set noshowmode
+let g:lightline = {
+	\ 'colorscheme': 'gruvbox',
+	\ }
+" }}
