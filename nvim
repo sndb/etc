@@ -49,7 +49,7 @@ set termguicolors
 " almost black background
 " let g:alduin_Shout_Dragon_Aspect = 1
 " black background
-let g:alduin_Shout_Become_Ethereal = 1
+" let g:alduin_Shout_Become_Ethereal = 1
 " dark red hl
 " let g:alduin_Shout_Fire_Breath = 1
 colorscheme alduin
