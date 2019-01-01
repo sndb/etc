@@ -4,7 +4,7 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-export PATH="${PATH}:$HOME/Bin"
+export PATH="${PATH}:$HOME/Code/bin"
 export EDITOR=nvim
 export VISUAL=nvim
 export BROWSER=chromium
