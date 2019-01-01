@@ -6,6 +6,7 @@ call plug#begin()
 	Plug 'mhinz/vim-startify'
 	Plug 'justinmk/vim-sneak'
 	Plug 'sheerun/vim-polyglot'
+	Plug 'w0rp/ale'
 call plug#end()
 " }}
 
@@ -61,4 +62,9 @@ colorscheme alduin
 " highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 " autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
 " autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
+" }}
+
+" ALE {{
+let b:ale_linters = {'python': ['flake8']}
+let b:ale_fixers = {'python': ['isort']}
 " }}
