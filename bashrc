@@ -57,7 +57,7 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 # ls
-alias l='ls -lhvFA'
+alias l='ls -lhvFA --group-directories-first'
 alias ll='ls -lhvF'
 alias la='ls -A'
 # vim
