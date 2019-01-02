@@ -83,7 +83,7 @@ alias du='du -c -h'
 alias free='free -m'
 alias mkdir='mkdir -p -v'
 alias chright='chmod -R a=r,a+X,u+w'
-alias mountusb='mount -o gid=users,fmask=113,dmask=002'
+alias mntusb='mount -o gid=users,fmask=113,dmask=002'
 alias tl2='tree -L 2'
 
 
