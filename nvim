@@ -23,7 +23,7 @@ set smartcase
 set gdefault
 set scrolloff=4
 set textwidth=0
-set list listchars=tab:\|\ ,trail:-,nbsp:+
+set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
 " }}
 
 " Wrapping {{
