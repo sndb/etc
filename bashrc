@@ -73,6 +73,7 @@ alias gca='git commit -v -a'
 alias gd='git diff'
 alias glg='git log --graph'
 alias go='git checkout'
+alias gp='git push'
 alias gs='git status'
 # general
 alias c='clear'
