@@ -1,7 +1,5 @@
 " Plugins {{
 call plug#begin()
-	Plug 'andreasvc/vim-256noir'
-	Plug 'morhetz/gruvbox'
 	Plug 'AlessandroYorba/Alduin'
 	Plug 'mhinz/vim-startify'
 	Plug 'justinmk/vim-sneak'
@@ -47,22 +45,7 @@ nmap <Leader>x :q<CR>
 
 " Colors {{
 set termguicolors
-" alduin
-" almost black background
-" let g:alduin_Shout_Dragon_Aspect = 1
-" black background
-" let g:alduin_Shout_Become_Ethereal = 1
-" dark red hl
-" let g:alduin_Shout_Fire_Breath = 1
 colorscheme alduin
-" gruvbox
-" set background=dark
-" colorscheme gruvbox
-" 256_noir
-" colorscheme 256_noir
-" highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
-" autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
-" autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 " }}
 
 " ALE {{
