@@ -6,6 +6,7 @@ call plug#begin()
 	Plug 'sheerun/vim-polyglot'
 	Plug 'w0rp/ale'
 	Plug 'airblade/vim-gitgutter'
+	Plug 'maralla/completor.vim'
 call plug#end()
 " }}
 
