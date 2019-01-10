@@ -7,6 +7,7 @@ call plug#begin()
 	Plug 'w0rp/ale'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'tmux-plugins/vim-tmux-focus-events'
 call plug#end()
 " }}
 
