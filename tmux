@@ -24,6 +24,8 @@ bind -r L resize-pane -R
 setw -g mode-keys vi
 set -g status-keys vi
 
+set -g focus-events on
+
 set -sg escape-time 0
 
 set -g mouse on
