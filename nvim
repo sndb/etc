@@ -64,3 +64,7 @@ set updatetime=100
 " deoplete {{
 let g:deoplete#enable_at_startup = 1
 " }}
+
+" tmux-complete {{
+let g:tmuxcomplete#trigger = ''
+" }}
