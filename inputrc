@@ -7,3 +7,6 @@ $else
 	set vi-ins-mode-string \1\e[6 q\2
 	set vi-cmd-mode-string \1\e[2 q\2
 $endif
+
+set completion-ignore-case on
+set show-all-if-ambiguous on
