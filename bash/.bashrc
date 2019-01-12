@@ -63,7 +63,6 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 # git
-alias g='g'
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit -v'
