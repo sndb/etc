@@ -10,6 +10,7 @@ call plug#begin()
 	Plug 'zchee/deoplete-jedi'
 	Plug 'tmux-plugins/vim-tmux-focus-events'
 	Plug 'wellle/tmux-complete.vim'
+	Plug 'jiangmiao/auto-pairs'
 call plug#end()
 " }}
 
