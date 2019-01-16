@@ -79,7 +79,8 @@ alias tn='tmux new -s'
 alias ta='tmux a -t'
 alias tls='tmux ls'
 # common
-alias ansic='gcc -std=c89 -pedantic -Wall -Wextra -Os'
+alias 89="gcc -Wall -Wextra -Werror -O2 -std=c89 -pedantic"
+alias 99="gcc -Wall -Wextra -Werror -O2 -std=c99 -pedantic"
 alias c='clear'
 alias chright='chmod -R a=r,a+X,u+w'
 alias d='diff --color -r -u'
