@@ -11,6 +11,7 @@ call plug#begin()
 	Plug 'tmux-plugins/vim-tmux-focus-events'
 	Plug 'wellle/tmux-complete.vim'
 	Plug 'jiangmiao/auto-pairs'
+	Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 " }}
 
