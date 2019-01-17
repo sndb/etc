@@ -44,7 +44,7 @@ set cpoptions+=n
 " }}
 
 " Mappings {{
-nmap <Leader>n :nohl<CR>
+nmap <Leader>n :noh<CR>:pc<CR>
 nmap <Leader>s :update<CR>
 nmap <Leader>x :q<CR>
 " }}
