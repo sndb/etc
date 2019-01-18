@@ -47,6 +47,7 @@ set cpoptions+=n
 nmap <Leader>n :noh<CR>:pc<CR>
 nmap <Leader>s :update<CR>
 nmap <Leader>x :q<CR>
+nmap <Leader>= :ALEFix<CR>
 " }}
 
 " Colors {{
