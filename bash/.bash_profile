@@ -4,6 +4,8 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
+[[ -f ~/.framebuffer-colors/alduin.sh ]] && . ~/.framebuffer-colors/alduin.sh
+
 export PATH="${PATH}:$HOME/Code/bin:$HOME/.local/bin"
 export EDITOR=nvim
 export VISUAL=nvim
