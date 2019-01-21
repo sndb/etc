@@ -29,15 +29,19 @@ set gdefault
 set scrolloff=4
 set textwidth=0
 set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
+set inccommand=split
+set nomodeline
 " }}
 
-" Wrapping {{
+" Wrap {{
 set wrap
 set linebreak
 set breakindent
 set showbreak=>\
 set cpoptions+=n
-" }} or {{
+" }}
+
+" Not Wrap {{
 " set nowrap
 " set sidescroll=1
 " set sidescrolloff=8
