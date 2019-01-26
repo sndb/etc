@@ -1,17 +1,17 @@
 " Plugins {{
 call plug#begin()
 	Plug 'AlessandroYorba/Alduin'
-	Plug 'mhinz/vim-startify'
-	Plug 'justinmk/vim-sneak'
-	Plug 'sheerun/vim-polyglot'
-	Plug 'w0rp/ale'
-	Plug 'airblade/vim-gitgutter'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'zchee/deoplete-jedi'
-	Plug 'tmux-plugins/vim-tmux-focus-events'
-	Plug 'wellle/tmux-complete.vim'
-	Plug 'jiangmiao/auto-pairs'
+	Plug 'airblade/vim-gitgutter'
 	Plug 'christoomey/vim-tmux-navigator'
+	Plug 'jiangmiao/auto-pairs'
+	Plug 'justinmk/vim-sneak'
+	Plug 'mhinz/vim-startify'
+	Plug 'sheerun/vim-polyglot'
+	Plug 'tmux-plugins/vim-tmux-focus-events'
+	Plug 'w0rp/ale'
+	Plug 'wellle/tmux-complete.vim'
+	Plug 'zchee/deoplete-jedi'
 call plug#end()
 " }}
 
