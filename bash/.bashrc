@@ -8,30 +8,29 @@
 
 # prompt
 # PROMPT_COMMAND=__prompt_command
+# __prompt_command() {
+# 	local EXIT="$?"
+# 	local BLACK="\[$(tput setaf 0)\]"
+# 	local RED="\[$(tput setaf 1)\]"
+# 	local GREEN="\[$(tput setaf 2)\]"
+# 	local YELLOW="\[$(tput setaf 3)\]"
+# 	local BLUE="\[$(tput setaf 4)\]"
+# 	local MAGENTA="\[$(tput setaf 5)\]"
+# 	local CYAN="\[$(tput setaf 6)\]"
+# 	local WHITE="\[$(tput setaf 7)\]"
+# 	local BBLACK="\[$(tput setaf 8)\]"
+# 	local RESET="\[$(tput sgr0)\]"
+# 	PS1=""
+# 	if [ $EXIT != 0 ]; then
+# 		local STATUS="${RED}${EXIT}"
+# 	else
+# 		local STATUS="${GREEN}${EXIT}"
+# 	fi
+# 	PS1+="${BLUE}\u${BBLACK}@${CYAN}\h ${BBLACK}[${STATUS}${BBLACK}] [${YELLOW}\w${BBLACK}]\n"
+# 	PS1+="${BBLACK}>> ${RESET}"
+# }
 # or
 PS1='[\[\e[1m\]\u\[\e[m\]:\w]\$ '
-
-__prompt_command() {
-	local EXIT="$?"
-	local BLACK="\[$(tput setaf 0)\]"
-	local RED="\[$(tput setaf 1)\]"
-	local GREEN="\[$(tput setaf 2)\]"
-	local YELLOW="\[$(tput setaf 3)\]"
-	local BLUE="\[$(tput setaf 4)\]"
-	local MAGENTA="\[$(tput setaf 5)\]"
-	local CYAN="\[$(tput setaf 6)\]"
-	local WHITE="\[$(tput setaf 7)\]"
-	local BBLACK="\[$(tput setaf 8)\]"
-	local RESET="\[$(tput sgr0)\]"
-	PS1=""
-	if [ $EXIT != 0 ]; then
-		local STATUS="${RED}${EXIT}"
-	else
-		local STATUS="${GREEN}${EXIT}"
-	fi
-	PS1+="${BLUE}\u${BBLACK}@${CYAN}\h ${BBLACK}[${STATUS}${BBLACK}] [${YELLOW}\w${BBLACK}]\n"
-	PS1+="${BBLACK}>> ${RESET}"
-}
 
 
 # options

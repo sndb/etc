@@ -9,6 +9,7 @@ call plug#begin()
 	Plug 'mhinz/vim-startify'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'tmux-plugins/vim-tmux-focus-events'
+	Plug 'tpope/vim-commentary'
 	Plug 'w0rp/ale'
 	Plug 'wellle/tmux-complete.vim'
 	Plug 'zchee/deoplete-jedi'
