@@ -2,6 +2,7 @@
 *.foreground:   #dfdfaf
 *.background:   #1c1c1c
 *.cursorColor:  #dfdfaf
+*.font:         xos4 Terminus-11
 
 ! black
 *.color0:       #1c1c1c
