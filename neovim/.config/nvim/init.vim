@@ -56,7 +56,7 @@ nmap <Leader>= :ALEFix<CR>
 " }}
 
 " Colors {{
-set termguicolors
+" set termguicolors
 colorscheme alduin
 " }}
 
