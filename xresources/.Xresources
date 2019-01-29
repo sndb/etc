@@ -2,7 +2,7 @@
 *.foreground:   #dfdfaf
 *.background:   #1c1c1c
 *.cursorColor:  #dfdfaf
-*.font:         xos4 Terminus-11
+*.font:         -uw-ttyp0-medium-r-normal--18-170-75-75-c-90-iso10646-1
 
 ! black
 *.color0:       #1c1c1c
