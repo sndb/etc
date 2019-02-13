@@ -90,6 +90,7 @@ alias sudo='sudo '
 alias tl2='tree -L 2'
 alias vol='alsamixer'
 alias x='exit'
+alias p='gopass'
 
 
 # functions
