@@ -5,6 +5,7 @@ call plug#begin()
 	Plug 'airblade/vim-gitgutter'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'jiangmiao/auto-pairs'
+	Plug 'junegunn/goyo.vim'
 	Plug 'justinmk/vim-sneak'
 	Plug 'mhinz/vim-startify'
 	Plug 'sheerun/vim-polyglot'
