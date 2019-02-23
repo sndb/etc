@@ -1,6 +1,5 @@
 " Plugins {{
 call plug#begin()
-	Plug 'AlessandroYorba/Alduin'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
 	Plug 'christoomey/vim-tmux-navigator'
@@ -14,6 +13,10 @@ call plug#begin()
 	Plug 'w0rp/ale'
 	Plug 'wellle/tmux-complete.vim'
 	Plug 'zchee/deoplete-jedi'
+	" Colorschemes {{
+	Plug 'AlessandroYorba/Alduin'
+	Plug 'ajgrf/parchment'
+	" }}
 call plug#end()
 " }}
 
@@ -30,7 +33,7 @@ set smartcase
 set gdefault
 set scrolloff=4
 set textwidth=0
-set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
+" set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
 set inccommand=split
 set nomodeline
 " }}
@@ -58,7 +61,7 @@ nmap <Leader>= :ALEFix<CR>
 
 " Colors {{
 set termguicolors
-colorscheme alduin
+colorscheme parchment
 " }}
 
 " ALE {{
