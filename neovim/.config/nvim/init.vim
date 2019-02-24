@@ -57,6 +57,7 @@ nmap <Leader>n :noh<CR>:pc<CR>
 nmap <Leader>s :update<CR>
 nmap <Leader>x :q<CR>
 nmap <Leader>= :ALEFix<CR>
+nmap <Leader>g :Goyo<CR>
 " }}
 
 " Colors {{
