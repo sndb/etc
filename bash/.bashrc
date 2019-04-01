@@ -81,16 +81,17 @@ alias chright='chmod -R a=r,a+X,u+w'
 alias d='diff --color -r -u'
 alias df='df -h'
 alias du='du -c -h'
+alias e='emacsclient'
 alias f='find . -name'
 alias free='free -m'
 alias g='grep'
 alias mkdir='mkdir -p -v'
 alias mntusb='mount -o gid=users,fmask=113,dmask=002'
+alias p='gopass'
 alias sudo='sudo '
 alias tl2='tree -L 2'
 alias vol='alsamixer'
 alias x='exit'
-alias p='gopass'
 
 
 # functions
