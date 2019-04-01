@@ -36,6 +36,10 @@
 ;; edit files in place (used by e.g. `git commit`).
 (server-start)
 
+;; Theme
+(require 'kaolin-themes)
+(load-theme 'kaolin-light t)
+
 
 ;;;; EXWM Configuration
 
@@ -124,7 +128,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (desktop-environment exwm))))
+ '(package-selected-packages (quote (kaolin-themes desktop-environment exwm))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
