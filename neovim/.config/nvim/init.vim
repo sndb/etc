@@ -15,6 +15,7 @@ call plug#begin()
 	Plug 'zchee/deoplete-jedi'
 	" Colorschemes {{
 	Plug 'AlessandroYorba/Alduin'
+	Plug 'AlessandroYorba/Sierra'
 	Plug 'ajgrf/parchment'
 	" }}
 call plug#end()
@@ -33,7 +34,7 @@ set smartcase
 set gdefault
 set scrolloff=4
 set textwidth=0
-" set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
+set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
 set inccommand=split
 set nomodeline
 " }}
@@ -62,7 +63,7 @@ nmap <Leader>g :Goyo<CR>
 
 " Colors {{
 set termguicolors
-colorscheme parchment
+colorscheme sierra
 " }}
 
 " ALE {{
