@@ -9,10 +9,6 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;; Scrolling
-(global-set-key (kbd "M-n") (lambda () (interactive) (scroll-up 24)))
-(global-set-key (kbd "M-p") (lambda () (interactive) (scroll-down 24)))
-
 ;; Disable menu-bar, tool-bar and scroll-bar to increase the usable space.
 (menu-bar-mode -1)
 (tool-bar-mode -1)
@@ -23,6 +19,9 @@
 ;; Turn on `display-time-mode' if you don't use an external bar.
 (setq display-time-default-load-average nil)
 (display-time-mode t)
+
+;; Show matching parens
+(show-paren-mode t)
 
 ;; You are strongly encouraged to enable something like `ido-mode' to alter
 ;; the default behavior of 'C-x b', or you will take great pains to switch
