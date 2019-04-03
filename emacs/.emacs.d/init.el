@@ -47,6 +47,9 @@
 (avy-setup-default)
 (global-set-key (kbd "C-c C-j") 'avy-resume)
 
+;; Which Key
+(which-key-mode)
+
 ;;;; EXWM Configuration
 
 ;; Load EXWM.
