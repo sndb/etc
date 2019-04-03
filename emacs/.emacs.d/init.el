@@ -5,6 +5,10 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
+;; Custom file
+(setq custom-file "~/.emacs.d/.emacs-custom.el")
+(load custom-file)
+
 ;; Stop creating backup~ and #autosave# files
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -39,6 +43,9 @@
 (require 'kaolin-themes)
 (load-theme 'kaolin-light t)
 
+;; Avy
+(avy-setup-default)
+(global-set-key (kbd "C-c C-j") 'avy-resume)
 
 ;;;; EXWM Configuration
 
@@ -120,17 +127,3 @@
 ;; to control your GNU/Linux desktop from Emacs.
 (require 'desktop-environment)
 (desktop-environment-mode)
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (kaolin-themes desktop-environment exwm))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
