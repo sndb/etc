@@ -32,7 +32,7 @@
 
 ;; theme
 (require 'kaolin-themes)
-(load-theme 'kaolin-light t)
+(load-theme 'kaolin-temple t)
 
 ;; avy
 (require 'avy)
