@@ -1,105 +1,98 @@
-;;;; Basic
+;; BASIC
 
-;; Packaging
+;; packaging
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-;; Custom file
+;; custom file
 (setq custom-file "~/.emacs.d/.emacs-custom.el")
 (load custom-file)
 
-;; Stop creating backup~ and #autosave# files
+;; no...
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
 
-;; Disable menu-bar, tool-bar and scroll-bar to increase the usable space.
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-;; Also shrink fringes to 1 pixel.
-(fringe-mode 1)
-
-;; Turn on `display-time-mode' if you don't use an external bar.
+;; time
 (setq display-time-default-load-average nil)
 (display-time-mode t)
 
-;; Show matching parens
+;; show matching parens
 (show-paren-mode t)
 
-;; You are strongly encouraged to enable something like `ido-mode' to alter
-;; the default behavior of 'C-x b', or you will take great pains to switch
-;; to or back from a floating frame (remember 'C-x 5 o' if you refuse this
-;; proposal however).
-;; You may also want to call `exwm-config-ido' later (see below).
-(ido-mode 1)
+;; interactively do things with buffers and files
+(require 'ido)
+(ido-mode t)
 
-;; Emacs server
-;; If Emacs is started in server mode, `emacsclient` is a convenient way to
-;; edit files in place (used by e.g. `git commit`).
+;; emacs server
 (server-start)
 
-;; Theme
+;; theme
 (require 'kaolin-themes)
 (load-theme 'kaolin-light t)
 
-;; Avy
+;; avy
+(require 'avy)
 (avy-setup-default)
 (global-set-key (kbd "C-c C-j") 'avy-resume)
 
-;; Which Key
+;; which key
+(require 'which-key)
 (which-key-mode)
 
-;;;; EXWM Configuration
 
-;; Load EXWM.
+;; EXWM
+
+;; load exwm.
 (require 'exwm)
 
-;; Fix problems with Ido (if you use it).
+;; fix problems with ido
 (require 'exwm-config)
 (exwm-config-ido)
 
-;; System tray
+;; system tray
 (require 'exwm-systemtray)
 (exwm-systemtray-enable)
 
-;; Set the initial number of workspaces (they can also be created later).
+;; set the initial number of workspaces
 (setq exwm-workspace-number 4)
 
-;; Make class name the buffer name
+;; make class name the buffer name
 (add-hook 'exwm-update-class-hook
           (lambda ()
               (exwm-workspace-rename-buffer exwm-class-name)))
 
-;; Global keybindings
+;; global key bindings
 (setq exwm-input-global-keys
       `(
-        ;; Bind "s-r" to exit char-mode and fullscreen mode.
+        ;; bind "s-r" to exit char-mode and fullscreen mode
         ([?\s-r] . exwm-reset)
-        ;; Bind "s-w" to switch workspace interactively.
+        ;; bind "s-w" to switch workspace interactively
         ([?\s-w] . exwm-workspace-switch)
-        ;; Bind "s-0" to "s-9" to switch to a workspace by its index.
+        ;; bind "s-0" to "s-9" to switch to a workspace by its index
         ,@(mapcar (lambda (i)
                     `(,(kbd (format "s-%d" i)) .
                       (lambda ()
                         (interactive)
                         (exwm-workspace-switch-create ,i))))
                   (number-sequence 0 9))
-        ;; Bind "s-&" to launch applications ('M-&' also works if the output
-        ;; buffer does not bother you).
+        ;; bind "s-&" to launch applications
         ([?\s-&] . (lambda (command)
 		     (interactive (list (read-shell-command "$ ")))
 		     (start-process-shell-command command nil command)))
-        ;; Bind "s-<f2>" to "slock", a simple X display locker.
+        ;; bind "s-<f2>" to "slock", a simple x display locker
         ([s-f2] . (lambda ()
 		    (interactive)
 		    (start-process "" nil "/usr/bin/slock")))))
 
-;; To add a key binding only available in line-mode, simply define it in
-;; `exwm-mode-map'.  The following example shortens 'C-c q' to 'C-q'.
+;; local key bindings
+;; bind "c-q" to send key
 (define-key exwm-mode-map [?\C-q] #'exwm-input-send-next-key)
 
-;; Mimic the behavior of Emacs
+;; mimic the behavior of Emacs
 (setq exwm-input-simulation-keys
       '(
         ;; movement
@@ -122,11 +115,10 @@
         ;; search
         ([?\C-s] . [?\C-f])))
 
-;; Enable EXWM
+;; enable exwm
 (exwm-enable)
 
 
-;; The package desktop-environment provides commands and a global minor mode
-;; to control your GNU/Linux desktop from Emacs.
+;; desktop-environment
 (require 'desktop-environment)
 (desktop-environment-mode)
