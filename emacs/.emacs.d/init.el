@@ -39,7 +39,7 @@
 (avy-setup-default)
 (global-set-key (kbd "C-c C-j") 'avy-resume)
 
-;; which key
+;; which-key
 (require 'which-key)
 (which-key-mode)
 
@@ -92,7 +92,7 @@
 ;; bind "c-q" to send key
 (define-key exwm-mode-map [?\C-q] #'exwm-input-send-next-key)
 
-;; mimic the behavior of Emacs
+;; mimic the behavior of emacs
 (setq exwm-input-simulation-keys
       '(
         ;; movement
