@@ -15,6 +15,7 @@ call plug#begin()
 	Plug 'zchee/deoplete-jedi'
 	" Colorschemes {{
 	Plug 'AlessandroYorba/Alduin'
+	Plug 'AlessandroYorba/Breve'
 	Plug 'AlessandroYorba/Sierra'
 	Plug 'ajgrf/parchment'
 	" }}
