@@ -31,8 +31,8 @@
 (server-start)
 
 ;; theme
-(require 'kaolin-themes)
-(load-theme 'kaolin-temple t)
+(require 'tao-theme)
+(load-theme 'tao-yin t)
 
 ;; avy
 (require 'avy)
