@@ -46,7 +46,7 @@
 
 ;; EXWM
 
-;; load exwm.
+;; load exwm
 (require 'exwm)
 
 ;; fix problems with ido
