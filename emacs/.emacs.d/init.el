@@ -32,8 +32,8 @@
 (server-start)
 
 ;; theme
-(require 'tao-theme)
-(load-theme 'tao-yin t)
+(require 'eink-theme)
+(load-theme 'eink t)
 
 ;; avy
 (require 'avy)
