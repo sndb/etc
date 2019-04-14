@@ -13,11 +13,8 @@ call plug#begin()
 	Plug 'w0rp/ale'
 	Plug 'wellle/tmux-complete.vim'
 	Plug 'zchee/deoplete-jedi'
-	" Colorschemes {{
+	" Colorscheme {{
 	Plug 'AlessandroYorba/Alduin'
-	Plug 'AlessandroYorba/Breve'
-	Plug 'AlessandroYorba/Sierra'
-	Plug 'ajgrf/parchment'
 	" }}
 call plug#end()
 " }}
@@ -64,7 +61,7 @@ nmap <Leader>g :Goyo<CR>
 
 " Colors {{
 set termguicolors
-colorscheme sierra
+colorscheme alduin
 " }}
 
 " ALE {{
