@@ -6,7 +6,7 @@
 (package-initialize)
 
 ;; custom file
-(setq custom-file "~/.emacs.d/emacs-custom.el")
+(setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
 ;; no...
@@ -24,6 +24,11 @@
 ;; show matching parens
 (show-paren-mode t)
 
+;; activate on programming modes
+(add-hook 'prog-mode-hook
+          ;; display line numbers mode
+          'display-line-numbers-mode)
+
 ;; interactively do things with buffers and files
 (require 'ido)
 (ido-mode t)
@@ -31,9 +36,28 @@
 ;; emacs server
 (server-start)
 
+;; activate on text modes
+(add-hook 'text-mode-hook
+          (lambda ()
+            ;; variable-pitch-mode
+            (variable-pitch-mode t)
+            ;; centers text in the buffer
+            (olivetti-mode t)))
+
+;; org-bullets
+(require 'org-bullets)
+(setq org-bullets-bullet-list
+      '("◉" "○"))
+(add-hook 'org-mode-hook 'org-bullets-mode)
+
+;; fonts
+(set-face-attribute 'default nil :family "Fantasque Sans Mono" :height 120)
+(set-face-attribute 'fixed-pitch nil :family "Fantasque Sans Mono")
+(set-face-attribute 'variable-pitch nil :family "Linux Libertine")
+
 ;; theme
-(require 'eink-theme)
-(load-theme 'eink t)
+(require 'poet-theme)
+(load-theme 'poet-dark t)
 
 ;; avy
 (require 'avy)
@@ -63,7 +87,7 @@
 ;; make class name the buffer name
 (add-hook 'exwm-update-class-hook
           (lambda ()
-              (exwm-workspace-rename-buffer exwm-class-name)))
+            (exwm-workspace-rename-buffer exwm-class-name)))
 
 ;; global key bindings
 (setq exwm-input-global-keys
@@ -81,12 +105,12 @@
                   (number-sequence 0 9))
         ;; bind "s-&" to launch applications
         ([?\s-&] . (lambda (command)
-		     (interactive (list (read-shell-command "$ ")))
-		     (start-process-shell-command command nil command)))
+                     (interactive (list (read-shell-command "$ ")))
+                     (start-process-shell-command command nil command)))
         ;; bind "s-<f2>" to "slock", a simple x display locker
         ([s-f2] . (lambda ()
-		    (interactive)
-		    (start-process "" nil "/usr/bin/slock")))))
+                    (interactive)
+                    (start-process "" nil "/usr/bin/slock")))))
 
 ;; local key bindings
 ;; bind "c-q" to send key
