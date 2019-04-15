@@ -2,10 +2,13 @@
 call plug#begin()
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
+	" vim-markdown's requirement
+	Plug 'godlygeek/tabular'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'junegunn/goyo.vim'
 	Plug 'justinmk/vim-sneak'
 	Plug 'mhinz/vim-startify'
+	Plug 'plasticboy/vim-markdown'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'tpope/vim-commentary'
 	Plug 'w0rp/ale'
