@@ -92,3 +92,7 @@ let g:tmuxcomplete#trigger = ''
 " vim-gitgutter {{
 set updatetime=100
 " }}
+
+" vim-markdown {{
+let g:vim_markdown_folding_disabled = 1
+" }}
