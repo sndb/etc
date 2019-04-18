@@ -37,7 +37,7 @@ set smartcase
 set gdefault
 set scrolloff=4
 set textwidth=0
-set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
+" set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
 set inccommand=split
 set nomodeline
 " }}
