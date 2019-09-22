@@ -1,48 +1,15 @@
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
 # prompt
-# PROMPT_COMMAND=__prompt_command
-# __prompt_command() {
-# 	local EXIT="$?"
-# 	local BLACK="\[$(tput setaf 0)\]"
-# 	local RED="\[$(tput setaf 1)\]"
-# 	local GREEN="\[$(tput setaf 2)\]"
-# 	local YELLOW="\[$(tput setaf 3)\]"
-# 	local BLUE="\[$(tput setaf 4)\]"
-# 	local MAGENTA="\[$(tput setaf 5)\]"
-# 	local CYAN="\[$(tput setaf 6)\]"
-# 	local WHITE="\[$(tput setaf 7)\]"
-# 	local BBLACK="\[$(tput setaf 8)\]"
-# 	local RESET="\[$(tput sgr0)\]"
-# 	PS1=""
-# 	if [ $EXIT != 0 ]; then
-# 		local STATUS="${RED}${EXIT}"
-# 	else
-# 		local STATUS="${GREEN}${EXIT}"
-# 	fi
-# 	PS1+="${BLUE}\u${BBLACK}@${CYAN}\h ${BBLACK}[${STATUS}${BBLACK}] [${YELLOW}\w${BBLACK}]\n"
-# 	PS1+="${BBLACK}>> ${RESET}"
-# }
-# or
 PS1='[\[\e[1m\]\u\[\e[m\]:\w]\$ '
-
 
 # options
 shopt -s cdspell
 shopt -s checkwinsize
 shopt -s cmdhist
 
-
 # aliases
-# autocolor
-alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 # cd
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -50,13 +17,10 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 # ls
+alias ls='ls --color=auto'
 alias l='ls -lhvFA --group-directories-first'
 alias ll='ls -lhvF'
 alias la='ls -A'
-# vim
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
 # git
 alias ga='git add'
 alias gb='git branch'
@@ -74,27 +38,15 @@ alias tn='tmux new -s'
 alias ta='tmux a -t'
 alias tls='tmux ls'
 # common
-alias 89="gcc -Wall -Wextra -Werror -O2 -std=c89 -pedantic"
-alias 99="gcc -Wall -Wextra -Werror -O2 -std=c99 -pedantic"
 alias c='clear'
-alias chright='chmod -R a=r,a+X,u+w'
 alias d='diff --color -r -u'
-alias df='df -h'
-alias du='du -c -h'
-alias e='emacsclient'
 alias f='find . -name'
-alias free='free -m'
 alias g='grep'
-alias mkdir='mkdir -p -v'
-alias mntusb='mount -o gid=users,fmask=113,dmask=002'
-alias p='gopass'
 alias sudo='sudo '
 alias tl2='tree -L 2'
-alias vol='alsamixer'
+alias v='nvim'
 alias x='exit'
 
-
-# functions
 # cd and ls in one
 cl() {
 	local dir="$1"
