@@ -1,5 +1,5 @@
 " Plugins {{
-call plug#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
 	" vim-markdown's requirement
