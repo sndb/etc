@@ -5,7 +5,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 	" vim-markdown's requirement
 	Plug 'godlygeek/tabular'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'junegunn/goyo.vim'
 	Plug 'justinmk/vim-sneak'
 	Plug 'mhinz/vim-startify'
 	Plug 'plasticboy/vim-markdown'
@@ -58,7 +57,6 @@ set cpoptions+=n
 
 " Mappings {{
 nmap <Leader>= :ALEFix<CR>
-nmap <Leader>g :Goyo<CR>
 nmap <Leader>n :noh<CR>:pc<CR>
 nmap <Leader>s :update<CR>
 nmap <Leader>x :q<CR>
