@@ -73,6 +73,9 @@ let g:ale_linters = {'python': ['flake8']}
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \	'python': ['isort', 'black'],
+\	'javascript': ['prettier'],
+\	'html': ['prettier'],
+\	'css': ['prettier'],
 \}
 let g:ale_python_isort_options = '-lai 2'
 let g:ale_python_black_options = '-l 79'
