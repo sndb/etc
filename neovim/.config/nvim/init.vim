@@ -14,7 +14,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'zchee/deoplete-jedi'
 	" Tmux {{
 	Plug 'christoomey/vim-tmux-navigator'
-	Plug 'tmux-plugins/vim-tmux-focus-events'
 	Plug 'wellle/tmux-complete.vim'
 	" }}
 	" Colorscheme {{
