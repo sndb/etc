@@ -4,7 +4,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'justinmk/vim-sneak'
-	Plug 'mhinz/vim-startify'
 	Plug 'preservim/nerdtree'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'tpope/vim-commentary'
