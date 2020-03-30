@@ -55,7 +55,7 @@ set cpoptions+=n
 
 " Mappings {{
 nmap <Leader>= :ALEFix<CR>
-nmap <Leader>n :noh<CR>:pc<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>s :update<CR>
 nmap <Leader>x :q<CR>
 " }}
