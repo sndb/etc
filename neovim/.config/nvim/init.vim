@@ -7,6 +7,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'preservim/nerdtree'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-surround'
 	Plug 'w0rp/ale'
 	Plug 'zchee/deoplete-jedi'
 	" Tmux {{
