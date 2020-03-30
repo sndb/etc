@@ -2,12 +2,9 @@
 call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
-	" vim-markdown's requirement
-	Plug 'godlygeek/tabular'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'justinmk/vim-sneak'
 	Plug 'mhinz/vim-startify'
-	Plug 'plasticboy/vim-markdown'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'tpope/vim-commentary'
 	Plug 'w0rp/ale'
@@ -91,8 +88,4 @@ let g:tmuxcomplete#trigger = ''
 
 " vim-gitgutter {{
 set updatetime=100
-" }}
-
-" vim-markdown {{
-let g:vim_markdown_folding_disabled = 1
 " }}
