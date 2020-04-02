@@ -33,7 +33,7 @@ alias gp='git push'
 alias gs='git status'
 # tmux
 alias tmux='tmux -u'
-alias t='tmux attach || tmux new'
+alias t='tmux a || tmux'
 alias tn='tmux new -s'
 alias ta='tmux a -t'
 alias tls='tmux ls'
