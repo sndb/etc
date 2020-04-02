@@ -3,7 +3,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'justinmk/vim-sneak'
 	Plug 'preservim/nerdtree'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'tpope/vim-commentary'
