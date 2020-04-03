@@ -57,3 +57,7 @@ cl() {
 		echo "bash: cl: $dir: Directory not found"
 	fi
 }
+
+# fzf integration
+. /usr/share/fzf/key-bindings.bash
+. /usr/share/fzf/completion.bash
