@@ -2,12 +2,12 @@
 
 to install:
 
-	stow -v -t ~ bash neovim tmux
+	stow -vt ~ bash neovim tmux ...
 
 to restow:
 
-	stow -v --restow -t ~ bash neovim tmux
+	stow -Rvt ~ bash neovim tmux ...
 
 to delete:
 
-	stow -v --delete -t ~ bash neovim tmux
+	stow -Dvt ~ bash neovim tmux ...
