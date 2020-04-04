@@ -5,7 +5,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
-	Plug 'preservim/nerdtree'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-surround'
@@ -38,6 +37,7 @@ set textwidth=0
 set inccommand=split
 set nomodeline
 set splitbelow splitright
+set hidden
 " set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
 " }}
 
@@ -56,9 +56,11 @@ set cpoptions+=n
 " }}
 
 " Mappings {{
+nmap - :Explore<CR>
 nmap <Leader>= :ALEFix<CR>
-nmap <Leader>n :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>r :Rg<CR>
 nmap <Leader>s :update<CR>
 nmap <Leader>x :q<CR>
 " }}
@@ -85,6 +87,12 @@ let g:ale_python_black_options = '-l 79'
 " deoplete {{
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('camel_case', v:true)
+" }}
+
+" netrw {{
+let g:netrw_banner = 0
+let g:netrw_dirhistmax = 0
+let g:netrw_liststyle = 3
 " }}
 
 " tmux-complete {{
