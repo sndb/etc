@@ -1,7 +1,9 @@
-" Plugins {{
+" Plugins
 call plug#begin('~/.local/share/nvim/plugged')
+	Plug 'AlessandroYorba/Alduin'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
+	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
@@ -9,18 +11,11 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-surround'
 	Plug 'w0rp/ale'
-	Plug 'zchee/deoplete-jedi'
-	" Tmux {{
-	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'wellle/tmux-complete.vim'
-	" }}
-	" Colorscheme {{
-	Plug 'AlessandroYorba/Alduin'
-	" }}
+	Plug 'zchee/deoplete-jedi'
 call plug#end()
-" }}
 
-" Options {{
+" Basics
 set number relativenumber
 set cursorline
 set colorcolumn=80
@@ -34,17 +29,15 @@ set nomodeline
 set splitbelow splitright
 set hidden
 " set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
-" }}
 
-" Wrapping {{
+" Wrapping
 set linebreak
 set breakindent
 let &showbreak = '+++ '
 set cpoptions+=n
 set sidescrolloff=8
-" }}
 
-" Mappings {{
+" Mappings
 nmap - :Explore<CR>
 nmap <Leader>= :ALEFix<CR>
 nmap <Leader>b :Buffers<CR>
@@ -52,14 +45,12 @@ nmap <Leader>f :Files<CR>
 nmap <Leader>r :Rg<CR>
 nmap <Leader>s :update<CR>
 nmap <Leader>x :q<CR>
-" }}
 
-" Colors {{
+" Colors
 set termguicolors
 colorscheme alduin
-" }}
 
-" ale {{
+" ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_fixers = {
@@ -71,23 +62,18 @@ let g:ale_fixers = {
 \}
 let g:ale_python_isort_options = '-lai 2'
 let g:ale_python_black_options = '-l 79'
-" }}
 
-" deoplete {{
+" deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('camel_case', v:true)
-" }}
 
-" netrw {{
+" netrw
 let g:netrw_banner = 0
 let g:netrw_dirhistmax = 0
 let g:netrw_liststyle = 3
-" }}
 
-" tmux-complete {{
+" tmux-complete
 let g:tmuxcomplete#trigger = ''
-" }}
 
-" vim-gitgutter {{
+" vim-gitgutter
 set updatetime=100
-" }}
