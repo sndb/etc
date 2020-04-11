@@ -36,18 +36,12 @@ set hidden
 " set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
 " }}
 
-" Wrap {{
-set wrap
+" Wrapping {{
 set linebreak
 set breakindent
-set showbreak=>\
+let &showbreak = '+++ '
 set cpoptions+=n
-" }}
-
-" No Wrap {{
-" set nowrap
-" set sidescroll=1
-" set sidescrolloff=8
+set sidescrolloff=8
 " }}
 
 " Mappings {{
