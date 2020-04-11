@@ -21,19 +21,14 @@ call plug#end()
 " }}
 
 " Options {{
-set ruler
 set number relativenumber
 set cursorline
 set colorcolumn=80
-set noexpandtab
-set tabstop=8
-set shiftwidth=8
 set nohlsearch
 set ignorecase
 set smartcase
 set gdefault
 set scrolloff=4
-set textwidth=0
 set inccommand=split
 set nomodeline
 set splitbelow splitright
