@@ -3,6 +3,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'AlessandroYorba/Alduin'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
+	Plug 'ajgrf/parchment'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'junegunn/fzf'
@@ -48,7 +49,7 @@ nmap <Leader>x :q<CR>
 
 " Colors
 set termguicolors
-colorscheme alduin
+colorscheme parchment
 
 " ale
 let g:ale_lint_on_text_changed = 'never'
