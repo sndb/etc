@@ -1,6 +1,5 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
-	Plug 'AlessandroYorba/Alduin'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
 	Plug 'ajgrf/parchment'
