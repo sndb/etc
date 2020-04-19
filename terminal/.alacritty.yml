@@ -1,10 +1,10 @@
 window:
   dimensions:
-    columns: 167
-    lines: 48
+    columns: 80
+    lines: 24
   padding:
-    x: 8
-    y: 8
+    x: 2
+    y: 2
   decorations: none
   dynamic_padding: true
 
