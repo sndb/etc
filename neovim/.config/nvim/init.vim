@@ -2,7 +2,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
-	Plug 'ajgrf/parchment'
+	Plug 'arcticicestudio/nord-vim'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'jiangmiao/auto-pairs'
 	Plug 'junegunn/fzf'
@@ -28,7 +28,7 @@ set inccommand=split
 set nomodeline
 set splitbelow splitright
 set hidden
-" set list listchars=eol:$,tab:≻-,space:⋅,trail:~,extends:>,precedes:<,nbsp:+
+set list listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:+
 
 " Wrapping
 set linebreak
@@ -48,7 +48,7 @@ nmap <Leader>x :q<CR>
 
 " Colors
 set termguicolors
-colorscheme parchment
+colorscheme nord
 
 " ale
 let g:ale_lint_on_text_changed = 'never'
