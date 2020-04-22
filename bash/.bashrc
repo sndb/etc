@@ -43,7 +43,6 @@ alias d='diff --color -r -u'
 alias f='find . -name'
 alias g='grep'
 alias sudo='sudo '
-alias tl2='tree -L 2'
 alias v='nvim'
 alias x='exit'
 
