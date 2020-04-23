@@ -57,6 +57,19 @@ cl() {
 	fi
 }
 
+# ranger-cd
+ranger-cd() {
+    temp_file="$(mktemp -t "ranger-cd.XXXXXXXXXX")"
+    ranger --choosedir="$temp_file" -- "${@:-$PWD}"
+    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
+        cd -- "$chosen_dir"
+    fi
+    rm -f -- "$temp_file"
+}
+
+# this binds Ctrl-O to ranger-cd:
+bind '"\C-o":"ranger-cd\C-m"'
+
 # fzf integration
 . /usr/share/fzf/key-bindings.bash
 . /usr/share/fzf/completion.bash
