@@ -60,8 +60,6 @@ let g:ale_fixers = {
 \	'html': ['prettier'],
 \	'css': ['prettier'],
 \}
-let g:ale_python_isort_options = '-lai 2'
-let g:ale_python_black_options = '-l 79'
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
