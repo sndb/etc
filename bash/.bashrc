@@ -10,6 +10,14 @@ shopt -s checkwinsize
 shopt -s cmdhist
 
 # aliases
+# basics
+alias mkd='mkdir -vp'
+alias cp='cp -vi'
+alias mv='mv -vi'
+alias rm='rm -v'
+alias ls='ls --color=auto --group-directories-first'
+alias diff='diff --color=auto'
+alias grep='grep --color=auto'
 # cd
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -17,15 +25,14 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 # ls
-alias ls='ls --color=auto'
-alias l='ls -lhvFA --group-directories-first'
+alias l='ls -lhvFA'
 alias ll='ls -lhvF'
 alias la='ls -A'
 # git
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit -v'
-alias gca='git commit -v -a'
+alias gca='git commit -va'
 alias gd='git diff'
 alias glg='git log --graph'
 alias go='git checkout'
@@ -39,7 +46,7 @@ alias ta='tmux a -t'
 alias tls='tmux ls'
 # common
 alias c='clear'
-alias d='diff --color -r -u'
+alias d='diff -ru'
 alias f='find . -name'
 alias g='grep'
 alias sudo='sudo '
@@ -67,7 +74,7 @@ ranger-cd() {
     rm -f -- "$temp_file"
 }
 
-# this binds Ctrl-O to ranger-cd:
+# bind C-o to ranger-cd
 bind '"\C-o":"ranger-cd\C-m"'
 
 # fzf integration
