@@ -55,23 +55,17 @@ alias x='exit'
 
 # cd and ls in one
 cl() {
-	local dir="$1"
-	local dir="${dir:=$HOME}"
-	if [[ -d "$dir" ]]; then
-		cd "$dir" >/dev/null; l
-	else
-		echo "bash: cl: $dir: Directory not found"
-	fi
+	cd "$@" && l
 }
 
 # ranger-cd
 ranger-cd() {
-    temp_file="$(mktemp -t "ranger-cd.XXXXXXXXXX")"
-    ranger --choosedir="$temp_file" -- "${@:-$PWD}"
-    if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
-        cd -- "$chosen_dir"
-    fi
-    rm -f -- "$temp_file"
+	temp_file="$(mktemp --tmpdir "ranger-cd.XXXXXXXXXX")"
+	ranger --choosedir="$temp_file" -- "${@:-$PWD}"
+	if chosen_dir="$(cat -- "$temp_file")" && [ -n "$chosen_dir" ] && [ "$chosen_dir" != "$PWD" ]; then
+		cd -- "$chosen_dir"
+	fi
+	rm -f -- "$temp_file"
 }
 
 # bind C-o to ranger-cd
