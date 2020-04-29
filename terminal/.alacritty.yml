@@ -10,8 +10,8 @@ window:
 
 font:
   normal:
-    family: Fantasque Sans Mono
-  size: 12.0
+    family: DejaVu Sans Mono
+  size: 9
 
 mouse:
   hide_when_typing: true
