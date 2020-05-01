@@ -10,8 +10,8 @@ window:
 
 font:
   normal:
-    family: DejaVu Sans Mono
-  size: 9
+    family: UW Ttyp0
+  size: 10.5
 
 mouse:
   hide_when_typing: true
