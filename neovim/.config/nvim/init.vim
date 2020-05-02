@@ -29,6 +29,7 @@ set nomodeline
 set splitbelow splitright
 set hidden
 set list listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:+
+set clipboard+=unnamedplus
 
 " Wrapping
 set linebreak
