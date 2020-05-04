@@ -1,6 +1,6 @@
 . ~/.bashrc
 
-export PATH="${PATH}:~/.local/bin"
+export PATH="${PATH}:${HOME}/Bin"
 
 export HISTSIZE=8192
 
