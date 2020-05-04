@@ -12,5 +12,3 @@ export FZF_DEFAULT_OPTS="--height=40% --layout=reverse --border=sharp"
 export FZF_DEFAULT_COMMAND="rg --files --hidden --no-ignore --follow --no-messages --glob \"!.git\""
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type directory --hidden --no-ignore --follow --exclude \".git\""
-
-export BAT_THEME="Nord"
