@@ -76,5 +76,5 @@ bind '"\C-o":"ranger-cd\C-m"'
 . /usr/share/fzf/completion.bash
 
 # virtualenvwrapper
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper_lazy.sh
+export WORKON_HOME="$HOME/.virtualenvs"
+. /usr/bin/virtualenvwrapper_lazy.sh
