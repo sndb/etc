@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+sleep_sec=2
+bg_normal="+@bg=0;"
+bg_white="+@bg=1;"
+bg_red="+@bg=2;"
+bg_green="+@bg=3;"
+while :; do
+	volume="Volume: $(pamixer --get-volume-human)"
+	vpn_status="$(pgrep openvpn >/dev/null && echo "${bg_green}VPN${bg_normal}" || echo "${bg_red}VPN${bg_normal}")"
+
+	echo -e "$volume $vpn_status"
+	sleep $sleep_sec
+done
