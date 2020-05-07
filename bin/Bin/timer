@@ -20,4 +20,4 @@ else
 	pluralize=" has"
 fi
 
-sleep "$1" && notify-send "Timer" "$number $unit$pluralize passed." && timeout 3 pacat --volume=32768 /dev/urandom
+sleep "$1" && notify-send "Timer" "$number $unit$pluralize passed." # && timeout 3 pacat --volume=32768 /dev/urandom
