@@ -1,13 +1,39 @@
 #!/usr/bin/env bash
 
 sleep_sec=2
-bg_normal="+@bg=0;"
+bg_default="+@bg=0;"
 bg_white="+@bg=1;"
 bg_red="+@bg=2;"
 bg_green="+@bg=3;"
+
+get_volume () {
+	local sink_vol=$(pulsemixer --get-volume)
+	local sink_mute=$(pulsemixer --get-mute)
+
+	local source_id="source-1"
+	local source_vol=$(pulsemixer --id "$source_id" --get-volume)
+	local source_mute=$(pulsemixer --id "$source_id" --get-mute)
+
+	local muted="${bg_red}MUTED"
+
+	if [ $sink_mute -eq 1 ]; then
+		local vol="$muted"
+	else
+		local vol="$sink_vol"
+	fi
+
+	if [ $source_mute -eq 1 ]; then
+		local mic="$muted"
+	else
+		local mic="$source_vol"
+	fi
+
+	echo "VOL: ${vol}${bg_default} ${bg_white}MIC: ${mic}${bg_default}"
+}
+
 while :; do
-	volume="Volume: $(pamixer --get-volume-human)"
-	vpn_status="$(pgrep openvpn >/dev/null && echo "${bg_green}VPN${bg_normal}" || echo "${bg_red}VPN${bg_normal}")"
+	volume="$(get_volume)"
+	vpn_status="$(pgrep openvpn >/dev/null && echo "${bg_green}VPN${bg_default}" || echo "${bg_red}VPN${bg_default}")"
 
 	echo -e "$volume $vpn_status"
 	sleep $sleep_sec
