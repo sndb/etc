@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+vpn_command="sudo openvpn $HOME/Private/sndb.ovpn"
+
+if [ $(pgrep -f "$vpn_command") ]; then
+	sudo pkill -f "$vpn_command"
+else
+	$vpn_command
+fi
