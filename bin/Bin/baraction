@@ -1,10 +1,26 @@
 #!/usr/bin/env bash
 
 sleep_sec=2
-bg_default="+@bg=0;"
-bg_white="+@bg=1;"
+
+bg_def="+@bg=0;"
+bg_blk="+@bg=1;"
 bg_red="+@bg=2;"
-bg_green="+@bg=3;"
+bg_grn="+@bg=3;"
+bg_ylw="+@bg=4;"
+bg_blu="+@bg=5;"
+bg_mag="+@bg=6;"
+bg_cyn="+@bg=7;"
+bg_wht="+@bg=8;"
+
+fg_def="+@fg=0;"
+fg_blk="+@fg=1;"
+fg_red="+@fg=2;"
+fg_grn="+@fg=3;"
+fg_ylw="+@fg=4;"
+fg_blu="+@fg=5;"
+fg_mag="+@fg=6;"
+fg_cyn="+@fg=7;"
+fg_wht="+@fg=8;"
 
 get_volume () {
 	local sink_vol=$(pulsemixer --get-volume)
@@ -14,27 +30,27 @@ get_volume () {
 	local source_vol=$(pulsemixer --id "$source_id" --get-volume)
 	local source_mute=$(pulsemixer --id "$source_id" --get-mute)
 
-	local muted="${bg_red}MUTED"
+	local muted="${fg_red}muted${fg_def}"
 
 	if [ $sink_mute -eq 1 ]; then
 		local vol="$muted"
 	else
-		local vol="$sink_vol"
+		local vol="${fg_blu}${sink_vol}${fg_def}"
 	fi
 
 	if [ $source_mute -eq 1 ]; then
 		local mic="$muted"
 	else
-		local mic="$source_vol"
+		local mic="${fg_mag}${source_vol}${fg_def}"
 	fi
 
-	echo "VOL: ${vol}${bg_default} ${bg_white}MIC: ${mic}${bg_default}"
+	echo "Vol%: ${vol} | Mic%: ${mic}"
 }
 
 while :; do
 	volume="$(get_volume)"
-	vpn_status="$(pgrep openvpn >/dev/null && echo "${bg_green}VPN${bg_default}" || echo "${bg_red}VPN${bg_default}")"
+	vpn_status="$(pgrep openvpn >/dev/null && echo "${fg_grn}VPN${fg_def}" || echo "${fg_red}VPN${fg_def}")"
 
-	echo -e "$volume $vpn_status"
+	echo -e "$volume | $vpn_status |"
 	sleep $sleep_sec
 done
