@@ -1,4 +1,5 @@
-setbg &
+# setbg &
+hsetroot -solid "#2E3440" &
 picom &
 dunst &
 setxkbmap -layout us,ru -option grp:alt_shift_toggle,grp_led:scroll &
