@@ -1,4 +1,3 @@
-# setbg &
 hsetroot -solid "#2E3440" &
 picom &
 dunst &
