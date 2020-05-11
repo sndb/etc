@@ -23,12 +23,12 @@ fg_cyn="+@fg=7;"
 fg_wht="+@fg=8;"
 
 get_volume () {
-	local sink_vol=$(pulsemixer --get-volume)
-	local sink_mute=$(pulsemixer --get-mute)
+	local sink_vol="$(pulsemixer --get-volume)"
+	local sink_mute="$(pulsemixer --get-mute)"
 
 	local source_id="source-1"
-	local source_vol=$(pulsemixer --id "$source_id" --get-volume)
-	local source_mute=$(pulsemixer --id "$source_id" --get-mute)
+	local source_vol="$(pulsemixer --id "$source_id" --get-volume)"
+	local source_mute="$(pulsemixer --id "$source_id" --get-mute)"
 
 	local muted="${fg_red}muted${fg_def}"
 
@@ -44,7 +44,7 @@ get_volume () {
 		local mic="${fg_mag}${source_vol}${fg_def}"
 	fi
 
-	echo "Vol%: ${vol} | Mic%: ${mic}"
+	echo "Vol%: $vol | Mic%: $mic"
 }
 
 while :; do
