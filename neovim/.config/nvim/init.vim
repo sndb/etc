@@ -2,6 +2,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
+	Plug 'ap/vim-css-color'
 	Plug 'arcticicestudio/nord-vim'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'jiangmiao/auto-pairs'
