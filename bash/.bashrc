@@ -74,7 +74,3 @@ bind '"\C-o":"ranger-cd\C-m"'
 # fzf integration
 . /usr/share/fzf/key-bindings.bash
 . /usr/share/fzf/completion.bash
-
-# virtualenvwrapper
-export WORKON_HOME="$HOME/.virtualenvs"
-. /usr/bin/virtualenvwrapper_lazy.sh
