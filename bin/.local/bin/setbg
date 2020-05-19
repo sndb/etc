@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-bg_location="$HOME/Drive/Pictures/Wallpapers/*"
-xwallpaper --zoom "$(for f in $bg_location; do echo "$f"; done | shuf -n 1)"
