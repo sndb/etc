@@ -26,7 +26,7 @@ get_volume () {
 	local sink_vol="$(pulsemixer --get-volume)"
 	local sink_mute="$(pulsemixer --get-mute)"
 
-	local source_id="source-3"
+	local source_id="source-2"
 	local source_vol="$(pulsemixer --id "$source_id" --get-volume)"
 	local source_mute="$(pulsemixer --id "$source_id" --get-mute)"
 
