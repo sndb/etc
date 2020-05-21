@@ -5,7 +5,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'ap/vim-css-color'
 	Plug 'arcticicestudio/nord-vim'
 	Plug 'christoomey/vim-tmux-navigator'
-	Plug 'jiangmiao/auto-pairs'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
 	Plug 'sheerun/vim-polyglot'
