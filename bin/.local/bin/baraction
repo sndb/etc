@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-pulse_mic_id="source-2"
-vpn_name="sndb"
-
 sleep_sec=2
 
 bg_def="+@bg=0;"
@@ -26,33 +23,23 @@ fg_cyn="+@fg=7;"
 fg_wht="+@fg=8;"
 
 get_volume () {
-	local sink_vol="$(pulsemixer --get-volume)"
-	local sink_mute="$(pulsemixer --get-mute)"
+	local volume="$(pulsemixer --get-volume)"
+	local mute="$(pulsemixer --get-mute)"
+	local mute_message="${fg_red}muted${fg_def}"
 
-	local source_vol="$(pulsemixer --id "$pulse_mic_id" --get-volume)"
-	local source_mute="$(pulsemixer --id "$pulse_mic_id" --get-mute)"
-
-	local muted="${fg_red}muted${fg_def}"
-
-	if [ $sink_mute -eq 1 ]; then
-		local vol="$muted"
+	if [ $mute -eq 1 ]; then
+		local vol="$mute_message"
 	else
-		local vol="${fg_blu}${sink_vol}${fg_def}"
+		local vol="${fg_blu}${volume% *}${fg_def}"
 	fi
 
-	if [ $source_mute -eq 1 ]; then
-		local mic="$muted"
-	else
-		local mic="${fg_mag}${source_vol}${fg_def}"
-	fi
-
-	echo "Vol%: $vol | Mic%: $mic"
+	echo "$vol"
 }
 
 while :; do
 	volume="$(get_volume)"
-	vpn_status="$(nmcli con show --active | grep -qw "$vpn_name" && echo "${fg_grn}${vpn_name}${fg_def}" || echo "${fg_red}disconnected${fg_def}")"
+	vpn_status="$(nmcli con show --active | grep -qw "vpn" && echo "${fg_grn}connected${fg_def}" || echo "${fg_red}disconnected${fg_def}")"
 
-	echo -e "$volume | VPN: $vpn_status |"
+	echo -e "Vol%: $volume | VPN: $vpn_status |"
 	sleep $sleep_sec
 done
