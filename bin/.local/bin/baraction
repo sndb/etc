@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sleep_sec=2
+sleep_sec=3
 
 bg_def="+@bg=0;"
 bg_blk="+@bg=1;"
@@ -25,21 +25,27 @@ fg_wht="+@fg=8;"
 get_volume () {
 	local volume="$(pulsemixer --get-volume)"
 	local mute="$(pulsemixer --get-mute)"
-	local mute_message="${fg_red}muted${fg_def}"
+	local mute_message="${fg_red} muted${fg_def}"
 
 	if [ $mute -eq 1 ]; then
 		local vol="$mute_message"
 	else
-		local vol="${fg_blu}${volume% *}${fg_def}"
+		local vol="${fg_blu} ${volume% *}${fg_def}"
 	fi
 
 	echo "$vol"
 }
 
-while :; do
-	volume="$(get_volume)"
-	vpn_status="$(nmcli con show --active | grep -qw "vpn" && echo "${fg_grn}connected${fg_def}" || echo "${fg_red}disconnected${fg_def}")"
+get_vpn_status () {
+	echo "$(nmcli con show --active | grep -qw "vpn" && echo "${fg_grn} connected${fg_def}" || echo "${fg_red} disconnected${fg_def}")"
+}
 
-	echo -e "Vol%: $volume | VPN: $vpn_status |"
+get_netstat () {
+	read rx tx <<< $(traffic)
+	echo "${fg_blu} ↓ $((rx/1024))${fg_def} KiB${fg_mag} ↑ $((tx/1024))${fg_def} KiB"
+}
+
+while :; do
+	echo -e "Net:$(get_netstat) - VPN:$(get_vpn_status) - Vol%:$(get_volume) -"
 	sleep $sleep_sec
 done
