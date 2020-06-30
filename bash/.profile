@@ -2,7 +2,7 @@
 
 # basics
 export PATH="${PATH}:${HOME}/.local/bin"
-export HISTSIZE=8192
+export HISTSIZE=16384
 
 # default programs
 export EDITOR="nvim"
