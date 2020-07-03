@@ -4,6 +4,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'ap/vim-css-color'
 	Plug 'arcticicestudio/nord-vim'
+	Plug 'carlitux/deoplete-ternjs'
 	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
