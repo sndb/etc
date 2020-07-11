@@ -74,3 +74,6 @@ bind '"\C-o":"ranger-cd\C-m"'
 # fzf integration
 . /usr/share/fzf/key-bindings.bash
 . /usr/share/fzf/completion.bash
+
+# mcli auto-completion
+complete -C /usr/bin/mcli mcli
