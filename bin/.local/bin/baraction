@@ -37,7 +37,11 @@ get_volume () {
 }
 
 get_vpn_status () {
-	echo "$(nmcli con show --active | grep -qw "vpn" && echo "${fg_grn} connected${fg_def}" || echo "${fg_red} disconnected${fg_def}")"
+	if [ $(pidof "openvpn") ]; then
+		echo "${fg_grn} connected${fg_def}"
+	else
+		echo "${fg_red} disconnected${fg_def}"
+	fi
 }
 
 get_netstat () {
