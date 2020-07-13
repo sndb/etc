@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-vpn_name="sndb"
-
-if nmcli con show --active | grep -qw "$vpn_name"; then
-	nmcli con down "$vpn_name"
-else
-	nmcli con up "$vpn_name"
-fi
