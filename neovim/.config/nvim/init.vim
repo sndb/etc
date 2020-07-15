@@ -1,4 +1,4 @@
-" Plugins
+" plugins
 call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
@@ -16,7 +16,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'zchee/deoplete-jedi'
 call plug#end()
 
-" Basics
+" basics
 set number relativenumber
 set cursorline
 set colorcolumn=80
@@ -32,14 +32,14 @@ set hidden
 set list listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:+
 set clipboard+=unnamedplus
 
-" Wrapping
+" wrapping
 set linebreak
 set breakindent
 let &showbreak = '+++ '
 set cpoptions+=n
 set sidescrolloff=8
 
-" Mappings
+" mappings
 nmap - :Explore<CR>
 nmap <Leader>= :ALEFix<CR>
 nmap <Leader>b :Buffers<CR>
@@ -48,11 +48,16 @@ nmap <Leader>r :Rg<CR>
 nmap <Leader>s :update<CR>
 nmap <Leader>x :q<CR>
 
-" Colors
+" indentation
+autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType css setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+
+" colors
 set termguicolors
 colorscheme nord
 
-" ale
+" plugin: ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_fixers = {
@@ -63,17 +68,17 @@ let g:ale_fixers = {
 \	'css': ['prettier'],
 \}
 
-" deoplete
+" plugin: deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('camel_case', v:true)
 
-" netrw
+" plugin: netrw
 let g:netrw_banner = 0
 let g:netrw_dirhistmax = 0
 let g:netrw_liststyle = 3
 
-" tmux-complete
+" plugin: tmux-complete
 let g:tmuxcomplete#trigger = ''
 
-" vim-gitgutter
+" plugin: vim-gitgutter
 set updatetime=100
