@@ -13,7 +13,7 @@ shopt -s cmdhist
 # basics
 alias cp='cp -vi'
 alias mv='mv -vi'
-alias rm='rm -v'
+alias rm='rm -vI'
 alias ls='ls --color=auto --group-directories-first'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
