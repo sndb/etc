@@ -11,7 +11,6 @@ shopt -s cmdhist
 
 # aliases
 # basics
-alias mkd='mkdir -vp'
 alias cp='cp -vi'
 alias mv='mv -vi'
 alias rm='rm -v'
@@ -27,7 +26,6 @@ alias ......='cd ../../../../..'
 # ls
 alias l='ls -lhvFA'
 alias ll='ls -lhvF'
-alias la='ls -A'
 # git
 alias ga='git add'
 alias gb='git branch'
@@ -45,11 +43,10 @@ alias tn='tmux new -s'
 alias ta='tmux a -t'
 alias tls='tmux ls'
 # common
+alias sudo='sudo '
+alias mkd='mkdir -vp'
 alias c='clear'
 alias d='diff -ru'
-alias f='find . -name'
-alias g='grep'
-alias sudo='sudo '
 alias v='nvim'
 alias x='exit'
 
