@@ -23,11 +23,12 @@ fg_cyn="+@fg=7;"
 fg_wht="+@fg=8;"
 
 get_volume () {
-	local volume="$(pulsemixer --get-volume)"
-	local mute="$(pulsemixer --get-mute)"
-	local mute_message="${fg_red} muted${fg_def}"
+	local volume mute mute_message
+	volume="$(pulsemixer --get-volume)"
+	mute="$(pulsemixer --get-mute)"
+	mute_message="${fg_red} muted${fg_def}"
 
-	if [ $mute -eq 1 ]; then
+	if ((mute == 1)); then
 		local vol="$mute_message"
 	else
 		local vol="${fg_blu} ${volume% *}${fg_def}"
@@ -37,15 +38,17 @@ get_volume () {
 }
 
 get_vpn_status () {
-	if [ $(pidof "openvpn") ]; then
-		echo "${fg_grn} connected${fg_def}"
+	if pidof "openvpn"; then
+		echo "${fg_grn} Y (OVPN)${fg_def}"
+	elif ip link | grep -qw wg0; then
+		echo "${fg_grn} Y (WG)${fg_def}"
 	else
-		echo "${fg_red} disconnected${fg_def}"
+		echo "${fg_red} N${fg_def}"
 	fi
 }
 
 get_netstat () {
-	read rx tx <<< $(traffic)
+	read -r rx tx <<< "$(traffic)"
 	echo "${fg_blu} ↓ $((rx/1024))${fg_def} KiB${fg_mag} ↑ $((tx/1024))${fg_def} KiB"
 }
 
