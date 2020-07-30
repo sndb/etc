@@ -1,13 +1,13 @@
 ### etc -- dotfiles.
 
-to install:
+- to install:
 
-	stow -vt ~ bash neovim tmux ...
+        stow -vt ~ bash neovim tmux ...
 
-to restow:
+- to restow:
 
-	stow -Rvt ~ bash neovim tmux ...
+        stow -Rvt ~ bash neovim tmux ...
 
-to delete:
+- to delete:
 
-	stow -Dvt ~ bash neovim tmux ...
+        stow -Dvt ~ bash neovim tmux ...
