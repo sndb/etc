@@ -1,6 +1,7 @@
 " plugins
 call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'SidOfc/mkdx'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'ap/vim-css-color'
 	Plug 'arcticicestudio/nord-vim'
@@ -9,6 +10,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'junegunn/fzf.vim'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'tpope/vim-commentary'
+	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
 	Plug 'w0rp/ale'
 	Plug 'wellle/tmux-complete.vim'
@@ -51,6 +53,7 @@ nmap <Leader>x :q<CR>
 autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType css setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType markdown setlocal expandtab shiftwidth=4 softtabstop=4
 
 " colors
 set termguicolors
@@ -70,6 +73,17 @@ let g:ale_fixers = {
 " plugin: deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('camel_case', v:true)
+
+" plugin: mkdx
+let g:mkdx#settings = {
+\	'highlight': {'enable': 1},
+\	'enter': {'shift': 1},
+\	'links': {'external': {'enable': 1}},
+\	'toc': {'text': 'Table of Contents', 'update_on_write': 1},
+\	'fold': {'enable': 1},
+\	'map': {'prefix': '<leader><leader>'}
+\}
+let g:polyglot_disabled = ['markdown']
 
 " plugin: netrw
 let g:netrw_banner = 0
