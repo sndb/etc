@@ -42,12 +42,12 @@ set sidescrolloff=8
 
 " mappings
 nmap - :Explore<CR>
+nmap <Leader>s :Sexplore<CR>
+nmap <Leader>v :Vexplore!<CR>
 nmap <Leader>= :ALEFix<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>r :Rg<CR>
-nmap <Leader>s :update<CR>
-nmap <Leader>x :q<CR>
 
 " indentation
 autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
@@ -87,8 +87,7 @@ let g:polyglot_disabled = ['markdown']
 
 " plugin: netrw
 let g:netrw_banner = 0
-let g:netrw_dirhistmax = 0
-let g:netrw_liststyle = 3
+let g:netrw_liststyle = 1
 
 " plugin: tmux-complete
 let g:tmuxcomplete#trigger = ''
