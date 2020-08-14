@@ -85,10 +85,6 @@ let g:mkdx#settings = {
 \}
 let g:polyglot_disabled = ['markdown']
 
-" plugin: netrw
-let g:netrw_banner = 0
-let g:netrw_liststyle = 1
-
 " plugin: tmux-complete
 let g:tmuxcomplete#trigger = ''
 
