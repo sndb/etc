@@ -1,7 +1,6 @@
 " plugins
 call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-	Plug 'SidOfc/mkdx'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'ap/vim-css-color'
 	Plug 'arcticicestudio/nord-vim'
@@ -73,17 +72,6 @@ let g:ale_fixers = {
 " plugin: deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('camel_case', v:true)
-
-" plugin: mkdx
-let g:mkdx#settings = {
-\	'highlight': {'enable': 1},
-\	'enter': {'shift': 1},
-\	'links': {'external': {'enable': 1}},
-\	'toc': {'text': 'Table of Contents', 'update_on_write': 1},
-\	'fold': {'enable': 1},
-\	'map': {'prefix': '<leader><leader>'}
-\}
-let g:polyglot_disabled = ['markdown']
 
 " plugin: tmux-complete
 let g:tmuxcomplete#trigger = ''
