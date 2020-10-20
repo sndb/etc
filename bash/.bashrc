@@ -56,6 +56,11 @@ cl() {
 	cd "$@" && l
 }
 
+# compile and run
+qq() {
+	gcc -std=c11 -pedantic -Wall -Wextra -Werror -O2 "$@" && ./a.out
+}
+
 # ranger-cd
 ranger-cd() {
 	temp_file="$(mktemp --tmpdir "ranger-cd.XXXXXXXXXX")"
