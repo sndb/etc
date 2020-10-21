@@ -1,19 +1,16 @@
 " plugins
 call plug#begin('~/.local/share/nvim/plugged')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'airblade/vim-gitgutter'
 	Plug 'ap/vim-css-color'
 	Plug 'arcticicestudio/nord-vim'
-	Plug 'carlitux/deoplete-ternjs'
+	Plug 'dense-analysis/ale'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
-	Plug 'w0rp/ale'
 	Plug 'wellle/tmux-complete.vim'
-	Plug 'zchee/deoplete-jedi'
 call plug#end()
 
 " basics
@@ -44,6 +41,7 @@ nmap - :Explore<CR>
 nmap <Leader>s :Sexplore<CR>
 nmap <Leader>v :Vexplore!<CR>
 nmap <Leader>= :ALEFix<CR>
+nmap <Leader>g :ALEGoToDefinition<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>r :Rg<CR>
@@ -59,22 +57,16 @@ set termguicolors
 colorscheme nord
 
 " plugin: ale
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_completion_enabled = 1
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
+\	'c': ['clang-format'],
 \	'python': ['isort', 'black'],
 \	'javascript': ['prettier'],
 \	'html': ['prettier'],
 \	'css': ['prettier'],
 \}
-
-" plugin: deoplete
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('camel_case', v:true)
-
-" plugin: tmux-complete
-let g:tmuxcomplete#trigger = ''
+let g:ale_c_clangformat_options = '-style="{BasedOnStyle: LLVM, IndentWidth: 8, UseTab: Always, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false}"'
 
 " plugin: vim-gitgutter
 set updatetime=100
