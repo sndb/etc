@@ -6,7 +6,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 	Plug 'dense-analysis/ale'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
-	Plug 'sheerun/vim-polyglot'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
