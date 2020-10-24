@@ -65,7 +65,7 @@ let g:ale_fixers = {
 \	'html': ['prettier'],
 \	'css': ['prettier'],
 \}
-let g:ale_c_clangformat_options = '-style="{BasedOnStyle: LLVM, IndentWidth: 8, UseTab: Always, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false}"'
+let g:ale_c_clangformat_options = '-style="{BasedOnStyle: LLVM, ColumnLimit: 100, IndentWidth: 8, UseTab: Always, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false}"'
 
 " plugin: vim-gitgutter
 set updatetime=100
