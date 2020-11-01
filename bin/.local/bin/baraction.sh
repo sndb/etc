@@ -48,7 +48,7 @@ get_vpn_status () {
 }
 
 get_netstat () {
-	read -r rx tx <<< "$(traffic)"
+	read -r rx tx <<< "$(traffic.sh)"
 	echo "${fg_blu} ↓ $((rx/1024))${fg_def} KiB${fg_mag} ↑ $((tx/1024))${fg_def} KiB"
 }
 
