@@ -39,6 +39,7 @@ set sidescrolloff=8
 nmap - :Explore<CR>
 nmap <Leader>s :Sexplore<CR>
 nmap <Leader>v :Vexplore!<CR>
+nmap <Leader>t :Texplore<CR>
 nmap <Leader>= :ALEFix<CR>
 nmap <Leader>g :ALEGoToDefinition<CR>
 nmap <Leader>b :Buffers<CR>
