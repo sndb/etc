@@ -61,6 +61,7 @@ let g:ale_completion_enabled = 1
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \	'c': ['clang-format'],
+\	'cpp': ['clang-format'],
 \	'python': ['isort', 'black'],
 \	'javascript': ['prettier'],
 \	'html': ['prettier'],
