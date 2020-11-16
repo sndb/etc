@@ -10,8 +10,8 @@ window:
 
 font:
   normal:
-    family: Fantasque Sans Mono
-  size: 11
+    family: mononoki
+  size: 9
 
 mouse:
   hide_when_typing: true
