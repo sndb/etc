@@ -40,8 +40,8 @@ nmap - :Explore<CR>
 nmap <Leader>s :Sexplore<CR>
 nmap <Leader>v :Vexplore!<CR>
 nmap <Leader>t :Texplore<CR>
-nmap <Leader>= :ALEFix<CR>
-nmap <Leader>g :ALEGoToDefinition<CR>
+nmap <Leader>= <Plug>(ale_fix)
+nmap <Leader>g <Plug>(ale_go_to_definition)
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>r :Rg<CR>
@@ -58,6 +58,9 @@ colorscheme nord
 
 " plugin: ale
 let g:ale_completion_enabled = 1
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_delay = 0
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
 \	'c': ['clang-format'],
@@ -67,7 +70,7 @@ let g:ale_fixers = {
 \	'html': ['prettier'],
 \	'css': ['prettier'],
 \}
-let g:ale_c_clangformat_options = '-style="{BasedOnStyle: LLVM, ColumnLimit: 100, IndentWidth: 8, UseTab: Always, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false}"'
+let g:ale_c_clangformat_options = '-style="{BasedOnStyle: LLVM, IndentWidth: 8, UseTab: Always, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false}"'
 
 " plugin: vim-gitgutter
 set updatetime=100
