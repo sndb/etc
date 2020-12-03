@@ -64,16 +64,20 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *lockcmd[] = { "slock", NULL };
 static const char *shotcmd[] = { "maim", "screen.png", NULL };
 static const char *shotselcmd[] = { "maim", "-s", "selection.png", NULL };
+static const char *passmenucmd[] = { "passmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+
 static const char *volupcmd[] = { "pulsemixer", "--change-volume", "+5", NULL };
 static const char *voldowncmd[] = { "pulsemixer", "--change-volume", "-5", NULL };
 static const char *volmutecmd[] = { "pulsemixer", "--toggle-mute", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,             XK_Delete, spawn,          {.v = lockcmd    } },
-	{ MODKEY,                       XK_s,      spawn,          {.v = shotcmd    } },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shotselcmd } },
-	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd   } },
+	{ MODKEY|ShiftMask,             XK_Delete, spawn,          {.v = lockcmd     } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = shotcmd     } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shotselcmd  } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passmenucmd } },
+
+	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
 	{ 0,                            XF86XK_AudioMute, spawn, {.v = volmutecmd } },
 
