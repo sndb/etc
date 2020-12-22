@@ -5,4 +5,5 @@ xset r rate 300 50 &
 xset s off -dpms &
 numlockx &
 baraction.sh &
+transmission-daemon &
 exec dwm
