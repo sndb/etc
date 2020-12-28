@@ -3,21 +3,22 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "mononoki:size=9.75" };
 static const char dmenufont[]       = "mononoki:size=9.75";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_norm_bg[]     = "#3b4252";
+static const char col_norm_border[] = "#4c566a";
+static const char col_norm_fg[]     = "#aeb3bb";
+static const char col_sel_fg[]      = "#d8dee9";
+static const char col_sel_bg[]      = "#68809a";
+static const char col_sel_border[]  = "#94545d";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },
+	[SchemeSel]  = { col_sel_fg, col_sel_bg,  col_sel_border  },
 };
 
 /* tagging */
@@ -58,13 +59,13 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *lockcmd[] = { "slock", NULL };
 static const char *shotcmd[] = { "maim", "screen.png", NULL };
 static const char *shotselcmd[] = { "maim", "-s", "selection.png", NULL };
-static const char *passmenucmd[] = { "passmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *passmenucmd[] = { "passmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
 
 static const char *volupcmd[] = { "pulsemixer", "--change-volume", "+5", NULL };
 static const char *voldowncmd[] = { "pulsemixer", "--change-volume", "-5", NULL };
