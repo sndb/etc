@@ -9,12 +9,12 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "mononoki:size=9.75" };
 static const char dmenufont[]       = "mononoki:size=9.75";
-static const char col_norm_bg[]     = "#3b4252";
-static const char col_norm_border[] = "#4c566a";
-static const char col_norm_fg[]     = "#aeb3bb";
-static const char col_sel_fg[]      = "#d8dee9";
-static const char col_sel_bg[]      = "#68809a";
-static const char col_sel_border[]  = "#94545d";
+static const char col_norm_fg[]     = "#81a1c1";
+static const char col_norm_bg[]     = "#2e3440";
+static const char col_norm_border[] = "#3b4252";
+static const char col_sel_fg[]      = "#2e3440";
+static const char col_sel_bg[]      = "#81a1c1";
+static const char col_sel_border[]  = "#bf616a";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },
