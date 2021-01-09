@@ -1,7 +1,7 @@
 hsetroot -cover ~/pictures/wallpapers/berrybush.jpg &
 dunst &
 setxkbmap -layout us,ru -option grp:alt_shift_toggle,grp_led:scroll &
-xsetwacom set "Wacom Intuos S Pen stylus" PressureCurve 0 0 60 100 &
+xsetwacom set "Wacom Intuos S Pen stylus" PressureCurve 0 0 70 100 &
 xset r rate 300 50 &
 xset s off -dpms &
 numlockx &
