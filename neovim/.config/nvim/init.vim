@@ -45,6 +45,7 @@ nmap <Leader>g <Plug>(ale_go_to_definition)
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>r :Rg<CR>
+nmap <Leader>c :setlocal spell spelllang=en,ru<CR>
 
 " indentation
 autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
