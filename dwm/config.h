@@ -63,8 +63,8 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *lockcmd[] = { "slock", NULL };
-static const char *shotcmd[] = { "maim", "screen.png", NULL };
-static const char *shotselcmd[] = { "maim", "-s", "selection.png", NULL };
+static const char *shotcmd[] = { "shot.sh", NULL };
+static const char *shotselcmd[] = { "shotsel.sh", NULL };
 static const char *passmenucmd[] = { "passmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
 
 static const char *volupcmd[] = { "pulsemixer", "--change-volume", "+5", NULL };
