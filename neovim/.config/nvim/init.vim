@@ -15,7 +15,6 @@ call plug#end()
 " basics
 set number relativenumber
 set cursorline
-set colorcolumn=80
 set nohlsearch
 set ignorecase
 set smartcase
