@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # quick edit
 
-FILE=$(mktemp "$HOME/temp/tempedit_XXXXX")
+FILE="$HOME/temp/temp.md"
 
 alacritty -e nvim "$FILE"
 
-if [ ! -s "$FILE" ]; then
+if [ -w "$FILE" ] && [ ! -s "$FILE" ]; then
 	rm "$FILE"
 fi
