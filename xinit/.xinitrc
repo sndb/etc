@@ -4,7 +4,7 @@
 xrandr --output DisplayPort-1 --mode 1920x1080 --rate 75 &
 
 # wallpaper
-hsetroot -cover ~/pictures/wallpapers/berrybush.jpg &
+hsetroot -cover ~/pictures/wallpapers/ship1.jpg &
 
 # notification daemon
 dunst &
