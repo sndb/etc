@@ -12,9 +12,6 @@ dunst &
 # keyboard layout
 setxkbmap -layout us,ru -option grp:alt_shift_toggle,grp_led:scroll &
 
-# set tablet pressure curve
-xsetwacom set "Wacom Intuos S Pen stylus" PressureCurve 0 0 66 100 &
-
 # adjust typematic delay and rate
 xset r rate 300 50 &
 
