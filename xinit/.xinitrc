@@ -9,7 +9,7 @@ xsetwacom set "Wacom Intuos S Pen stylus" MapToOutput HDMI-A-1 &
 xsetwacom set "Wacom Intuos S Pen stylus" Area 0 0 15200 8550 &
 
 # wallpaper
-hsetroot -cover ~/pictures/wallpapers/ship1.jpg &
+hsetroot -solid "#181C23" &
 
 # notification daemon
 dunst &
