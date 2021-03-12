@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # screen settings
-xrandr --output DisplayPort-1 --mode 1920x1080 --rate 75 &
+xrandr --output DisplayPort-1 --mode 1920x1080 --rate 75 --output HDMI-A-1 --mode 1920x1080 --rate 75 &
 
 # wallpaper
 hsetroot -cover ~/pictures/wallpapers/ship1.jpg &
