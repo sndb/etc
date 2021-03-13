@@ -10,8 +10,8 @@ window:
 
 font:
   normal:
-    family: mononoki
-  size: 11.5
+    family: IBM Plex Mono Text
+  size: 10.5
 
 mouse:
   hide_when_typing: true
