@@ -4,8 +4,7 @@
 xrandr --output HDMI-A-1 --mode 1920x1080 --rate 75 --output DisplayPort-1 --mode 1920x1080 --rate 75 --right-of HDMI-A-1 &
 
 # tablet settings
-xsetwacom set "Wacom Intuos S Pen stylus" MapToOutput HDMI-A-1 &
-xsetwacom set "Wacom Intuos S Pen stylus" Area 0 0 15200 8550 &
+wacom-config.sh &
 
 # wallpaper
 hsetroot -solid "#181C23" &
