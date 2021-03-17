@@ -56,6 +56,24 @@ cl() {
 	cd "$@" && l
 }
 
+# countdown
+countdown() {
+	date1=$(($(date +%s) + $1))
+	while [ "$date1" -ge "$(date +%s)" ]; do
+		echo -ne "$(date -u -d @$((date1 - $(date +%s))) +%H:%M:%S)\r"
+		sleep 0.1
+	done
+}
+
+# stopwatch
+stopwatch() {
+	date1=$(date +%s)
+	while :; do
+		echo -ne "$(date -u -d @$(($(date +%s) - date1)) +%H:%M:%S)\r"
+		sleep 0.1
+	done
+}
+
 # ranger-cd
 ranger-cd() {
 	temp_file="$(mktemp --tmpdir "ranger-cd.XXXXXXXXXX")"
