@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# dwm status bar
 
 sleep_sec=3
 
