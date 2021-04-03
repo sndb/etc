@@ -8,7 +8,6 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "mononoki:size=9.75" };
-static const char dmenufont[]       = "mononoki:size=9.75";
 static const char col_norm_fg[]     = "#81a1c1";
 static const char col_norm_bg[]     = "#2e3440";
 static const char col_norm_border[] = "#3b4252";
@@ -59,13 +58,13 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *lockcmd[] = { "slock", NULL };
 static const char *shotcmd[] = { "shot.sh", NULL };
 static const char *shotselcmd[] = { "shotsel.sh", NULL };
-static const char *passmenucmd[] = { "passmenu", "-m", dmenumon, "-fn", dmenufont, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
+static const char *passmenucmd[] = { "passmenu", "-m", dmenumon, NULL };
 
 static const char *volupcmd[] = { "pulsemixer", "--change-volume", "+5", NULL };
 static const char *voldowncmd[] = { "pulsemixer", "--change-volume", "-5", NULL };
