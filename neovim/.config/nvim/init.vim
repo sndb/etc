@@ -27,6 +27,9 @@ set hidden
 set list listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:+
 set clipboard+=unnamedplus
 
+" russian keyboard
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
 " wrapping
 set linebreak
 set breakindent
