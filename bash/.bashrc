@@ -33,7 +33,7 @@ alias gc='git commit -v'
 alias gca='git commit -va'
 alias gd='git diff'
 alias glg='git log --graph'
-alias go='git checkout'
+alias gco='git checkout'
 alias gp='git push'
 alias gs='git status'
 # tmux
