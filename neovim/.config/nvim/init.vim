@@ -66,6 +66,7 @@ let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_delay = 0
 let g:ale_fixers = {
 \	'*': ['remove_trailing_lines', 'trim_whitespace'],
+\	'go': ['gofmt', 'goimports'],
 \	'c': ['clang-format'],
 \	'cpp': ['clang-format'],
 \	'python': ['isort', 'black'],
