@@ -1,9 +1,10 @@
 " plugins
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'ap/vim-css-color'
 	Plug 'arcticicestudio/nord-vim'
 	Plug 'dense-analysis/ale'
+	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
 	Plug 'tpope/vim-commentary'
