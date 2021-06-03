@@ -24,4 +24,7 @@ baraction.sh &
 # torrent client
 transmission-daemon &
 
+# go documentation server
+godoc &
+
 exec dwm
