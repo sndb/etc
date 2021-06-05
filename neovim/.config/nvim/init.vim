@@ -27,6 +27,7 @@ set splitbelow splitright
 set hidden
 set list listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:+
 set clipboard+=unnamedplus
+set updatetime=50
 
 " russian keyboard
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
@@ -39,16 +40,29 @@ set cpoptions+=n
 set sidescrolloff=8
 
 " mappings
+nmap <Leader>= <Plug>(ale_fix)
+" explore
 nmap - :Explore<CR>
 nmap <Leader>s :Sexplore<CR>
 nmap <Leader>v :Vexplore!<CR>
 nmap <Leader>t :Texplore<CR>
-nmap <Leader>= <Plug>(ale_fix)
-nmap <Leader>g <Plug>(ale_go_to_definition)
+" fzf
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>r :Rg<CR>
-nmap <Leader>c :setlocal spell spelllang=en,ru<CR>
+" quickfix
+nmap <C-n> :cnext<CR>
+nmap <C-p> :cprevious<CR>
+nmap <Leader>c :cclose<CR>
+" go
+" use CTRL-T and CTRL-] for :GoDef
+" use K for :GoDoc
+autocmd FileType go nmap <Leader><Leader>b <Plug>(go-build)
+autocmd FileType go nmap <Leader><Leader>r <Plug>(go-run)
+autocmd FileType go nmap <Leader><Leader>t <Plug>(go-test)
+autocmd FileType go nmap <Leader><Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader><Leader>a <Plug>(go-alternate-edit)
+autocmd FileType go nmap <Leader><Leader>d :GoDeclsDir<CR>
 
 " indentation
 autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
@@ -61,7 +75,6 @@ set termguicolors
 colorscheme nord
 
 " plugin: ale
-let g:ale_completion_enabled = 1
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_delay = 0
@@ -77,5 +90,18 @@ let g:ale_fixers = {
 \}
 let g:ale_c_clangformat_options = '-style="{BasedOnStyle: LLVM, IndentWidth: 8, UseTab: Always, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false}"'
 
-" plugin: vim-gitgutter
-set updatetime=100
+" plugin: vim-go
+let g:go_list_type = "quickfix"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_auto_type_info = 1
+let g:go_auto_sameids = 1
