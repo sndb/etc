@@ -40,12 +40,8 @@ set cpoptions+=n
 set sidescrolloff=8
 
 " mappings
-nmap <Leader>= <Plug>(ale_fix)
-" explore
 nmap - :Explore<CR>
-nmap <Leader>s :Sexplore<CR>
-nmap <Leader>v :Vexplore!<CR>
-nmap <Leader>t :Texplore<CR>
+nmap <Leader>= <Plug>(ale_fix)
 " fzf
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>f :Files<CR>
@@ -55,8 +51,8 @@ nmap <C-n> :cnext<CR>
 nmap <C-p> :cprevious<CR>
 nmap <Leader>c :cclose<CR>
 " go
-" use CTRL-T and CTRL-] for :GoDef
-" use K for :GoDoc
+" for :GoDef - use CTRL-T and CTRL-]
+" for :GoDoc - use K
 autocmd FileType go nmap <Leader><Leader>b <Plug>(go-build)
 autocmd FileType go nmap <Leader><Leader>r <Plug>(go-run)
 autocmd FileType go nmap <Leader><Leader>t <Plug>(go-test)
