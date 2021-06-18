@@ -1,4 +1,5 @@
-### etc -- dotfiles.
+etc -- dotfiles
+===============
 
 - to install:
 
