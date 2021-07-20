@@ -7,6 +7,7 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
+	Plug 'mattn/emmet-vim'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
@@ -51,14 +52,14 @@ nmap <C-n> :cnext<CR>
 nmap <C-p> :cprevious<CR>
 nmap <Leader>c :cclose<CR>
 " go
-" for :GoDef - use CTRL-T and CTRL-]
-" for :GoDoc - use K
 autocmd FileType go nmap <Leader><Leader>b <Plug>(go-build)
 autocmd FileType go nmap <Leader><Leader>r <Plug>(go-run)
 autocmd FileType go nmap <Leader><Leader>t <Plug>(go-test)
 autocmd FileType go nmap <Leader><Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader><Leader>a <Plug>(go-alternate-edit)
 autocmd FileType go nmap <Leader><Leader>d :GoDeclsDir<CR>
+" for :GoDef - use CTRL-T and CTRL-]
+" for :GoDoc - use K
 
 " indentation
 autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
@@ -101,3 +102,10 @@ let g:go_highlight_variable_declarations = 1
 let g:go_highlight_variable_assignments = 1
 let g:go_auto_type_info = 1
 let g:go_auto_sameids = 1
+
+" plugin: emmet
+let g:user_emmet_settings = {
+\	'html': {
+\		'quote_char': "'",
+\	},
+\}
