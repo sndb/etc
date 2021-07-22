@@ -3,15 +3,14 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'ap/vim-css-color'
 	Plug 'arcticicestudio/nord-vim'
-	Plug 'dense-analysis/ale'
-	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+	Plug 'hrsh7th/nvim-compe'
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
 	Plug 'mattn/emmet-vim'
+	Plug 'neovim/nvim-lspconfig'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
-	Plug 'wellle/tmux-complete.vim'
 call plug#end()
 
 " basics
@@ -42,24 +41,13 @@ set sidescrolloff=8
 
 " mappings
 nmap - :Explore<CR>
-nmap <Leader>= <Plug>(ale_fix)
-" fzf
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>f :Files<CR>
-nmap <Leader>r :Rg<CR>
-" quickfix
 nmap <C-n> :cnext<CR>
 nmap <C-p> :cprevious<CR>
 nmap <Leader>c :cclose<CR>
-" go
-autocmd FileType go nmap <Leader><Leader>b <Plug>(go-build)
-autocmd FileType go nmap <Leader><Leader>r <Plug>(go-run)
-autocmd FileType go nmap <Leader><Leader>t <Plug>(go-test)
-autocmd FileType go nmap <Leader><Leader>c <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <Leader><Leader>a <Plug>(go-alternate-edit)
-autocmd FileType go nmap <Leader><Leader>d :GoDeclsDir<CR>
-" for :GoDef - use CTRL-T and CTRL-]
-" for :GoDoc - use K
+" plugin: fzf
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>r :Rg<CR>
 
 " indentation
 autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
@@ -71,41 +59,91 @@ autocmd FileType markdown setlocal expandtab shiftwidth=4 softtabstop=4
 set termguicolors
 colorscheme nord
 
-" plugin: ale
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_delay = 0
-let g:ale_fixers = {
-\	'*': ['remove_trailing_lines', 'trim_whitespace'],
-\	'go': ['gofmt', 'goimports'],
-\	'c': ['clang-format'],
-\	'cpp': ['clang-format'],
-\	'python': ['isort', 'black'],
-\	'javascript': ['prettier'],
-\	'html': ['prettier'],
-\	'css': ['prettier'],
-\}
-let g:ale_c_clangformat_options = '-style="{BasedOnStyle: LLVM, IndentWidth: 8, UseTab: Always, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false}"'
-
-" plugin: vim-go
-let g:go_list_type = "quickfix"
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_parameters = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_variable_declarations = 1
-let g:go_highlight_variable_assignments = 1
-let g:go_auto_type_info = 1
-let g:go_auto_sameids = 1
-
 " plugin: emmet
 let g:user_emmet_settings = {
 \	'html': {
 \		'quote_char': "'",
 \	},
 \}
+
+" plugin: nvim-lspconfig
+lua << EOF
+local nvim_lsp = require('lspconfig')
+
+-- Use an on_attach function to only map the following keys after the language
+-- server attaches to the current buffer.
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  -- Enable completion triggered by <c-x><c-o>.
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- See `:help vim.lsp.*` for documentation on any of the below functions.
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
+  buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+  buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+end
+
+-- Use a loop to conveniently call 'setup' on multiple servers and map buffer
+-- local keybindings when the language server attaches.
+local servers = { "clangd", "denols", "gopls", "pyright" }
+for _, lsp in ipairs(servers) do
+  nvim_lsp[lsp].setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+EOF
+
+" plugin: nvim-compe
+lua << EOF
+vim.o.completeopt = "menuone,noselect"
+
+require'compe'.setup {
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  resolve_timeout = 800;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = true;
+
+  source = {
+    path = true;
+    buffer = true;
+    calc = true;
+    nvim_lsp = true;
+    nvim_lua = true;
+    emoji = true;
+  };
+}
+
+-- This line is important for auto-import.
+vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
+EOF
