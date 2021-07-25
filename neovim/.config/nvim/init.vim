@@ -7,6 +7,7 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'junegunn/fzf'
 	Plug 'junegunn/fzf.vim'
 	Plug 'mattn/emmet-vim'
+	Plug 'mattn/vim-goimports'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
@@ -65,6 +66,9 @@ let g:user_emmet_settings = {
 \		'quote_char': "'",
 \	},
 \}
+
+" plugin: vim-goimports
+let g:goimports_simplify = 1
 
 " plugin: nvim-lspconfig
 lua << EOF
