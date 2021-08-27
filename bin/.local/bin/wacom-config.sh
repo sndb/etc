@@ -2,11 +2,11 @@
 # configure wacom tablet
 set -e
 
-for i in $(seq 10); do
+for i in $(seq 5); do
 	if xsetwacom list devices | grep -q "Wacom"; then
 		break
 	fi
-	sleep 1
+	sleep "$i"
 done
 
 list="$(xsetwacom list devices)"

@@ -1,1 +1,3 @@
-maim ~/temp/$(date +%s).png
+#!/usr/bin/env bash
+
+maim "$HOME/temp/$(date +%s).png"
