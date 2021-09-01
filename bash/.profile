@@ -1,8 +1,7 @@
 . ~/.bashrc
 
 # basics
-export GOPATH="${HOME}/go"
-export PATH="${PATH}:${HOME}/.local/bin:${GOPATH}/bin"
+export PATH="${PATH}:${HOME}/.local/bin:$(go env GOPATH)/bin"
 export HISTSIZE=16384
 
 # default programs
