@@ -15,9 +15,9 @@ call plug#begin(stdpath('data') . '/plugged')
 
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'hrsh7th/vim-vsnip'
-	Plug 'hrsh7th/vim-vsnip-integ'
 	Plug 'hrsh7th/cmp-buffer'
 	Plug 'hrsh7th/cmp-nvim-lsp'
+	Plug 'hrsh7th/cmp-vsnip'
 	Plug 'hrsh7th/cmp-path'
 	Plug 'hrsh7th/cmp-emoji'
 	Plug 'hrsh7th/cmp-calc'
@@ -104,6 +104,7 @@ cmp.setup({
   sources = {
     { name = 'buffer' },
     { name = 'nvim_lsp' },
+    { name = 'vsnip' },
     { name = 'path' },
     { name = 'emoji' },
     { name = 'calc' },
