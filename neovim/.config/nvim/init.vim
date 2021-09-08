@@ -3,15 +3,25 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'airblade/vim-gitgutter'
 	Plug 'ap/vim-css-color'
 	Plug 'arcticicestudio/nord-vim'
-	Plug 'hrsh7th/nvim-compe'
-	Plug 'junegunn/fzf'
-	Plug 'junegunn/fzf.vim'
 	Plug 'mattn/emmet-vim'
 	Plug 'mattn/vim-goimports'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
+
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
+
+	Plug 'hrsh7th/nvim-cmp'
+	Plug 'hrsh7th/vim-vsnip'
+	Plug 'hrsh7th/vim-vsnip-integ'
+	Plug 'hrsh7th/cmp-buffer'
+	Plug 'hrsh7th/cmp-nvim-lsp'
+	Plug 'hrsh7th/cmp-path'
+	Plug 'hrsh7th/cmp-emoji'
+	Plug 'hrsh7th/cmp-calc'
+	Plug 'rafamadriz/friendly-snippets'
 call plug#end()
 
 " basics
@@ -45,10 +55,11 @@ nmap - :Explore<CR>
 nmap <C-n> :cnext<CR>
 nmap <C-p> :cprevious<CR>
 nmap <Leader>c :cclose<CR>
-" plugin: fzf
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>f :Files<CR>
-nmap <Leader>r :Rg<CR>
+" plugin: telescope
+nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " indentation
 autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
@@ -70,23 +81,49 @@ let g:user_emmet_settings = {
 " plugin: vim-goimports
 let g:goimports_simplify = 1
 
-" plugin: nvim-lspconfig
+" plugin: vim-vsnip
+imap <expr> <C-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
 lua << EOF
+-- plugin: nvim-cmp
+local cmp = require'cmp'
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  mapping = {
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+  },
+  sources = {
+    { name = 'buffer' },
+    { name = 'nvim_lsp' },
+    { name = 'path' },
+    { name = 'emoji' },
+    { name = 'calc' },
+  }
+})
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+-- plugin: nvim-lspconfig
 local nvim_lsp = require('lspconfig')
 
--- Use an on_attach function to only map the following keys after the language
--- server attaches to the current buffer.
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  -- Enable completion triggered by <c-x><c-o>.
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings.
   local opts = { noremap=true, silent=true }
 
-  -- See `:help vim.lsp.*` for documentation on any of the below functions.
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -106,48 +143,14 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and map buffer
--- local keybindings when the language server attaches.
 local servers = { "bashls", "clangd", "denols", "gopls", "pyright" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
+    capabilities = capabilities,
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     }
   }
 end
-EOF
-
-" plugin: nvim-compe
-lua << EOF
-vim.o.completeopt = "menuone,noselect"
-
-require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  resolve_timeout = 800;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
-
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    emoji = true;
-  };
-}
-
--- This line is important for auto-import.
-vim.api.nvim_set_keymap('i', '<cr>', 'compe#confirm("<cr>")', { expr = true })
 EOF
