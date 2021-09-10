@@ -1,6 +1,5 @@
 " plugins
 call plug#begin(stdpath('data') . '/plugged')
-	Plug 'airblade/vim-gitgutter'
 	Plug 'ap/vim-css-color'
 	Plug 'arcticicestudio/nord-vim'
 	Plug 'mattn/emmet-vim'
@@ -12,6 +11,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
+	Plug 'lewis6991/gitsigns.nvim'
 
 	Plug 'hrsh7th/nvim-cmp'
 	Plug 'hrsh7th/vim-vsnip'
@@ -154,4 +154,7 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+-- plugin: gitsigns
+require('gitsigns').setup()
 EOF
