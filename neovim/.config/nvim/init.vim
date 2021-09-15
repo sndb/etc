@@ -2,7 +2,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 	Plug 'ap/vim-css-color'
 	Plug 'arcticicestudio/nord-vim'
-	Plug 'mattn/emmet-vim'
 	Plug 'mattn/vim-goimports'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'tpope/vim-commentary'
@@ -70,13 +69,6 @@ autocmd FileType markdown setlocal expandtab shiftwidth=4 softtabstop=4
 " colors
 set termguicolors
 colorscheme nord
-
-" plugin: emmet
-let g:user_emmet_settings = {
-\	'html': {
-\		'quote_char': "'",
-\	},
-\}
 
 " plugin: vim-goimports
 let g:goimports_simplify = 1
