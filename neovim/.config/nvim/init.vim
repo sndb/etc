@@ -61,9 +61,7 @@ nnoremap <leader>b <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>h <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " indentation
-autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType css setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType html,css,scss,javascript setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd FileType markdown setlocal expandtab shiftwidth=4 softtabstop=4
 
 " colors
@@ -136,7 +134,16 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
-local servers = { "bashls", "clangd", "denols", "gopls", "pyright" }
+local servers = {
+  "bashls",
+  "clangd",
+  "denols",
+  "gopls",
+  "pyright",
+  "html",
+  "jsonls",
+  "cssls",
+}
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     capabilities = capabilities,
