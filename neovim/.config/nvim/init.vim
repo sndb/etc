@@ -7,6 +7,7 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
+	Plug 'windwp/nvim-autopairs'
 
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
@@ -156,4 +157,17 @@ end
 
 -- plugin: gitsigns
 require('gitsigns').setup()
+
+-- plugin: nvim-autopairs
+require('nvim-autopairs').setup{}
+require('nvim-autopairs.completion.cmp').setup({
+  map_cr = true,
+  map_complete = true,
+  auto_select = true,
+  insert = false,
+  map_char = {
+    all = '(',
+    tex = '{'
+  }
+})
 EOF
