@@ -39,6 +39,7 @@ set hidden
 set list listchars=tab:>-,trail:~,extends:>,precedes:<,nbsp:+
 set clipboard+=unnamedplus
 set updatetime=50
+autocmd TermOpen * startinsert
 
 " russian keyboard
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
@@ -51,10 +52,12 @@ set cpoptions+=n
 set sidescrolloff=8
 
 " mappings
-nmap - :Explore<CR>
-nmap <C-n> :cnext<CR>
-nmap <C-p> :cprevious<CR>
-nmap <Leader>c :cclose<CR>
+nnoremap - :Explore<CR>
+nnoremap <C-n> :cnext<CR>
+nnoremap <C-p> :cprevious<CR>
+nnoremap <Leader>c :cclose<CR>
+nnoremap <Leader>t :vs<CR>:te<CR>
+nnoremap <Leader>r :.w !bash<CR>
 " plugin: telescope
 nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
@@ -73,12 +76,12 @@ colorscheme nord
 let g:goimports_simplify = 1
 
 " plugin: vim-vsnip
-imap <expr> <C-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-smap <expr> <C-j>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+imap <expr> <C-j>   vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-j>   vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+imap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)  ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 
 lua << EOF
 -- plugin: nvim-cmp
