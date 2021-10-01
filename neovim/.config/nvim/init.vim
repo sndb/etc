@@ -4,6 +4,7 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'arcticicestudio/nord-vim'
 	Plug 'mattn/vim-goimports'
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'sbdchd/neoformat'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
@@ -58,6 +59,7 @@ nnoremap <C-p> :cprevious<CR>
 nnoremap <Leader>c :cclose<CR>
 nnoremap <Leader>t :vs<CR>:te<CR>
 nnoremap <Leader>r :.w !bash<CR>
+nnoremap <Leader>= :Neoformat<CR>
 " plugin: telescope
 nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>g <cmd>lua require('telescope.builtin').live_grep()<cr>
