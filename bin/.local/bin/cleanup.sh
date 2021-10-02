@@ -5,4 +5,5 @@ rm -vf \
 	~/.mysql_history \
 	~/.psql_history \
 	~/.python_history \
-	~/.rediscli_history
+	~/.rediscli_history \
+	~/.sqlite_history
