@@ -45,7 +45,7 @@ alias tls='tmux ls'
 # common
 alias sudo='sudo '
 alias mkd='mkdir -vp'
-alias upd='pikaur -Syyu && nvim +PlugUpdate'
+alias upd='pikaur -Syyu && rustup update && nvim +PlugUpdate'
 alias c='clear'
 alias d='diff -ru'
 alias v='nvim'
