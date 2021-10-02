@@ -73,3 +73,6 @@ bind '"\C-o":"ranger-cd\C-m"'
 # fzf integration
 . /usr/share/fzf/key-bindings.bash
 . /usr/share/fzf/completion.bash
+
+# rust
+. "$HOME/.cargo/env"
