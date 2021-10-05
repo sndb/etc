@@ -4,6 +4,7 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'arcticicestudio/nord-vim'
 	Plug 'mattn/vim-goimports'
 	Plug 'neovim/nvim-lspconfig'
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 	Plug 'sbdchd/neoformat'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
@@ -176,4 +177,17 @@ require('nvim-autopairs.completion.cmp').setup({
     tex = '{'
   }
 })
+
+-- plugin: nvim-treesitter
+require'nvim-treesitter.configs'.setup{
+  ensure_installed = {
+    "go",
+    "javascript",
+    "python",
+    "rust",
+  },
+  highlight = {
+    enable = true,
+  },
+}
 EOF
