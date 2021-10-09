@@ -5,6 +5,7 @@ call plug#begin(stdpath('data') . '/plugged')
 	Plug 'mattn/vim-goimports'
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+	Plug 'onsails/lspkind-nvim'
 	Plug 'sbdchd/neoformat'
 	Plug 'tpope/vim-commentary'
 	Plug 'tpope/vim-repeat'
@@ -90,6 +91,7 @@ smap <expr> <S-Tab> vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)'      : '<S-Ta
 lua << EOF
 -- plugin: nvim-cmp
 local cmp = require("cmp")
+local lspkind = require("lspkind")
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -110,6 +112,9 @@ cmp.setup({
 		{ name = "path" },
 		{ name = "emoji" },
 		{ name = "calc" },
+	},
+	formatting = {
+		format = lspkind.cmp_format(),
 	},
 })
 
@@ -153,7 +158,7 @@ local servers = {
 	"denols",
 	"gopls",
 	"pyright",
-	"rls",
+	"rust_analyzer",
 	"html",
 	"cssls",
 	"jsonls",
