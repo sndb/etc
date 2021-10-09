@@ -76,3 +76,6 @@ bind '"\C-o":"ranger-cd\C-m"'
 
 # rust
 . "$HOME/.cargo/env"
+
+# starship
+eval "$(starship init bash)"

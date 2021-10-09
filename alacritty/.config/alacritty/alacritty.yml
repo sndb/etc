@@ -13,8 +13,8 @@ window:
 
 font:
   normal:
-    family: IBM Plex Mono Text
-  size: 10.5
+    family: Iosevka
+  size: 12
 
 mouse:
   hide_when_typing: true
