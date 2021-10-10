@@ -1,0 +1,7 @@
+require("plugins.autopairs")
+require("plugins.cmp")
+require("plugins.gitsigns")
+require("plugins.goimports")
+require("plugins.lspconfig")
+require("plugins.treesitter")
+require("plugins.vsnip")
