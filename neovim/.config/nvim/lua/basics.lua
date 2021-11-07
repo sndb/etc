@@ -19,3 +19,4 @@ vim.o.completeopt = "menu,menuone,noselect"
 vim.o.langmap =
 	"ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 vim.o.termguicolors = true
+vim.cmd("colorscheme nord")
