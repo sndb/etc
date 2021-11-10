@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# dpi
+xrandr --dpi 96
+
 # wallpaper
 hsetroot -solid "#000" &
 
