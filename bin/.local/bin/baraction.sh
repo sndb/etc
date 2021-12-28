@@ -3,7 +3,7 @@
 
 sleep_sec=3
 
-get_volume () {
+get_volume() {
 	local volume mute mute_message ret
 	volume="$(pulsemixer --get-volume)"
 	mute="$(pulsemixer --get-mute)"
@@ -18,7 +18,7 @@ get_volume () {
 	echo "$ret"
 }
 
-get_vpn_status () {
+get_vpn_status() {
 	if pidof "openvpn"; then
 		echo "Y (OVPN)"
 	elif ip link | grep -qw wg0; then
@@ -28,12 +28,12 @@ get_vpn_status () {
 	fi
 }
 
-get_netstat () {
-	read -r rx tx <<< "$(traffic.sh)"
-	echo "↓ $((rx/1024)) KiB ↑ $((tx/1024)) KiB"
+get_netstat() {
+	read -r rx tx <<<"$(traffic.sh)"
+	echo "↓ $((rx / 1024)) KiB ↑ $((tx / 1024)) KiB"
 }
 
-get_time () {
+get_time() {
 	date +"%Y-%m-%d %H:%M"
 }
 
