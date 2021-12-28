@@ -1,5 +1,6 @@
 require("autocommands")
 require("basics")
+require("colorscheme")
 require("mappings")
 require("wrapping")
 require("plugins")
