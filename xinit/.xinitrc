@@ -10,7 +10,7 @@ hsetroot -solid "#000" &
 dunst &
 
 # keyboard layout
-setxkbmap -layout us,ru -option grp:alt_shift_toggle,grp_led:scroll &
+setxkbmap -layout us,ru -option grp:alt_shift_toggle,grp_led:scroll,ctrl:nocaps &
 
 # adjust typematic delay and rate
 xset r rate 300 50 &
