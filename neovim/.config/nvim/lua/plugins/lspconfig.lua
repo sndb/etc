@@ -37,9 +37,11 @@ local servers = {
 	"bashls",
 	"clangd",
 	"denols",
+	"gdscript",
 	"gopls",
 	"pyright",
 	"rust_analyzer",
+
 	"html",
 	"cssls",
 	"jsonls",
