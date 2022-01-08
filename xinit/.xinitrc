@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # dpi
-xrandr --dpi 96
+xrandr --dpi 96 &
 
 # wallpaper
 hsetroot -solid "#000" &
@@ -22,7 +22,7 @@ xset s off -dpms &
 numlockx &
 
 # setup wacom tablet
-wacom-config.sh
+wacom-config.sh &
 
 # statusbar script
 baraction.sh &
