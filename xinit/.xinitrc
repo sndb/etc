@@ -21,6 +21,9 @@ xset s off -dpms &
 # activate numlock
 numlockx &
 
+# setup wacom tablet
+wacom-config.sh
+
 # statusbar script
 baraction.sh &
 
