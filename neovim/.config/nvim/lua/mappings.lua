@@ -15,4 +15,3 @@ vim.api.nvim_set_keymap("n", "<Leader>=", "<Cmd>Neoformat<CR>", { noremap = true
 vim.api.nvim_set_keymap("n", "<leader>f", "<Cmd>lua require('telescope.builtin').find_files()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>g", "<Cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<leader>b", "<Cmd>lua require('telescope.builtin').buffers()<CR>", { noremap = true })
-vim.api.nvim_set_keymap("n", "<leader>h", "<Cmd>lua require('telescope.builtin').help_tags()<CR>", { noremap = true })

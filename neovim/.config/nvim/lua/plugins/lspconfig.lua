@@ -40,6 +40,7 @@ local servers = {
 	"gdscript",
 	"gopls",
 	"pyright",
+	"racket_langserver",
 	"rust_analyzer",
 
 	"html",
