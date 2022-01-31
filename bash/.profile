@@ -3,6 +3,7 @@
 # basics
 export PATH="${PATH}:${HOME}/.local/bin:$(go env GOPATH)/bin"
 export HISTSIZE=16384
+export LESSHISTFILE=-
 
 # default programs
 export EDITOR="nvim"
