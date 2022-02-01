@@ -1,6 +1,7 @@
 . ~/.bashrc
 
 # basics
+export GOPATH="$HOME/.go"
 export PATH="${PATH}:${HOME}/.local/bin:$(go env GOPATH)/bin"
 export HISTSIZE=16384
 export LESSHISTFILE=-
