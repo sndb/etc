@@ -4,7 +4,7 @@
 xrandr --dpi 96 &
 
 # wallpaper
-hsetroot -solid "#000" &
+hsetroot -cover ~/.wallpaper.png &
 
 # notification daemon
 dunst &
