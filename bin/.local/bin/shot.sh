@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 maim "$HOME/temp/$(date +%s).png"

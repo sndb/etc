@@ -1,10 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # stopwatch
-set -e
+set -eu
 
-date1=$(date +%s)
+DATE_REF=$(date +%s)
 
 while :; do
-	echo -ne "$(date -u -d @$(($(date +%s) - date1)) +%H:%M:%S)\r"
+	OUTPUT=$(date -u -d @$(($(date +%s) - DATE_REF)) +%H:%M:%S)
+	printf "%s\r" "$OUTPUT"
 	sleep 0.1
 done

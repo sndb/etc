@@ -1,21 +1,20 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # dwm status bar
 
-sleep_sec=3
+SLEEP=2
 
 get_volume() {
-	local volume mute mute_message ret
-	volume="$(pulsemixer --get-volume)"
-	mute="$(pulsemixer --get-mute)"
-	mute_message="muted"
+	VOLUME="$(pulsemixer --get-volume)"
+	MUTE="$(pulsemixer --get-mute)"
+	MUTE_MESSAGE="muted"
 
-	if ((mute == 1)); then
-		ret="$mute_message"
+	if [ "$MUTE" = 1 ]; then
+		RET="$MUTE_MESSAGE"
 	else
-		ret="${volume% *}"
+		RET="${VOLUME% *}"
 	fi
 
-	echo "$ret"
+	echo "$RET"
 }
 
 get_vpn_status() {
@@ -29,8 +28,9 @@ get_vpn_status() {
 }
 
 get_netstat() {
-	read -r rx tx <<<"$(traffic.sh)"
-	echo "↓ $((rx / 1024)) KiB ↑ $((tx / 1024)) KiB"
+	RX=$(traffic.sh | cut -d ' ' -f 1)
+	TX=$(traffic.sh | cut -d ' ' -f 2)
+	echo "↓ $((RX / 1024)) KiB ↑ $((TX / 1024)) KiB"
 }
 
 get_time() {
@@ -39,5 +39,5 @@ get_time() {
 
 while :; do
 	xsetroot -name "Net: $(get_netstat)   VPN: $(get_vpn_status)   Vol%: $(get_volume)   $(get_time)"
-	sleep $sleep_sec
+	sleep $SLEEP
 done

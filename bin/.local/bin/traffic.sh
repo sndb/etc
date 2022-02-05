@@ -1,11 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-logfile="${HOME}/.cache/netlog"
-read -r rxprev txprev <"$logfile"
+LOGFILE="${HOME}/.cache/netlog"
+read -r RXPREVIOUS TXPREVIOUS <"$LOGFILE"
+RXCURRENT="$(($(paste -d + /sys/class/net/*[!lo]/statistics/rx_bytes)))"
+TXCURRENT="$(($(paste -d + /sys/class/net/*[!lo]/statistics/tx_bytes)))"
 
-rxcurrent="$(($(paste -d + /sys/class/net/*[!lo]/statistics/rx_bytes)))"
-txcurrent="$(($(paste -d + /sys/class/net/*[!lo]/statistics/tx_bytes)))"
-
-echo $((rxcurrent - rxprev)) $((txcurrent - txprev))
-
-echo "$rxcurrent $txcurrent" >"$logfile"
+echo $((RXCURRENT - RXPREVIOUS)) $((TXCURRENT - TXPREVIOUS))
+echo "$RXCURRENT $TXCURRENT" >"$LOGFILE"

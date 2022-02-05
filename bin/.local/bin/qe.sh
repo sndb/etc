@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # quick edit
 
 FILE="$HOME/temp/temp.md"

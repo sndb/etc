@@ -1,10 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # countdown
-set -e
+set -eu
 
-date1=$(($(date +%s) + $1))
+DATE_REF=$(($(date +%s) + $1))
 
-while [ "$date1" -ge "$(date +%s)" ]; do
-	echo -ne "$(date -u -d @$((date1 - $(date +%s))) +%H:%M:%S)\r"
+while [ "$DATE_REF" -ge "$(date +%s)" ]; do
+	OUTPUT=$(date -u -d @$((DATE_REF - $(date +%s))) +%H:%M:%S)
+	printf "%s\r" "$OUTPUT"
 	sleep 0.1
 done

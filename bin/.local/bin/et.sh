@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # edit text
-set -eux
+set -eu
 
-dir="$HOME/texts/"
-file="$(rg --files "$dir" | dmenu -i -l 20)"
-alacritty -e nvim "$file"
+DIR="$HOME/texts/"
+FILE="$(rg --files "$DIR" | dmenu -i -l 20)"
+alacritty -e nvim "$FILE"
