@@ -3,7 +3,7 @@
 
 FILE="$HOME/temp/temp.md"
 
-alacritty -e nvim "$FILE"
+$TERMINAL -e nvim "$FILE"
 
 if [ -w "$FILE" ] && [ ! -s "$FILE" ]; then
 	rm "$FILE"

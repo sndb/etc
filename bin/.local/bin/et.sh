@@ -4,4 +4,4 @@ set -eu
 
 DIR="$HOME/texts/"
 FILE="$(rg --files "$DIR" | dmenu -i -l 20)"
-alacritty -e nvim "$FILE"
+$TERMINAL -e nvim "$FILE"
