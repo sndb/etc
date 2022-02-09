@@ -14,9 +14,10 @@ shopt -s cmdhist
 alias cp='cp -vi'
 alias mv='mv -vi'
 alias rm='rm -vI'
-alias ls='ls --color=auto --group-directories-first'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
+alias ip='ip -color=auto'
+alias ls='ls --color=auto --group-directories-first'
 # cd
 alias ..='cd ..'
 alias ...='cd ../..'
