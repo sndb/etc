@@ -1,3 +1,7 @@
+-- leader
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = ","
+
 -- navigation
 vim.api.nvim_set_keymap("n", "-", "<Cmd>Explore<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-n>", "<Cmd>cnext<CR>", { noremap = true })

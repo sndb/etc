@@ -8,12 +8,14 @@ require("packer").startup(function()
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
+	use("Olical/conjure")
 	use("onsails/lspkind-nvim")
 	use("sbdchd/neoformat")
 	use("tpope/vim-commentary")
 	use("tpope/vim-repeat")
 	use("tpope/vim-surround")
 	use("windwp/nvim-autopairs")
+	use("wlangstroth/vim-racket")
 
 	use("nvim-lua/plenary.nvim")
 	use("nvim-telescope/telescope.nvim")
