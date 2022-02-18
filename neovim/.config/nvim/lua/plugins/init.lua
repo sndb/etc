@@ -1,14 +1,10 @@
 require("packer").startup(function()
 	use("wbthomason/packer.nvim")
 
+	use("Olical/conjure")
 	use("ap/vim-css-color")
 	use("arcticicestudio/nord-vim")
 	use("mattn/vim-goimports")
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
-	use("Olical/conjure")
 	use("onsails/lspkind-nvim")
 	use("sbdchd/neoformat")
 	use("tpope/vim-commentary")
@@ -16,10 +12,18 @@ require("packer").startup(function()
 	use("tpope/vim-surround")
 	use("windwp/nvim-autopairs")
 	use("wlangstroth/vim-racket")
-
-	use("nvim-lua/plenary.nvim")
-	use("nvim-telescope/telescope.nvim")
-	use("lewis6991/gitsigns.nvim")
+	use({
+		"lewis6991/gitsigns.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+	})
 
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/nvim-cmp")
