@@ -3,8 +3,8 @@
 # dpi
 xrandr --dpi 96 &
 
-# wallpaper
-wallpaper.sh &
+# background
+hsetroot -solid "#3b4252" &
 
 # notification daemon
 dunst &
