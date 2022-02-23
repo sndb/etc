@@ -1,4 +1,5 @@
 require("gitsigns").setup({
+	-- TODO update later, use vim.keymap.set in neovim 0.7
 	on_attach = function(bufnr)
 		local function map(mode, lhs, rhs, opts)
 			opts = vim.tbl_extend("force", { noremap = true, silent = true }, opts or {})

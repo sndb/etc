@@ -1,3 +1,4 @@
+-- basics
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.cursorline = true
@@ -19,3 +20,14 @@ vim.o.completeopt = "menu,menuone,noselect"
 vim.o.langmap =
 	"ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 vim.o.termguicolors = true
+
+-- autocommands
+vim.cmd("autocmd TermOpen * startinsert")
+vim.cmd("autocmd FileType html,css,scss,javascript,markdown setlocal expandtab shiftwidth=2 softtabstop=2")
+
+-- wrapping
+vim.o.linebreak = true
+vim.o.breakindent = true
+vim.o.showbreak = "+++ "
+vim.o.cpoptions = vim.o.cpoptions .. "n"
+vim.o.sidescrolloff = 8
