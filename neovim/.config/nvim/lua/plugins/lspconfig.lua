@@ -61,7 +61,6 @@ local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 nvim_lsp.sumneko_lua.setup({
-	cmd = { "/usr/bin/lua-language-server", "-E", "/usr/lib/lua-language-server/main.lua" },
 	settings = {
 		Lua = {
 			runtime = {
@@ -73,9 +72,6 @@ nvim_lsp.sumneko_lua.setup({
 			},
 			workspace = {
 				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			telemetry = {
-				enable = false,
 			},
 		},
 	},

@@ -38,6 +38,7 @@ alias glg='git log --graph'
 alias gp='git push'
 alias gr='git restore'
 alias gs='git status'
+alias gwc='git ls-files -z | xargs -0 wc -l'
 # tmux
 alias tmux='tmux -u'
 alias t='tmux new -A'
