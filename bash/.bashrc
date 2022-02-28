@@ -9,8 +9,7 @@ shopt -s cdspell
 shopt -s checkwinsize
 shopt -s cmdhist
 
-# aliases
-# basics
+# aliases - basics
 alias cp='cp -vi'
 alias mv='mv -vi'
 alias rm='rm -vI'
@@ -18,16 +17,19 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias ls='ls --color=auto --group-directories-first'
-# cd
+
+# aliases - cd
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-# ls
+
+# aliases - ls
 alias l='ls -lhvFA'
 alias ll='ls -lhvF'
-# git
+
+# aliases - git
 alias ga='git add'
 alias gb='git branch'
 alias gc='git commit -v'
@@ -39,16 +41,18 @@ alias gp='git push'
 alias gr='git restore'
 alias gs='git status'
 alias gwc='git ls-files -z | xargs -0 wc -l'
-# tmux
+
+# aliases - tmux
 alias tmux='tmux -u'
 alias t='tmux new -A'
 alias tn='tmux new -s'
 alias ta='tmux a -t'
 alias tls='tmux ls'
-# common
+
+# aliases - general
 alias sudo='sudo '
 alias mkd='mkdir -vp'
-alias upd='pikaur -Syyu && rustup update && nvim +PackerSync'
+alias upd='pikaur -Syyu && nvim +PackerSync'
 alias c='clear'
 alias d='diff -ru'
 alias v='nvim'
@@ -60,7 +64,7 @@ cl() {
 	cd "$@" && l
 }
 
-# ranger-cd
+# navigation
 ranger-cd() {
 	temp_file="$(mktemp --tmpdir "ranger-cd.XXXXXXXXXX")"
 	ranger --choosedir="$temp_file" -- "${@:-$PWD}"
@@ -69,16 +73,11 @@ ranger-cd() {
 	fi
 	rm -f -- "$temp_file"
 }
-
-# bind C-o to ranger-cd
 bind '"\C-o":"ranger-cd\C-m"'
 
-# fzf integration
+# fzf
 . /usr/share/fzf/key-bindings.bash
 . /usr/share/fzf/completion.bash
-
-# rust
-. "$HOME/.cargo/env"
 
 # starship
 eval "$(starship init bash)"
