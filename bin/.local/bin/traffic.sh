@@ -1,9 +1,10 @@
 #!/bin/sh
 
-LOGFILE="${HOME}/.cache/netlog"
-read -r RXPREVIOUS TXPREVIOUS <"$LOGFILE"
-RXCURRENT="$(($(paste -d + /sys/class/net/*[!lo]/statistics/rx_bytes)))"
-TXCURRENT="$(($(paste -d + /sys/class/net/*[!lo]/statistics/tx_bytes)))"
+logfile="$XDG_RUNTIME_DIR/traffic"
 
-echo $((RXCURRENT - RXPREVIOUS)) $((TXCURRENT - TXPREVIOUS))
-echo "$RXCURRENT $TXCURRENT" >"$LOGFILE"
+read -r rxprevious txprevious <"$logfile"
+rxcurrent="$(($(paste -d + /sys/class/net/*[!lo]/statistics/rx_bytes)))"
+txcurrent="$(($(paste -d + /sys/class/net/*[!lo]/statistics/tx_bytes)))"
+
+echo $((rxcurrent - rxprevious)) $((txcurrent - txprevious))
+echo "$rxcurrent $txcurrent" >"$logfile"
