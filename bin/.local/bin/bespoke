@@ -1,0 +1,3 @@
+#!/bin/sh
+
+env HOME="$XDG_DATA_HOME/bespokesynth" BespokeSynth 
