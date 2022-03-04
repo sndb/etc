@@ -16,6 +16,8 @@ vim.o.list = true
 vim.o.listchars = "tab:>-,trail:~,extends:>,precedes:<,nbsp:+"
 vim.o.clipboard = "unnamedplus"
 vim.o.updatetime = 50
+vim.o.timeoutlen = 500
+vim.o.shortmess = "I"
 vim.o.completeopt = "menu,menuone,noselect"
 vim.o.langmap =
 	"ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
