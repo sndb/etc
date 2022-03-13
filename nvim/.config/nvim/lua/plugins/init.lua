@@ -78,6 +78,8 @@ require("packer").startup(function(use)
 		config = function()
 			require("lualine").setup({
 				options = {
+					section_separators = "",
+					component_separators = "",
 					theme = "nord",
 				},
 			})
