@@ -15,9 +15,16 @@ require("packer").startup(function(use)
 	use("wlangstroth/vim-racket")
 
 	-- input
-	use("tpope/vim-commentary")
-	use("tpope/vim-repeat")
-	use("tpope/vim-surround")
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
+	use({
+		"tpope/vim-surround",
+		requires = { "tpope/vim-repeat" },
+	})
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
