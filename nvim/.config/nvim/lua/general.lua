@@ -6,7 +6,7 @@ vim.o.hlsearch = false
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.gdefault = true
-vim.o.scrolloff = 4
+vim.o.scrolloff = 32
 vim.o.inccommand = "split"
 vim.o.modeline = false
 vim.o.splitbelow = true
@@ -25,7 +25,7 @@ vim.o.termguicolors = true
 
 -- autocommands
 vim.cmd("autocmd TermOpen * startinsert")
-vim.cmd("autocmd FileType html,css,scss,javascript,markdown setlocal expandtab shiftwidth=2 softtabstop=2")
+vim.cmd("autocmd FileType html,css,scss,javascript,markdown,org setlocal et sw=2 sts=-1")
 
 -- wrapping
 vim.o.linebreak = true

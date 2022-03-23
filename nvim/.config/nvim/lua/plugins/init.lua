@@ -13,6 +13,13 @@ require("packer").startup(function(use)
 	use("ap/vim-css-color")
 	use("mattn/vim-goimports")
 	use("wlangstroth/vim-racket")
+	use({
+		"nvim-orgmode/orgmode",
+		config = function()
+			require("orgmode").setup_ts_grammar()
+			require("orgmode").setup({})
+		end,
+	})
 
 	-- input
 	use({
