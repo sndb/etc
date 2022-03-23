@@ -1,10 +1,11 @@
 #!/bin/sh
 # quick edit
 
-file="$HOME/temp/$(date +%F).md"
+filename="temp.org"
+tempfile="$HOME/temp/$filename"
 
-$TERMINAL -e nvim "$file"
+$TERMINAL -e $EDITOR "$tempfile"
 
-if [ -w "$file" ] && [ ! -s "$file" ]; then
-	rm "$file"
+if [ -w "$tempfile" ] && [ ! -s "$tempfile" ]; then
+	rm "$tempfile"
 fi
