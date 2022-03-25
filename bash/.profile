@@ -15,7 +15,7 @@ export LESSHISTFILE="-"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
-export PATH="$PATH:$HOME/.local/bin:$GOPATH/bin:$CARGO_HOME/bin"
+export PATH="$PATH:$HOME/.local/bin/private:$HOME/.local/bin:$GOPATH/bin:$CARGO_HOME/bin"
 
 # default programs
 export BROWSER="brave"
