@@ -1,11 +1,11 @@
 #!/bin/sh
 # quick edit
 
-filename="temp.org"
-tempfile="$HOME/temp/$filename"
+dir="$HOME/temp"
+file="$dir/temp.org"
 
-$TERMINAL -e $EDITOR "$tempfile"
+emacs "$file"
 
-if [ -w "$tempfile" ] && [ ! -s "$tempfile" ]; then
-	rm "$tempfile"
+if [ -w "$file" ] && [ ! -s "$file" ]; then
+	rm "$file"
 fi

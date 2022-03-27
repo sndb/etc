@@ -2,6 +2,6 @@
 # edit text
 set -eu
 
-DIR="$HOME/texts/"
-FILE="$(rg --files "$DIR" | dmenu -i -l 20)"
-$TERMINAL -e nvim "$FILE"
+dir="$HOME/texts"
+file="$(rg --files "$dir" | dmenu -i -l 20)"
+emacs "$file"

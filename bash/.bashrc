@@ -56,6 +56,7 @@ alias upd='pikaur -Syyu && nvim +PackerSync'
 alias c='clear'
 alias d='diff -ru'
 alias v='nvim'
+alias e='emacs'
 alias x='exit'
 alias pbgo='protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative'
 
