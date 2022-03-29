@@ -1,4 +1,5 @@
 #!/bin/sh
+# log traffic data
 
 logfile="$XDG_RUNTIME_DIR/traffic"
 

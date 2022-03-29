@@ -1,4 +1,5 @@
 #!/bin/sh
+# clean home directory
 
 rm -vf \
 	~/.lesshst \

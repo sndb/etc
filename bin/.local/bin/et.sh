@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/sh -eu
 # edit text
-set -eu
 
-dir="$HOME/texts"
+dir="$HOME/org"
 file="$(rg --files "$dir" | dmenu -i -l 20)"
+
 emacs "$file"
