@@ -10,7 +10,7 @@ hsetroot -solid "#3b4252" &
 dunst &
 
 # keyboard layout
-setxkbmap -layout us,ru -option grp:rctrl_toggle,grp_led:scroll,ctrl:swapcaps,compose:menu &
+setxkbmap -layout us,ru -option grp:rctrl_toggle,grp_led:scroll,ctrl:nocaps,compose:menu &
 
 # adjust typematic delay and rate
 xset r rate 300 50 &
