@@ -17,11 +17,11 @@ get_volume() {
 
 get_vpn_status() {
 	if pidof "openvpn"; then
-		echo "Y (OVPN)"
+		echo "OpenVPN"
 	elif ip link | grep -qw wg0; then
-		echo "Y (WG)"
+		echo "WG"
 	else
-		echo "N"
+		echo "off"
 	fi
 }
 
