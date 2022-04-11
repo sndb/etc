@@ -19,7 +19,9 @@ export PATH="$PATH:$HOME/.local/bin/private:$HOME/.local/bin:$GOPATH/bin:$CARGO_
 
 # default programs
 export BROWSER="brave"
-export EDITOR="nvim"
+export EDITOR="emacsclient"
+export ALTERNATE_EDITOR=""
+export VISUAL="$EDITOR"
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export TERMINAL="st"
 export FZF_DEFAULT_COMMAND="fd --type f --follow --hidden --exclude .git"
