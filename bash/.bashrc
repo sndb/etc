@@ -52,7 +52,7 @@ alias tls='tmux ls'
 # aliases - general
 alias sudo='sudo '
 alias mkd='mkdir -vp'
-alias upd='pikaur -Syyu'
+alias upd='paru'
 alias c='clear'
 alias d='diff -ru'
 alias v='nvim'
