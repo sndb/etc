@@ -79,6 +79,3 @@ bind '"\C-o":"ranger-cd\C-m"'
 # fzf
 . /usr/share/fzf/key-bindings.bash
 . /usr/share/fzf/completion.bash
-
-# starship
-eval "$(starship init bash)"
