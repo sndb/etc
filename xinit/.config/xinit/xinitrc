@@ -3,9 +3,6 @@
 # dpi
 xrandr --dpi 96 &
 
-# background
-hsetroot -solid "#3b4252" &
-
 # notification daemon
 dunst &
 
