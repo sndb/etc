@@ -3,9 +3,6 @@
 # dpi
 xrandr --dpi 96 &
 
-# notification daemon
-dunst &
-
 # keyboard layout
 setxkbmap -layout us,ru -option grp:rctrl_toggle,grp_led:scroll,ctrl:nocaps,compose:menu &
 
@@ -18,16 +15,7 @@ xset s off -dpms &
 # activate numlock
 numlockx &
 
-# setup wacom tablet
-wacom-config.sh &
-
 # statusbar script
 baraction.sh &
-
-# torrent client
-transmission-daemon &
-
-# go documentation server
-godoc &
 
 exec dwm
