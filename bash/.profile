@@ -30,13 +30,5 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # bash history size
 export HISTSIZE=65536
 
-# tty font and colorscheme
-case $(tty) in
-/dev/tty*)
-	console-colors.sh
-	setfont ter-120n
-	;;
-esac
-
 # start graphical server on tty1 if not already running
 [ "$(tty)" = "/dev/tty1" ] && [ ! "$(pgrep -x Xorg)" ] && exec startx "$XINITRC"
