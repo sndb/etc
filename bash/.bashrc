@@ -2,7 +2,7 @@
 [[ $- != *i* ]] && return
 
 # prompt
-PS1='[\[\e[1m\]\u\[\e[m\]:\w]\$ '
+PS1='\w \$ '
 
 # options
 shopt -s cdspell
