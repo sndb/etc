@@ -9,12 +9,12 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char font[]            = "UW Ttyp0:size=10";
 static const char *fonts[]          = { font };
-static const char col_norm_fg[]     = "#81a1c1";
-static const char col_norm_bg[]     = "#2e3440";
-static const char col_norm_border[] = "#4c566a";
-static const char col_sel_fg[]      = "#2e3440";
-static const char col_sel_bg[]      = "#81a1c1";
-static const char col_sel_border[]  = "#a3be8c";
+static const char col_norm_fg[]     = "#bfbfbf";
+static const char col_norm_bg[]     = "#000000";
+static const char col_norm_border[] = "#595959";
+static const char col_sel_fg[]      = "#ffffff";
+static const char col_sel_bg[]      = "#79a8ff";
+static const char col_sel_border[]  = "#44bc44";
 static const char *colors[][3]      = {
 	/*               fg           bg           border         */
 	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },
