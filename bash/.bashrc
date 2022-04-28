@@ -9,7 +9,7 @@ shopt -s cdspell
 shopt -s checkwinsize
 shopt -s cmdhist
 
-# aliases - basics
+# aliases: basics
 alias cp='cp -vi'
 alias mv='mv -vi'
 alias rm='rm -vI'
@@ -17,48 +17,22 @@ alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
 alias ls='ls --color=auto --group-directories-first'
+alias l='ls -lhvFA'
+alias ll='ls -lhvF'
 
-# aliases - cd
+# aliases: cd
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-# aliases - ls
-alias l='ls -lhvFA'
-alias ll='ls -lhvF'
-
-# aliases - git
-alias ga='git add'
-alias gb='git branch'
-alias gc='git commit -v'
-alias gca='git commit -va'
-alias gco='git checkout'
-alias gd='git diff'
-alias glg='git log --graph'
-alias gp='git push'
-alias gr='git restore'
-alias gs='git status'
-alias gwc='git ls-files -z | xargs -0 wc -l'
-
-# aliases - tmux
-alias tmux='tmux -u'
-alias t='tmux new -A'
-alias tn='tmux new -s'
-alias ta='tmux a -t'
-alias tls='tmux ls'
-
-# aliases - general
+# aliases: general
 alias sudo='sudo '
 alias mkd='mkdir -vp'
 alias upd='paru'
-alias c='clear'
 alias d='diff -ru'
-alias v='nvim'
 alias e='emacsclient'
-alias x='exit'
-alias pbgo='protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out=. --go-grpc_opt=paths=source_relative'
 
 # cd and ls in one
 cl() {
