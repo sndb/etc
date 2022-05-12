@@ -16,9 +16,8 @@ alias rm='rm -vI'
 alias diff='diff --color=auto'
 alias grep='grep --color=auto'
 alias ip='ip -color=auto'
-alias ls='ls --color=auto --group-directories-first'
-alias l='ls -lhvFA'
-alias ll='ls -lhvF'
+alias ls='ls --color=auto'
+alias l='ls -lhvFA --group-directories-first --time-style=long-iso'
 
 # aliases: cd
 alias ..='cd ..'
