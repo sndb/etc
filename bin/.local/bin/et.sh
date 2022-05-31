@@ -1,7 +1,7 @@
 #!/bin/sh -eu
-# edit text
+# fuzzy find the file under ~/org and edit it
 
 dir="$HOME/org"
 file="$(rg --files "$dir" | dmenu -i -l 20)"
 
-emacs "$file"
+$EDITOR "$file"

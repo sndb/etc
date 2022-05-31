@@ -1,5 +1,5 @@
 #!/bin/sh -eu
-# configure wacom tablet
+# configure the wacom tablet
 
 output="HDMI-0"
 device_found=false

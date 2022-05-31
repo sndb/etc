@@ -4,7 +4,7 @@
 dir="$HOME/temp"
 file="$dir/temp.org"
 
-emacs "$file"
+$EDITOR "$file"
 
 if [ -w "$file" ] && [ ! -s "$file" ]; then
 	rm "$file"

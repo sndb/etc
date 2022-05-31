@@ -1,5 +1,5 @@
 #!/bin/sh
-# dwm status bar
+# update dwm status bar in the infinite loop
 
 sleep_duration=2
 
