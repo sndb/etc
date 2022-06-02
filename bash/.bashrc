@@ -38,7 +38,7 @@ cl() {
 	cd "$@" && l
 }
 
-# navigation
+# ranger integration
 ranger-cd() {
 	temp_file="$(mktemp --tmpdir "ranger-cd.XXXXXXXXXX")"
 	ranger --choosedir="$temp_file" -- "${@:-$PWD}"
@@ -49,6 +49,6 @@ ranger-cd() {
 }
 bind '"\C-o":"ranger-cd\C-m"'
 
-# fzf
+# fzf integration
 . /usr/share/fzf/key-bindings.bash
 . /usr/share/fzf/completion.bash

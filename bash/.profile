@@ -1,4 +1,4 @@
-. ~/.bashrc
+. "$HOME/.bashrc"
 
 # xdg base directory
 export XDG_CACHE_HOME="$HOME/.cache"       # /var/cache
@@ -22,6 +22,8 @@ export BROWSER="brave"
 export EDITOR="emacsclient"
 export ALTERNATE_EDITOR=""
 export VISUAL="$EDITOR"
+export PAGER="less"
+export LESS="i"
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export TERMINAL="st"
 export FZF_DEFAULT_COMMAND="fd --type f --follow --hidden --exclude .git"
