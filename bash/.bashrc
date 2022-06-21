@@ -33,6 +33,9 @@ alias upd='paru'
 alias d='diff -ru'
 alias e='emacsclient'
 
+# aliases: xdg
+alias mbsync='mbsync -c "$XDG_CONFIG_HOME/isync/mbsyncrc"'
+
 # cd and ls in one
 cl() {
 	cd "$@" && l
