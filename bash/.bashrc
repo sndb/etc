@@ -32,6 +32,7 @@ alias mkd='mkdir -vp'
 alias upd='paru'
 alias d='diff -ru'
 alias e='emacsclient'
+alias c='emacs -Q -nw -f full-calc'
 
 # aliases: xdg
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME/isync/mbsyncrc"'

@@ -67,8 +67,8 @@ static const char *lockcmd[] = { "slock", NULL };
 static const char *shotcmd[] = { "shot.sh", NULL };
 static const char *shotselcmd[] = { "shotsel.sh", NULL };
 static const char *passmenucmd[] = { "passmenu", "-m", dmenumon, "-fn", font, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
-static const char *volupcmd[] = { "pulsemixer", "--change-volume", "+5", NULL };
-static const char *voldowncmd[] = { "pulsemixer", "--change-volume", "-5", NULL };
+static const char *volupcmd[] = { "pulsemixer", "--change-volume", "+3", NULL };
+static const char *voldowncmd[] = { "pulsemixer", "--change-volume", "-3", NULL };
 static const char *volmutecmd[] = { "pulsemixer", "--toggle-mute", NULL };
 
 static Key keys[] = {
