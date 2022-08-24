@@ -15,6 +15,9 @@ xset s off -dpms &
 # activate numlock
 numlockx &
 
+# notifications
+dunst &
+
 # statusbar script
 baraction.sh &
 
