@@ -8,16 +8,13 @@
     background = "#000000"
     foreground = "#ffffff"
     frame_color = "#bfbfbf"
-    timeout = 10
 
 [urgency_normal]
     background = "#000000"
     foreground = "#ffffff"
     frame_color = "#ffffff"
-    timeout = 20
 
 [urgency_critical]
     background = "#000000"
     foreground = "#ffffff"
     frame_color = "#ff8059"
-    timeout = 0
