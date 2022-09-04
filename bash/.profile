@@ -27,8 +27,6 @@ export PAGER="less"
 export LESS="iRMXN"
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export TERMINAL="st"
-export FZF_DEFAULT_COMMAND="fd --type f --follow --hidden --exclude .git"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # bash history size
 export HISTSIZE=65536
