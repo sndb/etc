@@ -1,4 +1,4 @@
 #!/bin/sh
 # take a screenshot
 
-maim "$HOME/temp/$(date +%s).png"
+maim -u "$HOME/temp/$(date +%s).png"
