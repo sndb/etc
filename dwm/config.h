@@ -59,26 +59,23 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
 static const char *termcmd[]  = { "st", "-f", font, NULL };
+
 static const char *emacscmd[] = { "emacs", NULL };
 static const char *lockcmd[] = { "slock", NULL };
 static const char *shotcmd[] = { "shot.sh", NULL };
 static const char *shotselcmd[] = { "shotsel.sh", NULL };
-static const char *passmenucmd[] = { "passmenu", "-m", dmenumon, "-fn", font, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
 static const char *volupcmd[] = { "pulsemixer", "--change-volume", "+3", NULL };
 static const char *voldowncmd[] = { "pulsemixer", "--change-volume", "-3", NULL };
 static const char *volmutecmd[] = { "pulsemixer", "--toggle-mute", NULL };
 
-static Key keys[] = {
+static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_e,      spawn,          {.v = emacscmd    } },
 	{ MODKEY|ShiftMask,             XK_Delete, spawn,          {.v = lockcmd     } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = shotcmd     } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shotselcmd  } },
-	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passmenucmd } },
-
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
 	{ 0,                            XF86XK_AudioMute, spawn, {.v = volmutecmd } },
@@ -120,7 +117,7 @@ static Key keys[] = {
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
-static Button buttons[] = {
+static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
