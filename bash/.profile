@@ -9,6 +9,8 @@ export XDG_STATE_HOME="$HOME/.local/state" # /var/lib
 # paths
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
+export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
+export PSQL_HISTORY="$XDG_DATA_HOME/psql/history"
 export HISTFILE="$XDG_DATA_HOME/bash/history"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export LESSHISTFILE="-"
