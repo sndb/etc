@@ -62,7 +62,7 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
 static const char *termcmd[]  = { "st", "-f", font, NULL };
 
-static const char *emacscmd[] = { "emacs", NULL };
+static const char *emacscmd[] = { "emacs", "-fs", NULL };
 static const char *lockcmd[] = { "slock", NULL };
 static const char *shotcmd[] = { "shot.sh", NULL };
 static const char *shotselcmd[] = { "shotsel.sh", NULL };
