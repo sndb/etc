@@ -1,4 +1,4 @@
 #!/bin/sh
-# compile $@ with sensible options and run a.out
+# compile and run $@ with sensible options
 
-gcc -std=c11 -pedantic -Wall -Wextra -Werror -O2 "$@" && ./a.out
+gcc -lm -std=c17 -pedantic -Wall -Wextra -Werror -O2 "$@" && ./a.out && rm a.out
