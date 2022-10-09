@@ -21,4 +21,7 @@ dunst &
 # statusbar script
 baraction.sh &
 
+# wallpapers
+wallpaper.sh &
+
 exec dwm
