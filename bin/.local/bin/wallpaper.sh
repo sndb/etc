@@ -1,4 +1,15 @@
 #!/bin/sh
 # set a wallpaper
 
-hsetroot -root -cover "$(find "$XDG_DATA_HOME/wallpapers" -type f | shuf -n 1)"
+dir="$XDG_DATA_HOME/wallpapers"
+
+if [ -h "$dir/default" ]
+then
+    wp="$dir/default"
+    echo "wallpaper: default"
+else
+    wp="$(find "$dir" -type f | shuf -n 1)"
+    echo "wallpaper: random ($wp)"
+fi
+
+hsetroot -root -cover "$wp"
