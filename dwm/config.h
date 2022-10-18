@@ -4,7 +4,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char font[]            = "Fira Mono:pixelsize=14";
@@ -13,8 +13,8 @@ static const char col_norm_fg[]     = "#bfbfbf";
 static const char col_norm_bg[]     = "#000000";
 static const char col_norm_border[] = "#595959";
 static const char col_sel_fg[]      = "#ffffff";
-static const char col_sel_bg[]      = "#79a8ff";
-static const char col_sel_border[]  = "#44bc44";
+static const char col_sel_bg[]      = "#000000";
+static const char col_sel_border[]  = "#bfbfbf";
 static const char *colors[][3]      = {
 	/*               fg           bg           border         */
 	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },
@@ -22,29 +22,32 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "i", "ii", "iii", "iv" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	/* class             instance   title   tags mask   isfloating   monitor */
+	{ "st-256color",     NULL,      NULL,   0,          0,           -1 },
+	{ "Brave-browser",   NULL,      NULL,   1 << 1,     0,            0 },
+	{ "TelegramDesktop", NULL,      NULL,   1 << 3,     0,            1 },
+	{ "Emacs",           NULL,      NULL,   1 << 0,     0,            0 },
+	{ "mpv",             NULL,      NULL,   0,          1,           -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 5./8; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "[t]",      tile },    /* first entry is default */
+	{ "[f]",      NULL },    /* no layout function means floating behavior */
+	{ "[m]",      monocle },
 };
 
 /* key definitions */
