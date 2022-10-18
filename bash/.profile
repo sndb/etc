@@ -26,7 +26,7 @@ export EDITOR="emacsclient"
 export ALTERNATE_EDITOR=""
 export VISUAL="$EDITOR"
 export PAGER="less"
-export LESS="iRMXN"
+export LESS="iRMX"
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export TERMINAL="st"
 
