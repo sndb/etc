@@ -29,6 +29,7 @@ export PAGER="less"
 export LESS="iRMX"
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export TERMINAL="st"
+export FZF_DEFAULT_OPTS="--color=no"
 
 # bash history size
 export HISTSIZE=65536
