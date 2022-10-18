@@ -1,27 +1,15 @@
 #!/bin/sh
 # update dwm status bar in the infinite loop
 
-sleep_duration=2
+cooldown=2
 
 get_volume() {
 	volume="$(pulsemixer --get-volume)"
 	muted="$(pulsemixer --get-mute)"
-	mute_message="muted"
-
 	if [ "$muted" = 1 ]; then
-		echo "$mute_message"
+		echo "--"
 	else
 		echo "${volume% *}"
-	fi
-}
-
-get_vpn_status() {
-	if pidof "openvpn"; then
-		echo "OpenVPN"
-	elif ip link | grep -qw wg0; then
-		echo "WG"
-	else
-		echo "off"
 	fi
 }
 
@@ -36,6 +24,6 @@ get_time() {
 }
 
 while :; do
-	xsetroot -name "Net: $(get_netstat)   VPN: $(get_vpn_status)   Vol%: $(get_volume)   $(get_time)"
-	sleep $sleep_duration
+	xsetroot -name "Net: $(get_netstat)   Vol%: $(get_volume)   $(get_time)"
+	sleep $cooldown
 done
