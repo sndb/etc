@@ -12,6 +12,7 @@ AlwaysBreakAfterReturnType: AllDefinitions
 BinPackArguments: false
 BinPackParameters: false
 BreakBeforeBinaryOperators: All
+BreakBeforeBraces: Linux
 ColumnLimit: 0
 QualifierAlignment: Left
 IncludeBlocks: Regroup
