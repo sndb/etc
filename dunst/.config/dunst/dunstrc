@@ -1,7 +1,7 @@
 [global]
     width = 200
     height = 150
-    frame_width = 1
+    frame_width = 2
     font = Fira Mono 10.5
 
 [urgency_low]
