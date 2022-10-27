@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# dpi
-xrandr --dpi 96 &
-
 # keyboard layout
 setxkbmap -layout us,ru -option grp:rctrl_toggle,grp_led:scroll,ctrl:nocaps &
 

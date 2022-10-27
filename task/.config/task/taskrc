@@ -1,5 +1,0 @@
-data.location=$XDG_DATA_HOME/task
-uda.priority.values=H,M,,L
-urgency.uda.priority.L.coefficient=-1
-urgency.uda.priority.M.coefficient=2.5
-news.version=2.6.0
