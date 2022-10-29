@@ -16,6 +16,6 @@ numlockx &
 dunst &
 
 # statusbar script
-baraction.sh &
+bar.sh &
 
 exec dwm

@@ -1,7 +1,5 @@
 #!/bin/sh
-# update dwm status bar in the infinite loop
-
-cooldown=2
+# status bar
 
 get_volume() {
 	volume="$(pulsemixer --get-volume)"
@@ -9,7 +7,7 @@ get_volume() {
 	if [ "$muted" = 1 ]; then
 		echo "--"
 	else
-		echo "${volume% *}"
+		echo "${volume% *}%"
 	fi
 }
 
@@ -24,6 +22,6 @@ get_time() {
 }
 
 while :; do
-	xsetroot -name "Net: $(get_netstat)   Vol%: $(get_volume)   $(get_time)"
-	sleep $cooldown
+	xsetroot -name "Net: $(get_netstat)  Vol: $(get_volume)  $(get_time)"
+	sleep 1
 done
