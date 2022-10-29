@@ -22,7 +22,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "i", "ii", "iii", "iv" };
+static const char *tags[] = { "www", "edit", "term", "misc" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -31,9 +31,9 @@ static const Rule rules[] = {
 	 */
 	/* class             instance   title   tags mask   isfloating   monitor */
 	{ "st-256color",     NULL,      NULL,   0,          0,           -1 },
-	{ "Brave-browser",   NULL,      NULL,   1 << 1,     0,            0 },
+	{ "Brave-browser",   NULL,      NULL,   1 << 0,     0,            0 },
+	{ "Emacs",           NULL,      NULL,   1 << 1,     0,            0 },
 	{ "TelegramDesktop", NULL,      NULL,   1 << 3,     0,            1 },
-	{ "Emacs",           NULL,      NULL,   1 << 0,     0,            0 },
 	{ "mpv",             NULL,      NULL,   0,          1,           -1 },
 };
 
