@@ -7,4 +7,7 @@ rm -vf \
 	~/.psql_history \
 	~/.python_history \
 	~/.rediscli_history \
-	~/.sqlite_history
+	~/.sqlite_history \
+        ~/acme.dump
+
+rm -vrf ~/tmp/*
