@@ -3,6 +3,7 @@
 PS1='\h\$ '
 
 alias sudo='sudo '
+alias e='emacsclient -t'
 alias mkd='mkdir -vp'
 alias cp='cp -vi'
 alias mv='mv -vi'

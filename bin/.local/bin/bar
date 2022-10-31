@@ -1,0 +1,27 @@
+#!/bin/sh
+# status bar
+
+vol() {
+	val="$(pulsemixer --get-volume)"
+	mute="$(pulsemixer --get-mute)"
+	if [ "$mute" = 1 ]; then
+		echo "--"
+	else
+		echo "${val% *}%"
+	fi
+}
+
+net() {
+	rx=$(traffic | cut -d ' ' -f 1)
+	tx=$(traffic | cut -d ' ' -f 2)
+	echo "↓ $((rx / 1024)) KiB ↑ $((tx / 1024)) KiB"
+}
+
+clock() {
+	date +"%Y-%m-%d %H:%M"
+}
+
+while :; do
+	xsetroot -name "Net: $(net)  Vol: $(vol)  $(clock)"
+	sleep 1
+done

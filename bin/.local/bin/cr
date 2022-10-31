@@ -1,0 +1,4 @@
+#!/bin/sh
+# compile and run $@ with sensible options
+
+gcc -lm -std=c11 -Wpedantic -Wall -Wextra -O1 "$@" && ./a.out && rm a.out

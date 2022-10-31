@@ -1,4 +1,0 @@
-#!/bin/sh
-# run BespokeSynth keeping its data under XDG_DATA_HOME
-
-env HOME="$XDG_DATA_HOME/bespokesynth" BespokeSynth 

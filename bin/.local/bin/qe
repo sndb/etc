@@ -1,8 +1,8 @@
 #!/bin/sh
 # quick edit
 
-dir="$HOME/temp"
-file="$dir/temp.org"
+dir="$HOME/tmp"
+file="$dir/tmp.org"
 
 $EDITOR "$file"
 

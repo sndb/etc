@@ -1,0 +1,10 @@
+#!/bin/sh -eu
+# stopwatch
+
+ref=$(date +%s)
+
+while :; do
+	output=$(date -u -d @$(($(date +%s) - ref)) +%H:%M:%S)
+	printf "%s\r" "$output"
+	sleep 0.1
+done
