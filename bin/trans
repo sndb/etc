@@ -1,0 +1,42 @@
+#!/bin/sh -e
+# transfer file
+
+usage() {
+    cat <<EOF
+Usage: $0 [ -u -h host -p port ] [ filename ]
+EOF
+    exit 1
+}
+
+while getopts up:h: f; do
+    case $f in
+        u)
+            upload=1
+            ;;
+        h)
+            host=$OPTARG
+            ;;
+        p)
+            port=$OPTARG
+            ;;
+        ?)
+            usage
+            ;;
+    esac
+done
+
+shift $((OPTIND - 1))
+
+filename=$1
+
+if [ -n "$upload" ] && [ -z "$host" ] || [ -z "$filename" ]; then
+    usage
+fi
+
+port=${port:-2345}
+
+if [ -n "$upload" ]; then
+    nc -w 3 "$host" "$port" < "$filename"
+else
+    nc -l "$port" > "$filename"
+fi
