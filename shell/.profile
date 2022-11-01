@@ -1,5 +1,8 @@
 . "$HOME/.bashrc"
 
+export HISTSIZE=65536
+export LANG="en_US.UTF-8"
+
 # xdg base directory
 export XDG_CACHE_HOME="$HOME/.cache"       # /var/cache
 export XDG_CONFIG_HOME="$HOME/.config"     # /etc
@@ -23,15 +26,16 @@ export PATH="$PATH:$HOME/bin:$GOPATH/bin:$CARGO_HOME/bin"
 # default programs
 export BROWSER="brave"
 export EDITOR="emacsclient -t"
-export ALTERNATE_EDITOR=""
+export ALTERNATE_EDITOR="vim"
 export VISUAL="$EDITOR"
 export PAGER="less"
 export LESS="iRM"
 export TERMINAL="st"
 export FZF_DEFAULT_OPTS="--color=no"
 
-# bash history size
-export HISTSIZE=65536
+# google
+export GOSUMDB="off"
+export GOPROXY="direct"
 
 # start graphical server on tty1 if not already running
 [ "$(tty)" = "/dev/tty1" ] && [ ! "$(pgrep -x Xorg)" ] && exec startx "$XINITRC"
