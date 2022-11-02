@@ -5,7 +5,6 @@ usage() {
     cat <<EOF
 Usage: $0 [ -u -h host -p port ] [ filename ]
 EOF
-    exit 1
 }
 
 while getopts up:h: f; do
@@ -21,6 +20,7 @@ while getopts up:h: f; do
             ;;
         ?)
             usage
+            exit 1
             ;;
     esac
 done
@@ -31,6 +31,7 @@ filename=$1
 
 if [ -n "$upload" ] && [ -z "$host" ] || [ -z "$filename" ]; then
     usage
+    exit 1
 fi
 
 port=${port:-2345}

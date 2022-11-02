@@ -4,7 +4,6 @@
 ref=$(($(date +%s) + $1))
 
 while [ "$ref" -ge "$(date +%s)" ]; do
-	output=$(date -u -d @$((ref - $(date +%s))) +%H:%M:%S)
-	printf "%s\r" "$output"
+	printf "%s\r" "$(date -u -d @$((ref - $(date +%s))) +%H:%M:%S)"
 	sleep 0.1
 done

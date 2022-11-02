@@ -1,7 +1,8 @@
 #!/bin/sh -eu
-# fuzzy find the book under ~/books and open it
+# fuzzy find a book in $dir and open it with $reader
 
-books_dir="$HOME/books"
-book="$(find "$books_dir" -type f | dmenu -i -l 20)"
+reader="emacsclient"
+dir="$HOME/books"
+book="$(find "$dir" -type f | dmenu -i -l 20)"
 
-$EDITOR "$book"
+$reader "$book"

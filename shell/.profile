@@ -26,7 +26,7 @@ export PATH="$PATH:$HOME/bin:$GOPATH/bin:$CARGO_HOME/bin"
 # default programs
 export BROWSER="brave"
 export EDITOR="emacsclient -t"
-export ALTERNATE_EDITOR="vim"
+export ALTERNATE_EDITOR="mg -n"
 export VISUAL="$EDITOR"
 export PAGER="less"
 export LESS="iRM"
