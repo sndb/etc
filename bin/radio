@@ -1,0 +1,5 @@
+#!/bin/sh -eu
+# listen to lofi hip hop radio
+
+url="youtube.com/watch?v=jfKfPfyJRdk"
+mpv --no-video "ytdl://${url}"
