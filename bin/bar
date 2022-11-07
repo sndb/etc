@@ -2,12 +2,15 @@
 # status bar
 
 vol() {
-	val="$(pulsemixer --get-volume)"
+	# pulsemixer returns two equal values; use the first one
+	pair="$(pulsemixer --get-volume)"
+	val="${pair% *}"
 	mute="$(pulsemixer --get-mute)"
+	graph="$(drawr 20 0 150 "$val")"
 	if [ "$mute" = 1 ]; then
-		echo "--"
+		echo "-- $graph"
 	else
-		echo "${val% *}%"
+		echo "$val% $graph"
 	fi
 }
 
@@ -22,6 +25,6 @@ clock() {
 }
 
 while :; do
-	xsetroot -name "Net: $(net)  Vol: $(vol)  $(clock)"
-	sleep 1
+	xsetroot -name "Vol: $(vol)"
+	sleep 0.2
 done
