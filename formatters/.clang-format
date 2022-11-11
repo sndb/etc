@@ -2,10 +2,10 @@ BasedOnStyle: LLVM
 UseTab: Always
 TabWidth: 8
 IndentWidth: 8
-ContinuationIndentWidth: 8
-AlignArrayOfStructures: Right
+ContinuationIndentWidth: 4
 AlignEscapedNewlines: Left
-AlignOperands: AlignAfterOperator
+AlignOperands: DontAlign
+AlignAfterOpenBracket: DontAlign
 AllowShortEnumsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: Empty
 AlwaysBreakAfterReturnType: AllDefinitions
