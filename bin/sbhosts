@@ -1,5 +1,5 @@
 #!/bin/sh -eu
 # install StevenBlack's hosts
 
-url="https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn-social/hosts"
+url="https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
 sudo curl "$url" --output /etc/hosts
