@@ -1,6 +1,6 @@
 [[ $- != *i* ]] && return
 
-PS1='\h\$ '
+PS1='\h \w \$ '
 
 alias sudo='sudo '
 alias e='emacsclient -t'

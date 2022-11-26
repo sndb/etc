@@ -6,11 +6,11 @@ vol() {
 	pair="$(pulsemixer --get-volume)"
 	val="${pair% *}"
 	mute="$(pulsemixer --get-mute)"
-	graph="$(drawr 20 0 150 "$val")"
+
 	if [ "$mute" = 1 ]; then
-		echo "-- $graph"
+		echo "---"
 	else
-		echo "$val% $graph"
+		echo "$val%"
 	fi
 }
 
@@ -21,10 +21,10 @@ net() {
 }
 
 clock() {
-	date +"%Y-%m-%d %H:%M"
+	date +"%a %d %H:%M"
 }
 
 while :; do
-	xsetroot -name "Vol: $(vol)"
+	xsetroot -name "Vol: $(vol)   $(clock)"
 	sleep 0.2
 done
