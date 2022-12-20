@@ -9,5 +9,3 @@ rm -vf \
 	~/.rediscli_history \
 	~/.sqlite_history \
         ~/acme.dump
-
-rm -vrf ~/tmp/*
