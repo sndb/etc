@@ -1,4 +1,4 @@
 #!/bin/sh
 # take a screenshot
 
-maim -u "$HOME/tmp/$(date +%s).png"
+maim --hidecursor | xclip -selection clipboard -t image/png

@@ -1,4 +1,4 @@
 #!/bin/sh
 # take a screenshot of the selected region
 
-maim -u -s "$HOME/tmp/$(date +%s).png"
+maim --hidecursor --select | xclip -selection clipboard -t image/png
