@@ -8,4 +8,4 @@ rm -vf \
 	~/.python_history \
 	~/.rediscli_history \
 	~/.sqlite_history \
-        ~/acme.dump
+	~/acme.dump

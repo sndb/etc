@@ -2,27 +2,27 @@
 # transfer file
 
 usage() {
-    cat <<EOF
+	cat <<EOF
 Usage: $0 [ -u -h host -p port ] [ filename ]
 EOF
 }
 
 while getopts up:h: f; do
-    case $f in
-        u)
-            upload=1
-            ;;
-        h)
-            host=$OPTARG
-            ;;
-        p)
-            port=$OPTARG
-            ;;
-        ?)
-            usage
-            exit 1
-            ;;
-    esac
+	case $f in
+	u)
+		upload=1
+		;;
+	h)
+		host=$OPTARG
+		;;
+	p)
+		port=$OPTARG
+		;;
+	?)
+		usage
+		exit 1
+		;;
+	esac
 done
 
 shift $((OPTIND - 1))
@@ -30,14 +30,14 @@ shift $((OPTIND - 1))
 filename=$1
 
 if [ -n "$upload" ] && [ -z "$host" ] || [ -z "$filename" ]; then
-    usage
-    exit 1
+	usage
+	exit 1
 fi
 
 port=${port:-2345}
 
 if [ -n "$upload" ]; then
-    nc -w 3 "$host" "$port" < "$filename"
+	nc -w 3 "$host" "$port" <"$filename"
 else
-    nc -l "$port" > "$filename"
+	nc -l "$port" >"$filename"
 fi
