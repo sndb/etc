@@ -1,0 +1,34 @@
+#!/usr/bin/guile \
+--no-auto-compile -e main -s
+!#
+
+(use-modules (ice-9 match))
+
+(define monitors '("1" "2"))
+
+(define (command monitor feature value)
+  `("sudo" "ddcutil" "-d" ,monitor "setvcp" ,feature ,value))
+
+(define feature-code
+  (match-lambda
+    ('brightness "10")
+    ('contrast "12")))
+
+(define (tweak monitor feature value)
+  (apply system* (command monitor (feature-code feature) value)))
+
+(define (usage)
+  (display "usage: br [monitor] <contrast> <brightness>\n"))
+
+(define (main args)
+  (match args
+    ((_ monitor contrast brightness)
+     (tweak monitor 'contrast contrast)
+     (tweak monitor 'brightness brightness))
+    ((_ contrast brightness)
+     (for-each
+      (lambda (monitor)
+        (tweak monitor 'contrast contrast)
+        (tweak monitor 'brightness brightness))
+      monitors))
+    (_ (usage))))
