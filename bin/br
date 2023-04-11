@@ -2,33 +2,45 @@
 --no-auto-compile -e main -s
 !#
 
-(use-modules (ice-9 match))
+(define settings
+  '((1 (35 . 50) (0 . 90))
+    (2 (28 . 42) (0 . 90))))
 
-(define monitors '("1" "2"))
+(define setting-monitor car)
+(define setting-contrast cadr)
+(define setting-brightness caddr)
+
+(define feature-brightness 10)
+(define feature-contrast 12)
 
 (define (command monitor feature value)
-  `("sudo" "ddcutil" "-d" ,monitor "setvcp" ,feature ,value))
-
-(define feature-code
-  (match-lambda
-    ('brightness "10")
-    ('contrast "12")))
+  (map (lambda (x)
+         (if (number? x) (number->string x) x))
+       `("sudo" "ddcutil" "-d" ,monitor "setvcp" ,feature ,value)))
 
 (define (tweak monitor feature value)
-  (apply system* (command monitor (feature-code feature) value)))
+  (display (list monitor feature value))
+  (newline)
+  (apply system* (command monitor feature value)))
 
-(define (usage)
-  (display "usage: br [monitor] <contrast> <brightness>\n"))
+(define (set setting val)
+  (let ((monitor (setting-monitor setting)))
+    (for-each
+     (lambda (feature type)
+       (tweak monitor feature (interpolate (type setting) val)))
+     (list feature-brightness feature-contrast)
+     (list setting-brightness setting-contrast))))
+
+(define (interpolate i v)
+  (let ((f (/ v 100.0))
+        (min (car i))
+        (max (cdr i)))
+    (inexact->exact (floor (+ min (* f (- max min)))))))
 
 (define (main args)
-  (match args
-    ((_ monitor contrast brightness)
-     (tweak monitor 'contrast contrast)
-     (tweak monitor 'brightness brightness))
-    ((_ contrast brightness)
-     (for-each
-      (lambda (monitor)
-        (tweak monitor 'contrast contrast)
-        (tweak monitor 'brightness brightness))
-      monitors))
-    (_ (usage))))
+  (if (not (= (length args) 2))
+      (display "usage: br <0-100>")
+      (for-each
+       (lambda (s)
+         (set s (string->number (cadr args))))
+       settings)))
