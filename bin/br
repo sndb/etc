@@ -4,7 +4,7 @@
 
 (define settings
   '((1 (35 . 50) (0 . 90))
-    (2 (28 . 42) (0 . 90))))
+    (2 (35 . 50) (0 . 90))))
 
 (define setting-monitor car)
 (define setting-contrast cadr)

@@ -3,6 +3,9 @@
 # disable dpms and prevent screen from blanking
 xset s off -dpms &
 
+# setup monitors
+xrandr --output HDMI-0 --right-of VGA-0
+
 # activate numlock
 numlockx &
 
