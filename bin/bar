@@ -14,12 +14,6 @@ vol() {
 	fi
 }
 
-net() {
-	rx=$(traffic | cut -d ' ' -f 1)
-	tx=$(traffic | cut -d ' ' -f 2)
-	echo "↓ $((rx / 1024)) KiB ↑ $((tx / 1024)) KiB"
-}
-
 clock() {
 	date +"%a %d %H:%M"
 }
