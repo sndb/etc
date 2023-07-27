@@ -2,45 +2,49 @@
 --no-auto-compile -e main -s
 !#
 
-(define settings
+;; br: adjust monitor settings
+;; ---------------------------
+
+;; configuration is a list of the following form:
+;; (display# contrast-interval brightness-interval)
+(define configurations
   '((1 (35 . 50) (0 . 90))
     (2 (35 . 50) (0 . 90))))
 
-(define setting-monitor car)
-(define setting-contrast cadr)
-(define setting-brightness caddr)
+(define configuration-display car)
+(define configuration-features cdr)
+(define feature-codes '(12 10))
 
-(define feature-brightness 10)
-(define feature-contrast 12)
+(define (log v)
+  (display v)
+  (newline))
 
-(define (command monitor feature value)
-  (map (lambda (x)
-         (if (number? x) (number->string x) x))
-       `("sudo" "ddcutil" "-d" ,monitor "setvcp" ,feature ,value)))
+(define (build-command display feature value)
+  (string-join (list "sudo ddcutil --display"
+                     (number->string display)
+                     "setvcp"
+                     (number->string feature)
+                     (number->string value))
+               " "))
 
-(define (tweak monitor feature value)
-  (display (list monitor feature value))
-  (newline)
-  (apply system* (command monitor feature value)))
-
-(define (set setting val)
-  (let ((monitor (setting-monitor setting)))
+(define (adjust-settings cfg arg)
+  (let ((display (configuration-display cfg)))
     (for-each
-     (lambda (feature type)
-       (tweak monitor feature (interpolate (type setting) val)))
-     (list feature-brightness feature-contrast)
-     (list setting-brightness setting-contrast))))
+     (λ (feature pair)
+       (let* ((value (interpolate (car pair) (cdr pair) arg))
+              (cmd (build-command display feature value)))
+         (log cmd)
+         (system cmd)))
+     feature-codes
+     (configuration-features cfg))))
 
-(define (interpolate i v)
-  (let ((f (/ v 100.0))
-        (min (car i))
-        (max (cdr i)))
-    (inexact->exact (floor (+ min (* f (- max min)))))))
+(define (interpolate a b v)
+  (let ((f (/ v 100.0)))
+    (inexact->exact (floor (+ a (* f (- b a)))))))
 
 (define (main args)
   (if (not (= (length args) 2))
-      (display "usage: br <0-100>")
-      (for-each
-       (lambda (s)
-         (set s (string->number (cadr args))))
-       settings)))
+      (log "usage: br <0-100>")
+      (let* ((arg (string->number (cadr args)))
+             (adjust (λ (cfg) (adjust-settings cfg arg))))
+        (for-each adjust configurations))))
