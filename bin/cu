@@ -1,7 +1,8 @@
 #!/bin/sh
-# clean home directory
+# clean up home directory
 
 rm -vf \
+	~/.gambit_history \
 	~/.lesshst \
 	~/.mysql_history \
 	~/.psql_history \
