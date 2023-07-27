@@ -2,20 +2,24 @@
 # status bar
 
 vol() {
-	# pulsemixer returns two equal values; use the first one
-	pair="$(pulsemixer --get-volume)"
-	val="${pair% *}"
 	mute="$(pulsemixer --get-mute)"
-
 	if [ "$mute" = 1 ]; then
 		echo "---"
+		return
+	fi
+
+	pair="$(pulsemixer --get-volume)"
+	left="${pair% *}"
+	right="${pair#* }"
+	if [ "$left" = "$right" ]; then
+		echo "$left%"
 	else
-		echo "$val%"
+		echo "L$left% R$right%"
 	fi
 }
 
 clock() {
-	date +"%a %d %H:%M"
+	date +"%A %d %H:%M"
 }
 
 while :; do
