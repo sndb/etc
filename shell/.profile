@@ -4,26 +4,29 @@ export HISTSIZE=65536
 export LANG="en_US.UTF-8"
 
 # xdg base directory
-export XDG_CACHE_HOME="$HOME/.cache"       # /var/cache
-export XDG_CONFIG_HOME="$HOME/.config"     # /etc
-export XDG_DATA_HOME="$HOME/.local/share"  # /usr/share
-export XDG_STATE_HOME="$HOME/.local/state" # /var/lib
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+# XDG_RUNTIME_DIR is set by default to /run/user/$UID
 
-# paths
+# custom paths
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
-export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite/history"
-export PSQL_HISTORY="$XDG_DATA_HOME/psql/history"
-export HISTFILE="$XDG_DATA_HOME/bash/history"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
-export LESSHISTFILE="-"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export LEIN_HOME="$XDG_DATA_HOME/lein"
-export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export PATH="$PATH:$HOME/bin:$GOPATH/bin:$CARGO_HOME/bin"
+
+# history files
+export HISTFILE="$XDG_STATE_HOME/bashhst"
+export SQLITE_HISTORY="$XDG_STATE_HOME/sqlitehst"
+export PSQL_HISTORY="$XDG_STATE_HOME/psqlhst"
+export NODE_REPL_HISTORY="$XDG_STATE_HOME/nodehst"
+export REDISCLI_HISTFILE="$XDG_STATE_HOME/redishst"
 
 # default programs
 export BROWSER="brave"
