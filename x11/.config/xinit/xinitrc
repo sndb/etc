@@ -15,4 +15,7 @@ dunst &
 # statusbar script
 bar &
 
+# load resources
+xrdb -merge ~/.Xresources
+
 exec dwm
