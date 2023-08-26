@@ -7,7 +7,7 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char font[]            = "Fira Mono:pixelsize=14";
+static const char font[]            = "Go Mono:pixelsize=14";
 static const char *fonts[]          = { font };
 static const char col_norm_fg[]     = "#989898";
 static const char col_norm_bg[]     = "#000000";
@@ -22,7 +22,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "i", "ii", "iii", "iv" };
+static const char *tags[] = { "α", "β", "γ", "δ" };
 
 static const Rule rules[] = {
 	/* xprop(1):

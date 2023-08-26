@@ -2,7 +2,7 @@
     width = 200
     height = 150
     frame_width = 1
-    font = Fira Mono 10.5
+    font = Go Mono 10.5
 
 [urgency_low]
     background = "#000000"
