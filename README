@@ -3,6 +3,6 @@ etc -- dotfiles
 
 I use `stow' to manage my configuration files.
 
-Run `stow -t ~ bash readline xinit ...' to recursively symlink the
+Run `stow -t ~ x11 shell gnupg dunst' to recursively symlink the
 selected directories. Use the same command with the -D flag to delete
 the symlinks.
