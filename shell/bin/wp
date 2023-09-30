@@ -1,7 +1,7 @@
 #!/bin/sh -eu
 # set a wallpaper
 
-dir="$XDG_DATA_HOME/wallpapers"
+dir="$XDG_DATA_HOME/wallpapers/"
 
 if [ -h "$dir/default" ]; then
 	wp="$dir/default"
@@ -11,4 +11,4 @@ else
 	echo "wallpaper: random ($wp)"
 fi
 
-hsetroot -root -cover "$wp"
+hsetroot -cover "$wp"
