@@ -3,18 +3,18 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
+static const int topbar             = 0;        /* 0 means bottom bar */
 static const char font[]            = "Go Mono:pixelsize=14";
 static const char *fonts[]          = { font };
 static const char col_norm_fg[]     = "#989898";
-static const char col_norm_bg[]     = "#000000";
+static const char col_norm_bg[]     = "#1e1e1e";
 static const char col_norm_border[] = "#646464";
 static const char col_sel_fg[]      = "#ffffff";
-static const char col_sel_bg[]      = "#535353";
-static const char col_sel_border[]  = "#79a8ff";
+static const char col_sel_bg[]      = "#1640b0";
+static const char col_sel_border[]  = "#c0965b";
 static const char *colors[][3]      = {
 	/*               fg           bg           border         */
 	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },

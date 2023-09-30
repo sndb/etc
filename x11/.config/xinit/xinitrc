@@ -15,6 +15,9 @@ dunst &
 # statusbar script
 bar &
 
+# wallpaper
+wp &
+
 # load resources
 xrdb -merge ~/.Xresources
 
