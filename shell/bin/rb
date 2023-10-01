@@ -2,7 +2,7 @@
 # fuzzy find a book in $dir and open it with $reader
 
 reader="$BROWSER"
-dir="$HOME/books"
+dir="$HOME/data/books/pdf"
 book="$(find "$dir" -type f | dmenu -i -l 20)"
 
 $reader "$book"
