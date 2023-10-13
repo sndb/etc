@@ -4,17 +4,18 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int gappx     = 8;        /* gaps between windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
-static const char font[]            = "Go Mono:pixelsize=14";
+static const int topbar             = 1;        /* 0 means bottom bar */
+static const char font[]            = "Hack:pixelsize=14";
 static const char *fonts[]          = { font };
 static const char col_norm_fg[]     = "#989898";
 static const char col_norm_bg[]     = "#1e1e1e";
 static const char col_norm_border[] = "#646464";
 static const char col_sel_fg[]      = "#ffffff";
-static const char col_sel_bg[]      = "#1640b0";
-static const char col_sel_border[]  = "#c0965b";
+static const char col_sel_bg[]      = "#1e1e1e";
+static const char col_sel_border[]  = "#d2b580";
 static const char *colors[][3]      = {
 	/*               fg           bg           border         */
 	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },
@@ -22,7 +23,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "α", "β", "γ", "δ" };
+static const char *tags[] = { "i", "ii", "iii", "iv" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -35,7 +36,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact        = 0.5;   /* factor of master area size [0.05..0.95] */
+static const float mfact        = 0.6;   /* factor of master area size [0.05..0.95] */
 static const int nmaster        = 1;     /* number of clients in master area */
 static const int resizehints    = 1;     /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1;     /* 1 will force focus on the fullscreen window */
@@ -60,8 +61,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]   = { "dmenu_run", "-fn", font, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
-static const char *termcmd[]    = { "st", "-f", font, NULL };
+static const char *dmenucmd[]   = { "dmenu_run", NULL };
+static const char *termcmd[]    = { "st", NULL };
 static const char *emacscmd[]   = { "emacsclient", "-c", "-a", "emacs", NULL };
 static const char *lockcmd[]    = { "slock", NULL };
 static const char *shotcmd[]    = { "shot", NULL };

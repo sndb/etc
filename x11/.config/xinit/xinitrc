@@ -3,9 +3,6 @@
 # disable dpms and prevent screen from blanking
 xset s off -dpms &
 
-# setup monitors
-xrandr --output HDMI-0 --right-of VGA-0
-
 # activate numlock
 numlockx &
 
@@ -16,7 +13,7 @@ dunst &
 bar &
 
 # wallpaper
-wp &
+xsetroot -fg "#221000" -bg "#442c2f" -mod 4 4 &
 
 # load resources
 xrdb -merge ~/.Xresources
