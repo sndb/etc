@@ -13,7 +13,7 @@ dunst &
 bar &
 
 # wallpaper
-xsetroot -fg "#221000" -bg "#442c2f" -mod 4 4 &
+xsetroot -fg "#442c2f" -bg "#221000" -mod 2 2 &
 
 # load resources
 xrdb -merge ~/.Xresources
