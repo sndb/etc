@@ -13,7 +13,7 @@ dunst &
 bar &
 
 # wallpaper
-xsetroot -solid "#442c2f" &
+wp &
 
 # load resources
 xrdb -merge ~/.Xresources
