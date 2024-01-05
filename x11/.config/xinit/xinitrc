@@ -6,14 +6,11 @@ xset s off -dpms &
 # activate numlock
 numlockx &
 
-# notifications
-dunst &
-
 # statusbar script
 bar &
 
 # wallpaper
-wp &
+xsetroot -solid "#442c2f" &
 
 # load resources
 xrdb -merge ~/.Xresources
