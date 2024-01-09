@@ -8,7 +8,7 @@ static const unsigned int gappx     = 2;        /* gaps between windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char font[]            = "Hack:pixelsize=14";
+static const char font[]            = "Source Code Pro:pixelsize=14";
 static const char *fonts[]          = { font };
 static const char col_norm_fg[]     = "#989898";
 static const char col_norm_bg[]     = "#1e1e1e";
