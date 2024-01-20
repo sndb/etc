@@ -8,7 +8,7 @@ static const unsigned int gappx     = 2;        /* gaps between windows */
 static const unsigned int snap      = 16;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char font[]            = "Source Code Pro:pixelsize=14";
+static const char font[]            = "Hack:pixelsize=14";
 static const char *fonts[]          = { font };
 static const char col_norm_fg[]     = "#989898";
 static const char col_norm_bg[]     = "#1e1e1e";
@@ -67,9 +67,8 @@ static const char *emacscmd[]   = { "emacsclient", "-c", "-a", "emacs", NULL };
 static const char *lockcmd[]    = { "slock", NULL };
 static const char *shotcmd[]    = { "shot", NULL };
 static const char *shotselcmd[] = { "shotsel", NULL };
-static const char *volupcmd[]   = { "pulsemixer", "--change-volume", "+3", NULL };
-static const char *voldowncmd[] = { "pulsemixer", "--change-volume", "-3", NULL };
-static const char *volmutecmd[] = { "pulsemixer", "--toggle-mute", NULL };
+static const char *volupcmd[]   = { "pulsemixer", "--change-volume", "+2", NULL };
+static const char *voldowncmd[] = { "pulsemixer", "--change-volume", "-2", NULL };
 
 static const Key keys[] = {
 	/* modifier         key                      function        argument */
@@ -79,7 +78,6 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask, XK_s,                    spawn,          {.v = shotselcmd} },
 	{ 0,                XF86XK_AudioRaiseVolume, spawn,          {.v = volupcmd} },
 	{ 0,                XF86XK_AudioLowerVolume, spawn,          {.v = voldowncmd} },
-	{ 0,                XF86XK_AudioMute,        spawn,          {.v = volmutecmd} },
 	{ MODKEY,           XK_p,                    spawn,          {.v = dmenucmd} },
 	{ MODKEY|ShiftMask, XK_Return,               spawn,          {.v = termcmd} },
 	{ MODKEY,           XK_b,                    togglebar,      {0} },
