@@ -1,0 +1,46 @@
+# node
+super + {j,k}
+	bspc node -f {next,prev}.local.window
+
+super + {t,s,f}
+	bspc node -t {tiled,floating,fullscreen}
+
+super + g
+	bspc node -s biggest.local.window
+
+super + x
+	bspc node -c
+
+# desktop
+super + m
+	bspc desktop -l next
+
+super + {_,shift + }{1-4}
+	bspc {desktop -f,node -d} '^{1-4}'
+
+# launch
+super + Return
+	st
+
+super + shift + Return
+	dmenu_run
+
+super + e
+	emacsclient -c -a emacs
+
+# volume
+XF86AudioRaiseVolume
+	pulsemixer --change-volume +2
+
+XF86AudioLowerVolume
+	pulsemixer --change-volume -2
+
+# reload
+super + Escape ; s
+	pkill -USR1 -x sxhkd
+
+super + Escape ; r
+	bspc wm -r
+
+super + Escape ; q
+	bspc quit
