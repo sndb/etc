@@ -8,7 +8,7 @@
 ;; configuration is a list of the following form:
 ;; (display# contrast-interval brightness-interval)
 (define configurations
-  '((1 (50 . 50) (0 . 90))))
+  '((1 (25 . 50) (0 . 90))))
 
 (define configuration-display car)
 (define configuration-features cdr)
