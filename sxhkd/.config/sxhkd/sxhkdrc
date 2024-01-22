@@ -15,8 +15,11 @@ super + x
 super + m
 	bspc desktop -l next
 
-super + {_,shift + }{1-4}
-	bspc {desktop -f,node -d} '^{1-4}'
+super + {1-4}
+	bspc desktop -f '^{1-4}'
+
+super + shift + {1-4}
+	bspc node -d '^{1-4}' --follow
 
 # launch
 super + Return
@@ -27,6 +30,12 @@ super + shift + Return
 
 super + e
 	emacsclient -c -a emacs
+
+super + Print
+	shot
+
+super + shift + Print
+	shotsel
 
 # volume
 XF86AudioRaiseVolume
