@@ -1,9 +1,0 @@
-#!/bin/sh -eu
-# countdown
-
-ref=$(($(date +%s) + $1))
-
-while [ "$ref" -ge "$(date +%s)" ]; do
-	printf "%s\r" "$(date -u -d @$((ref - $(date +%s))) +%H:%M:%S)"
-	sleep 0.1
-done
