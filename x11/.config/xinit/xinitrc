@@ -6,13 +6,13 @@ xset s off -dpms
 # activate numlock
 numlockx
 
-# set default cursor
-xsetroot -cursor_name left_ptr
-
 # load resource file
 xrdb -merge ~/.Xresources
 
-# enable hotkey daemon
-sxhkd &
+# set background
+xsetroot -solid "#442c2f"
 
-exec bspwm
+# status bar
+bar &
+
+exec dwm

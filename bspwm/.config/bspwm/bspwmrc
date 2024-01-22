@@ -1,6 +1,0 @@
-#!/bin/sh
-
-bspc monitor -d 1 2 3 4
-bspc config focus_follows_pointer true
-bspc config borderless_monocle true
-bspc config gapless_monocle true
