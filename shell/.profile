@@ -32,7 +32,6 @@ export REDISCLI_HISTFILE="$XDG_STATE_HOME/redishst"
 # default programs
 export BROWSER="brave"
 export EDITOR="emacsclient -c"
-export ALTERNATE_EDITOR="mg -n"
 export VISUAL="$EDITOR"
 export PAGER="less"
 export LESS="iRM"
