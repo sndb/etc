@@ -35,7 +35,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.5;  /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -62,6 +62,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
 static const char *termcmd[] = {"st", NULL};
+static const char *emacscmd[] = {"emacsclient", "-c", "-a", "emacs", NULL};
 static const char *lockcmd[] = {"slock", NULL};
 static const char *shotcmd[] = {"shot", NULL};
 static const char *shotselcmd[] = {"shotsel", NULL};
@@ -72,6 +73,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_e,      spawn,          {.v = emacscmd } },
 	{ MODKEY|ShiftMask,             XK_Delete, spawn,          {.v = lockcmd } },
 	{ MODKEY,                       XK_s,      spawn,          {.v = shotcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = shotselcmd } },
