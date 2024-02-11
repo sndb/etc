@@ -59,8 +59,10 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+#define DMENUARGS "-m", dmenumon, "-fn", font, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font, "-nb", col_norm_bg, "-nf", col_norm_fg, "-sb", col_sel_bg, "-sf", col_sel_fg, NULL };
+static const char *dmenucmd[] = { "dmenu_run", DMENUARGS, NULL };
+static const char *passcmd[] = { "passmenu", DMENUARGS, NULL };
 static const char *termcmd[] = {"st", NULL};
 static const char *emacscmd[] = {"emacsclient", "-c", "-a", "emacs", NULL};
 static const char *lockcmd[] = {"slock", NULL};
@@ -72,6 +74,7 @@ static const char *voldowncmd[] = {"pulsemixer", "--change-volume", "-2", NULL};
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_e,      spawn,          {.v = emacscmd } },
 	{ MODKEY|ShiftMask,             XK_Delete, spawn,          {.v = lockcmd } },
