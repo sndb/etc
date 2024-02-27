@@ -3,6 +3,12 @@
 # prevent screen from blanking
 xset s off -dpms
 
+# typematic delay and rate
+xset r rate 250 50
+
+# keyboard layout
+setxkbmap -layout us,ru -option grp:rctrl_toggle,grp_led:scroll,ctrl:nocaps
+
 # disable mouse acceleration
 xinput set-prop 8 "libinput Accel Profile Enabled" 0 1 0
 
