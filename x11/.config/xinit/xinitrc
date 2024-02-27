@@ -3,6 +3,9 @@
 # prevent screen from blanking
 xset s off -dpms
 
+# disable mouse acceleration
+xinput set-prop 8 "libinput Accel Profile Enabled" 0 1 0
+
 # activate numlock
 numlockx
 
