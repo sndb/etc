@@ -19,7 +19,7 @@ numlockx
 xrdb -merge ~/.Xresources
 
 # set background
-xsetroot -solid "#442c2f"
+hsetroot -cover ~/.local/share/wallpaper.jpg
 
 # status bar
 bar &
