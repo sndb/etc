@@ -18,7 +18,6 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
-export LEIN_HOME="$XDG_DATA_HOME/lein"
 export GITLIBS="$XDG_CACHE_HOME/gitlibs"
 export PATH="$PATH:$HOME/bin:$GOPATH/bin:$CARGO_HOME/bin"
 
@@ -26,7 +25,6 @@ export PATH="$PATH:$HOME/bin:$GOPATH/bin:$CARGO_HOME/bin"
 export HISTFILE="$XDG_STATE_HOME/bashhst"
 export SQLITE_HISTORY="$XDG_STATE_HOME/sqlitehst"
 export PSQL_HISTORY="$XDG_STATE_HOME/psqlhst"
-export NODE_REPL_HISTORY="$XDG_STATE_HOME/nodehst"
 export REDISCLI_HISTFILE="$XDG_STATE_HOME/redishst"
 
 # default programs
