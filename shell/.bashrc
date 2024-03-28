@@ -19,6 +19,13 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
+alias sc='systemctl'
+alias ssc='sudo systemctl'
+alias scu='systemctl --user'
+alias jc='journalctl'
+alias sjc='sudo journalctl'
+alias jcu='journalctl --user'
+
 cl() {
     cd "$@" && l
 }
