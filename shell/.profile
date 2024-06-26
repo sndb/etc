@@ -34,7 +34,6 @@ export VISUAL="$EDITOR"
 export PAGER="less"
 export LESS="iRM"
 export TERMINAL="st"
-export FZF_DEFAULT_OPTS="--color=no"
 
 # google
 export GOSUMDB="off"
