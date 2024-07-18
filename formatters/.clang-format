@@ -6,7 +6,6 @@ ContinuationIndentWidth: 4
 AlignEscapedNewlines: Left
 AlignOperands: AlignAfterOperator
 AlignAfterOpenBracket: DontAlign
-AlignConsecutiveMacros: true
 BreakBeforeBinaryOperators: All
 ColumnLimit: 0
 QualifierAlignment: Left
@@ -14,3 +13,5 @@ IncludeBlocks: Regroup
 IndentPPDirectives: BeforeHash
 KeepEmptyLinesAtTheStartOfBlocks: false
 SortIncludes: CaseInsensitive
+IndentAccessModifiers: false
+AccessModifierOffset: -8
