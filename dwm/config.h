@@ -14,7 +14,7 @@ static const char col_norm_bg[]     = "#1e1e1e";
 static const char col_norm_border[] = "#646464";
 static const char col_sel_fg[]      = "#ffffff";
 static const char col_sel_bg[]      = "#1e1e1e";
-static const char col_sel_border[]  = "#d2b580";
+static const char col_sel_border[]  = "#79a8ff";
 static const char *colors[][3]      = {
 	/*               fg           bg           border         */
 	[SchemeNorm] = { col_norm_fg, col_norm_bg, col_norm_border },
