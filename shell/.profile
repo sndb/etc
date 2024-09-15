@@ -18,7 +18,6 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 export XINITRC="$XDG_CONFIG_HOME/xinit/xinitrc"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
-export GITLIBS="$XDG_CACHE_HOME/gitlibs"
 export PATH="$PATH:$HOME/bin:$GOPATH/bin:$CARGO_HOME/bin"
 
 # history files
