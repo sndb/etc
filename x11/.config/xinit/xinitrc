@@ -18,8 +18,8 @@ numlockx
 # load resource file
 xrdb -merge ~/.Xresources
 
-# set background
-hsetroot -cover ~/.local/share/wallpaper
+# set background color
+hsetroot -solid "#303030"
 
 # status bar
 bar &
