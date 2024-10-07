@@ -1,4 +1,0 @@
-#!/bin/sh
-# copy an image
-
-xclip -selection clipboard -t image/png $@
