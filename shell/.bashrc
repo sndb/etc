@@ -3,7 +3,6 @@
 PS1='\w \$ '
 
 alias sudo='sudo '
-alias e='emacsclient -c'
 alias mkd='mkdir -vp'
 alias cp='cp -vi'
 alias mv='mv -vi'
@@ -19,15 +18,8 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-alias sc='systemctl'
-alias ssc='sudo systemctl'
-alias scu='systemctl --user'
-alias jc='journalctl'
-alias sjc='sudo journalctl'
-alias jcu='journalctl --user'
-
 cl() {
-    cd "$@" && l
+	cd "$@" && l
 }
 
 # fzf integration
