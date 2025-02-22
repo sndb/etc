@@ -15,7 +15,9 @@ export GOPATH="$XDG_DATA_HOME/go"
 export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
-export PATH="$PATH:$HOME/.local/bin:$XDG_DATA_HOME/zig:$GOPATH/bin:$CARGO_HOME/bin"
+export ZIG_DIR="$XDG_DATA_HOME/zig"
+export ODIN_DIR="$XDG_DATA_HOME/odin"
+export PATH="$PATH:$HOME/.local/bin:$ODIN_DIR:$ZIG_DIR:$GOPATH/bin:$CARGO_HOME/bin"
 
 # history files
 export HISTFILE="$XDG_STATE_HOME/bashhst"
