@@ -1,4 +1,0 @@
-#!/bin/sh
-# adjust contrast and brightness
-
-sudo ddcutil setvcp 12 $1 10 $2

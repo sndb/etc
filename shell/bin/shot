@@ -1,4 +1,0 @@
-#!/bin/sh
-# take a screenshot
-
-maim --hidecursor | xclip -selection clipboard -t image/png

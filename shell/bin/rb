@@ -1,7 +1,0 @@
-#!/bin/sh -eu
-# fuzzy find a book in $dir and open it with $reader
-
-dir="$HOME/data/books/pdf"
-book="$(find "$dir" -type f | fzf)"
-
-$BROWSER "$book"
