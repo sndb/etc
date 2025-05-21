@@ -18,6 +18,7 @@ export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export ZIG_DIR="$XDG_DATA_HOME/zig"
 export ODIN_DIR="$XDG_DATA_HOME/odin"
 export PATH="$PATH:$HOME/.local/bin:$ODIN_DIR:$ZIG_DIR:$GOPATH/bin:$CARGO_HOME/bin"
+export ICEAUTHORITY="$XDG_CACHE_HOME/ICEauthority"
 
 # history files
 export HISTFILE="$XDG_STATE_HOME/bashhst"
