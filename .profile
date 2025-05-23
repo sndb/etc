@@ -12,7 +12,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # custom paths
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
-export INPUTRC="$XDG_CONFIG_HOME/readline/inputrc"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export ZIG_DIR="$XDG_DATA_HOME/zig"
