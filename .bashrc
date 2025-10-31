@@ -23,5 +23,4 @@ cl() {
 }
 
 # fzf integration
-. /usr/share/fzf/key-bindings.bash
-. /usr/share/fzf/completion.bash
+eval "$(fzf --bash)"
