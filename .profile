@@ -26,7 +26,7 @@ export PSQL_HISTORY="$XDG_STATE_HOME/psqlhst"
 export REDISCLI_HISTFILE="$XDG_STATE_HOME/redishst"
 
 # default programs
-export EDITOR="emacsclient -c"
+export EDITOR="nvim"
 export VISUAL="$EDITOR"
 export PAGER="less"
 export LESS="iRM"

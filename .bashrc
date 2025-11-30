@@ -2,6 +2,7 @@
 
 PS1='\w \$ '
 
+alias vim='nvim'
 alias sudo='sudo '
 alias mkd='mkdir -vp'
 alias cp='cp -vi'
