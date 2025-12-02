@@ -20,8 +20,10 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 cl() {
-	cd "$@" && l
+    cd "$@" && l
 }
 
 # fzf integration
+export FZF_CTRL_T_OPTS="--walker file,dir,follow --preview 'bat --plain --color=always {}'"
+export FZF_ALT_C_OPTS="--walker dir,follow"
 eval "$(fzf --bash)"
