@@ -1,5 +1,5 @@
--- Basic settings.
-vim.g.mapleader = ' '
+-- General
+vim.g.mapleader = '\\'
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.wildignorecase = true
@@ -10,18 +10,14 @@ vim.o.confirm = true
 vim.o.expandtab = true
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
+vim.o.clipboard = 'unnamedplus'
+vim.o.updatetime = 250
 
+vim.cmd('au TermOpen * startinsert')
 vim.cmd('au FileType lua setlocal et ts=2 sw=2')
-vim.cmd('au FileType go setlocal noet ts=8 sw=8 nolist')
+vim.cmd('au FileType go setlocal noet ts=4 sw=4 nolist')
 
--- Sync clipboard between OS and Neovim.
-vim.api.nvim_create_autocmd('UIEnter', {
-  callback = function()
-    vim.o.clipboard = 'unnamedplus'
-  end,
-})
-
--- Configure LSP and autoformat.
+-- LSP
 vim.lsp.enable({'pyright', 'gopls', 'zls'})
 
 vim.api.nvim_create_autocmd('BufWritePre', {
@@ -31,25 +27,32 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
--- Use <Esc> to exit terminal mode.
-vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
-
--- Navigate between windows.
-vim.keymap.set({ 't', 'i' }, '<A-h>', '<C-\\><C-n><C-w>h')
-vim.keymap.set({ 't', 'i' }, '<A-j>', '<C-\\><C-n><C-w>j')
-vim.keymap.set({ 't', 'i' }, '<A-k>', '<C-\\><C-n><C-w>k')
-vim.keymap.set({ 't', 'i' }, '<A-l>', '<C-\\><C-n><C-w>l')
-vim.keymap.set({ 'n' }, '<A-h>', '<C-w>h')
-vim.keymap.set({ 'n' }, '<A-j>', '<C-w>j')
-vim.keymap.set({ 'n' }, '<A-k>', '<C-w>k')
-vim.keymap.set({ 'n' }, '<A-l>', '<C-w>l')
-
--- Highlight when yanking (copying) text.
+-- Highlight
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
     vim.hl.on_yank()
   end,
 })
 
--- Automatically turn off search highlighting.
-vim.cmd('packadd! nohlsearch')
+-- Plugins
+vim.cmd([[
+  call plug#begin()
+  Plug 'ibhagwan/fzf-lua'
+  Plug 'miikanissi/modus-themes.nvim'
+  call plug#end()
+]])
+
+-- Bindings
+vim.keymap.set('n', '<Leader>e', '<Cmd>Ex<CR>')
+
+require('fzf-lua')
+vim.keymap.set('n', '<Leader>f', FzfLua.files)
+vim.keymap.set('n', '<Leader>b', FzfLua.buffers)
+vim.keymap.set('n', '<Leader>g', FzfLua.grep_project)
+vim.keymap.set('n', '<Leader>d', FzfLua.diagnostics_document)
+vim.keymap.set('n', '<Leader>s', FzfLua.lsp_document_symbols)
+vim.keymap.set('n', '<Leader>h', FzfLua.help_tags)
+vim.keymap.set('n', '<Leader>k', FzfLua.builtin)
+
+-- Colorscheme
+vim.cmd('colorscheme modus')
