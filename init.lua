@@ -24,16 +24,12 @@ vim.lsp.enable({ 'pyright', 'gopls', 'zls' })
 
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = { '*.go', '*.zig' },
-  callback = function(ev)
-    vim.lsp.buf.format({ bufnr = ev.buf })
-  end,
+  callback = function() vim.lsp.buf.format() end,
 })
 
 -- Highlight
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.hl.on_yank()
-  end,
+  callback = function() vim.hl.on_yank() end,
 })
 
 -- Plugins
@@ -41,12 +37,13 @@ vim.cmd([[
   call plug#begin()
   Plug 'ibhagwan/fzf-lua'
   Plug 'stevearc/oil.nvim'
+  Plug 'kylechui/nvim-surround'
+  Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main' }
   Plug 'miikanissi/modus-themes.nvim'
   call plug#end()
 ]])
 
--- Bindings
-vim.keymap.set('n', '<Leader>e', '<Cmd>Ex<CR>')
+require('nvim-surround').setup({})
 
 require('fzf-lua').setup({'default'})
 vim.keymap.set('n', '<Leader>f', FzfLua.files)
@@ -60,15 +57,24 @@ vim.keymap.set('n', '<Leader>r', FzfLua.lsp_finder)
 vim.keymap.set('n', '<Leader>h', FzfLua.help_tags)
 vim.keymap.set('n', '<Leader>k', FzfLua.builtin)
 
--- Oil
 require('oil').setup({
   view_options = { show_hidden = true },
-  columns = { "permissions", "size", "mtime" },
-  constrain_cursor = "name",
+  columns = { 'permissions', 'size', 'mtime' },
+  constrain_cursor = 'name',
   watch_for_changes = true,
 })
 
 vim.keymap.set('n', '-', '<Cmd>Oil<CR>')
 
--- Colorscheme
+-- Treesitter
+local treesitter_languages = { 'python', 'javascript', 'lua', 'c', 'go', 'zig', 'markdown' };
+
+require('nvim-treesitter').install(treesitter_languages)
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = treesitter_languages,
+  callback = function() vim.treesitter.start() end,
+})
+
+-- Theme
 vim.cmd('colorscheme modus')
