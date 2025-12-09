@@ -20,7 +20,7 @@ vim.cmd('au FileType lua setlocal et ts=2 sw=2')
 vim.cmd('au FileType go setlocal noet ts=4 sw=4 nolist')
 
 -- LSP
-vim.lsp.enable({ 'pyright', 'gopls', 'zls' })
+vim.lsp.enable({ 'pyright', 'clangd', 'gopls', 'zls' })
 
 vim.api.nvim_create_autocmd('BufWritePre', {
   pattern = { '*.go', '*.zig' },
