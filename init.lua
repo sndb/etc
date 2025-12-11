@@ -53,9 +53,10 @@ vim.keymap.set('n', '<Leader>o', FzfLua.oldfiles)
 vim.keymap.set('n', '<Leader>d', FzfLua.diagnostics_document)
 vim.keymap.set('n', '<Leader>s', FzfLua.lsp_document_symbols)
 vim.keymap.set('n', '<Leader>a', FzfLua.lsp_code_actions)
-vim.keymap.set('n', '<Leader>r', FzfLua.lsp_finder)
+vim.keymap.set('n', '<Leader>r', FzfLua.lsp_references)
 vim.keymap.set('n', '<Leader>h', FzfLua.help_tags)
 vim.keymap.set('n', '<Leader>k', FzfLua.builtin)
+vim.keymap.set('n', '<Leader><Leader>', FzfLua.resume)
 
 require('oil').setup({
   view_options = { show_hidden = true },
