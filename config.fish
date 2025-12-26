@@ -22,4 +22,6 @@ if status is-interactive
     set -gx FZF_CTRL_T_OPTS "--walker file,dir,follow --preview 'bat --plain --color=always {}'"
     set -gx FZF_ALT_C_OPTS "--walker dir,follow"
     fzf --fish | source
+
+    bind \co 'set old_tty (stty -g); stty sane; lfcd; stty $old_tty; commandline -f repaint'
 end
