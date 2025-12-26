@@ -36,7 +36,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.cmd([[
   call plug#begin()
   Plug 'ibhagwan/fzf-lua'
-  Plug 'stevearc/oil.nvim'
   Plug 'kylechui/nvim-surround'
   Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main' }
   Plug 'miikanissi/modus-themes.nvim'
@@ -45,7 +44,7 @@ vim.cmd([[
 
 require('nvim-surround').setup({})
 
-require('fzf-lua').setup({'default'})
+require('fzf-lua').setup({ 'default', files = { hidden = false } })
 vim.keymap.set('n', '<Leader>f', FzfLua.files)
 vim.keymap.set('n', '<Leader>b', FzfLua.buffers)
 vim.keymap.set('n', '<Leader>g', FzfLua.grep_project)
@@ -58,14 +57,11 @@ vim.keymap.set('n', '<Leader>h', FzfLua.help_tags)
 vim.keymap.set('n', '<Leader>k', FzfLua.builtin)
 vim.keymap.set('n', '<Leader><Leader>', FzfLua.resume)
 
-require('oil').setup({
-  view_options = { show_hidden = true },
-  columns = { 'permissions', 'size', 'mtime' },
-  constrain_cursor = 'name',
-  watch_for_changes = true,
-})
-
-vim.keymap.set('n', '-', '<Cmd>Oil<CR>')
+-- Netrw
+vim.keymap.set('n', '-', '<Cmd>Explore<CR>')
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 1
+vim.g.netrw_sizestyle = 'h'
 
 -- Treesitter
 local treesitter_languages = { 'python', 'javascript', 'lua', 'c', 'go', 'zig', 'markdown' };
