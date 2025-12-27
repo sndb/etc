@@ -1,0 +1,21 @@
+{
+    "spacing": 20,
+    "reload_style_on_change": true,
+    "modules-left": ["niri/workspaces", "wlr/taskbar"],
+    "modules-right": ["pulseaudio", "clock", "tray"],
+    "wlr/taskbar": {
+        "format": "{icon} {title}",
+        "on-click": "activate"
+    },
+    "niri/window": {
+        "separate-outputs": true
+    },
+    "pulseaudio": {
+        "format": "󰖀 {volume}%",
+        "format-muted": "󰝟 {volume}%",
+        "scroll-step": 2.0
+    },
+    "clock": {
+        "format": "{:%a %d %b %H:%M}"
+    }
+}

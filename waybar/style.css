@@ -1,0 +1,50 @@
+* {
+    font-family: "UbuntuMono Nerd Font";
+    font-size: 14pt;
+}
+
+window#waybar {
+    color: #ffffff;
+    background: #0f0f0f;
+}
+
+#workspaces button {
+    border: none;
+    border-radius: 0;
+    padding: 0 4px;
+    color: #989898;
+}
+
+#workspaces button.focused {
+    color: #ffffff;
+}
+
+#workspaces button:hover {
+    color: #0f0f0f;
+    background: #ffffff;
+}
+
+#taskbar button {
+    border: none;
+    border-radius: 0;
+    padding: 0 4px;
+    margin-left: 20px;
+    color: #989898;
+}
+
+#taskbar button:first-child {
+    margin-left: 0;
+}
+
+#taskbar button.active {
+    color: #ffffff;
+}
+
+#taskbar button:hover {
+    color: #0f0f0f;
+    background: #ffffff;
+}
+
+#tray * {
+    padding: 0 4px;
+}
