@@ -45,6 +45,12 @@ layout {
 window-rule {
     geometry-corner-radius 2
     clip-to-geometry true
+    open-maximized true
+}
+
+window-rule {
+    match app-id="foot"
+    open-maximized false
 }
 
 spawn-at-startup "waybar"
