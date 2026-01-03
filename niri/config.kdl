@@ -71,7 +71,7 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
 
-    Mod+O repeat=false { toggle-overview; }
+    Mod+Space repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
 
