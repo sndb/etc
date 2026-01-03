@@ -1,5 +1,5 @@
 -- General
-vim.g.mapleader = '\\'
+vim.g.mapleader = ' '
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.wildignorecase = true
@@ -37,6 +37,7 @@ vim.cmd([[
   call plug#begin()
   Plug 'ibhagwan/fzf-lua'
   Plug 'kylechui/nvim-surround'
+  Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main' }
   Plug 'miikanissi/modus-themes.nvim'
   call plug#end()
@@ -50,12 +51,20 @@ vim.keymap.set('n', '<Leader>b', FzfLua.buffers)
 vim.keymap.set('n', '<Leader>g', FzfLua.grep_project)
 vim.keymap.set('n', '<Leader>o', FzfLua.oldfiles)
 vim.keymap.set('n', '<Leader>d', FzfLua.diagnostics_document)
-vim.keymap.set('n', '<Leader>s', FzfLua.lsp_document_symbols)
+vim.keymap.set('n', '<Leader>t', FzfLua.lsp_document_symbols)
 vim.keymap.set('n', '<Leader>a', FzfLua.lsp_code_actions)
 vim.keymap.set('n', '<Leader>r', FzfLua.lsp_references)
-vim.keymap.set('n', '<Leader>h', FzfLua.help_tags)
-vim.keymap.set('n', '<Leader>k', FzfLua.builtin)
+vim.keymap.set('n', '<Leader>s', FzfLua.git_status)
 vim.keymap.set('n', '<Leader><Leader>', FzfLua.resume)
+
+-- Gitsigns
+local gitsigns = require('gitsigns')
+vim.keymap.set('n', ']c', function() gitsigns.nav_hunk('next') end)
+vim.keymap.set('n', '[c', function() gitsigns.nav_hunk('prev') end)
+vim.keymap.set('n', '<Leader>hs', gitsigns.stage_hunk)
+vim.keymap.set('n', '<Leader>hr', gitsigns.reset_hunk)
+vim.keymap.set('n', '<Leader>hp', gitsigns.preview_hunk)
+vim.keymap.set('n', '<Leader>hb', gitsigns.blame_line)
 
 -- Netrw
 vim.keymap.set('n', '-', '<Cmd>Explore<CR>')
