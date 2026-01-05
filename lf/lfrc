@@ -1,0 +1,13 @@
+set ifs "\n"
+set hidden
+set info size
+set dircounts
+set incfilter
+set incsearch
+set scrolloff 10
+set cursorpreviewfmt "\033[7;2m"
+set previewer ~/.config/lf/previewer
+
+map ` !true
+map <enter> open
+map D delete
