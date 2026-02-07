@@ -1,4 +1,5 @@
 if status is-interactive
+    alias lg 'lazygit'
     alias vim 'nvim'
     alias mkd 'mkdir -vp'
     alias cp 'cp -vi'
