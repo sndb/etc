@@ -32,13 +32,17 @@ layout {
     gaps 16
 
     focus-ring {
-        width 2
-        active-color "#989898"
-        inactive-color "#1e1e1e"
+        width 1
+        active-color "#b6a0ff"
+        inactive-color "#989898"
     }
 
     shadow {
         on
+        spread 2
+        softness 4
+        offset x=4 y=4
+        color "#00000060"
     }
 }
 
@@ -79,6 +83,11 @@ binds {
     Mod+J { focus-window-or-workspace-down; }
     Mod+K { focus-window-or-workspace-up; }
     Mod+L { focus-column-or-monitor-right; }
+
+    Mod+Shift+H { focus-monitor-left; }
+    Mod+Shift+J { focus-monitor-down; }
+    Mod+Shift+K { focus-monitor-up; }
+    Mod+Shift+L { focus-monitor-right; }
 
     Mod+Ctrl+H { move-column-left-or-to-monitor-left; }
     Mod+Ctrl+J { move-window-down-or-to-workspace-down; }
