@@ -27,6 +27,8 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function() vim.lsp.buf.format() end,
 })
 
+vim.keymap.set('n', '<Leader>a', vim.lsp.buf.code_action)
+
 -- Highlight
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.hl.on_yank() end,
@@ -35,7 +37,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- Plugins
 vim.cmd([[
   call plug#begin()
-  Plug 'ibhagwan/fzf-lua'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
   Plug 'kylechui/nvim-surround'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main' }
@@ -45,17 +48,16 @@ vim.cmd([[
 
 require('nvim-surround').setup({})
 
-require('fzf-lua').setup({ 'default', files = { hidden = false } })
-vim.keymap.set('n', '<Leader>f', FzfLua.files)
-vim.keymap.set('n', '<Leader>b', FzfLua.buffers)
-vim.keymap.set('n', '<Leader>g', FzfLua.grep_project)
-vim.keymap.set('n', '<Leader>o', FzfLua.oldfiles)
-vim.keymap.set('n', '<Leader>d', FzfLua.diagnostics_document)
-vim.keymap.set('n', '<Leader>t', FzfLua.lsp_document_symbols)
-vim.keymap.set('n', '<Leader>a', FzfLua.lsp_code_actions)
-vim.keymap.set('n', '<Leader>r', FzfLua.lsp_references)
-vim.keymap.set('n', '<Leader>s', FzfLua.git_status)
-vim.keymap.set('n', '<Leader><Leader>', FzfLua.resume)
+-- Telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<Leader>f', builtin.find_files)
+vim.keymap.set('n', '<Leader>g', builtin.live_grep)
+vim.keymap.set('n', '<Leader>b', builtin.buffers)
+vim.keymap.set('n', '<Leader>o', builtin.oldfiles)
+vim.keymap.set('n', '<Leader>d', builtin.diagnostics)
+vim.keymap.set('n', '<Leader>t', builtin.lsp_document_symbols)
+vim.keymap.set('n', '<Leader>r', builtin.lsp_references)
+vim.keymap.set('n', '<Leader>s', builtin.git_status)
 
 -- Gitsigns
 local gitsigns = require('gitsigns')
