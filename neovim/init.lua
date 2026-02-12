@@ -14,6 +14,8 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.updatetime = 250
 vim.o.splitright = true
 vim.o.splitbelow = true
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.cmd('au TermOpen * startinsert')
 vim.cmd('au FileType lua setlocal et ts=2 sw=2')
@@ -39,6 +41,8 @@ vim.cmd([[
   call plug#begin()
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-tree/nvim-web-devicons'
+  Plug 'nvim-tree/nvim-tree.lua'
   Plug 'kylechui/nvim-surround'
   Plug 'lewis6991/gitsigns.nvim'
   Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main' }
@@ -59,6 +63,10 @@ vim.keymap.set('n', '<Leader>t', builtin.lsp_document_symbols)
 vim.keymap.set('n', '<Leader>r', builtin.lsp_references)
 vim.keymap.set('n', '<Leader>s', builtin.git_status)
 
+-- NvimTree
+require('nvim-tree').setup()
+vim.keymap.set('n', '<Leader>e', '<Cmd>NvimTreeFindFileToggle<CR>')
+
 -- Gitsigns
 local gitsigns = require('gitsigns')
 vim.keymap.set('n', ']c', function() gitsigns.nav_hunk('next') end)
@@ -67,12 +75,6 @@ vim.keymap.set('n', '<Leader>hs', gitsigns.stage_hunk)
 vim.keymap.set('n', '<Leader>hr', gitsigns.reset_hunk)
 vim.keymap.set('n', '<Leader>hp', gitsigns.preview_hunk)
 vim.keymap.set('n', '<Leader>hb', gitsigns.blame_line)
-
--- Netrw
-vim.keymap.set('n', '-', '<Cmd>Explore<CR>')
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 1
-vim.g.netrw_sizestyle = 'h'
 
 -- Treesitter
 local treesitter_languages = { 'python', 'javascript', 'lua', 'c', 'go', 'zig', 'markdown' };
