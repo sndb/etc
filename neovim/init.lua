@@ -71,7 +71,16 @@ vim.keymap.set('n', '<Leader>r', builtin.lsp_references)
 vim.keymap.set('n', '<Leader>s', builtin.git_status)
 
 -- NvimTree
-require('nvim-tree').setup()
+require('nvim-tree').setup({
+  actions = {
+    open_file = {
+      window_picker = {
+        enable = false,
+      },
+    },
+  },
+})
+
 vim.keymap.set('n', '<Leader>e', '<Cmd>NvimTreeFindFile<CR>')
 
 -- Gitsigns
