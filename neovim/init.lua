@@ -29,8 +29,6 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   callback = function() vim.lsp.buf.format() end,
 })
 
-vim.keymap.set('n', '<Leader>a', vim.lsp.buf.code_action)
-
 -- Highlight
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.hl.on_yank() end,
@@ -53,6 +51,15 @@ vim.cmd([[
 require('nvim-surround').setup({})
 
 -- Telescope
+require('telescope').setup({
+  defaults = {
+    sorting_strategy = 'ascending',
+    layout_config = {
+      prompt_position = 'top',
+    },
+  },
+})
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<Leader>f', builtin.find_files)
 vim.keymap.set('n', '<Leader>g', builtin.live_grep)
@@ -65,7 +72,7 @@ vim.keymap.set('n', '<Leader>s', builtin.git_status)
 
 -- NvimTree
 require('nvim-tree').setup()
-vim.keymap.set('n', '<Leader>e', '<Cmd>NvimTreeFindFileToggle<CR>')
+vim.keymap.set('n', '<Leader>e', '<Cmd>NvimTreeFindFile<CR>')
 
 -- Gitsigns
 local gitsigns = require('gitsigns')
