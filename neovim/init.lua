@@ -35,18 +35,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Plugins
-vim.cmd([[
-  call plug#begin()
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
-  Plug 'nvim-tree/nvim-web-devicons'
-  Plug 'nvim-tree/nvim-tree.lua'
-  Plug 'kylechui/nvim-surround'
-  Plug 'lewis6991/gitsigns.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main' }
-  Plug 'miikanissi/modus-themes.nvim'
-  call plug#end()
-]])
+vim.pack.add({
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/nvim-telescope/telescope.nvim',
+  'https://github.com/nvim-tree/nvim-web-devicons',
+  'https://github.com/nvim-tree/nvim-tree.lua',
+  'https://github.com/kylechui/nvim-surround',
+  'https://github.com/lewis6991/gitsigns.nvim',
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/miikanissi/modus-themes.nvim',
+})
 
 require('nvim-surround').setup({})
 
@@ -103,4 +101,4 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- Theme
-vim.cmd('colorscheme modus')
+vim.cmd.colorscheme('modus')
