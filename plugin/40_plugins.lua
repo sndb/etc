@@ -1,173 +1,165 @@
--- ┌─────────────────────────┐
--- │ Plugins outside of MINI │
--- └─────────────────────────┘
---
--- This file contains installation and configuration of plugins outside of MINI.
--- They significantly improve user experience in a way not yet possible with MINI.
--- These are mostly plugins that provide programming language specific behavior.
---
--- Use this file to install and configure other such plugins.
+-- Treesitter
+vim.pack.add({
+  'https://github.com/nvim-treesitter/nvim-treesitter',
+  'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
+})
 
--- Make concise helpers for installing/adding plugins in two stages
-local add = vim.pack.add
-local now_if_args, later = Config.now_if_args, Config.later
+-- Update parsers after plugin upgrade.
+local ts_update = function() vim.cmd('TSUpdate') end
+Config.on_packchanged('nvim-treesitter', { 'update' }, ts_update, ':TSUpdate')
 
--- Tree-sitter ================================================================
+-- Auto-install treesitter parsers.
+local languages = { 'vimdoc', 'markdown', 'go', 'gomod', 'python', 'lua' }
+require('nvim-treesitter').install(languages)
 
--- Tree-sitter is a tool for fast incremental parsing. It converts text into
--- a hierarchical structure (called tree) that can be used to implement advanced
--- and/or more precise actions: syntax highlighting, textobjects, indent, etc.
---
--- Tree-sitter support is built into Neovim (see `:h treesitter`). However, it
--- requires two extra pieces that don't come with Neovim directly:
--- - Language parsers: programs that convert text into trees. Some are built-in
---   (like for Lua), 'nvim-treesitter' provides many others.
---   NOTE: It requires third party software to build and install parsers.
---   See the link for more info in "Requirements" section of the MiniMax README.
--- - Query files: definitions of how to extract information from trees in
---   a useful manner (see `:h treesitter-query`). 'nvim-treesitter' also provides
---   these, while 'nvim-treesitter-textobjects' provides the ones for Neovim
---   textobjects (see `:h text-objects`, `:h MiniAi.gen_spec.treesitter()`).
---
--- Add these plugins now if file (and not 'mini.starter') is shown after startup.
---
--- Troubleshooting:
--- - Run `:checkhealth vim.treesitter nvim-treesitter` to see potential issues.
--- - In case of errors related to queries for Neovim bundled parsers (like `lua`,
---   `vimdoc`, `markdown`, etc.), manually install them via 'nvim-treesitter'
---   with `:TSInstall <language>`. Be sure to have necessary system dependencies
---   (see MiniMax README section for software requirements).
-now_if_args(function()
-  -- Define hook to update tree-sitter parsers after plugin is updated
-  local ts_update = function() vim.cmd('TSUpdate') end
-  Config.on_packchanged('nvim-treesitter', { 'update' }, ts_update, ':TSUpdate')
-
-  add({
-    'https://github.com/nvim-treesitter/nvim-treesitter',
-    'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
-  })
-
-  -- Define languages which will have parsers installed and auto enabled
-  -- After changing this, restart Neovim once to install necessary parsers. Wait
-  -- for the installation to finish before opening a file for added language(s).
-  local languages = {
-    -- These are already pre-installed with Neovim. Used as an example.
-    'lua',
-    'vimdoc',
-    'markdown',
-    -- Add here more languages with which you want to use tree-sitter
-    -- To see available languages:
-    -- - Execute `:=require('nvim-treesitter').get_available()`
-    -- - Visit 'SUPPORTED_LANGUAGES.md' file at
-    --   https://github.com/nvim-treesitter/nvim-treesitter/blob/main
-  }
-  local isnt_installed = function(lang)
-    return #vim.api.nvim_get_runtime_file('parser/' .. lang .. '.*', false) == 0
+-- Enable treesitter for supported languages.
+local filetypes = {}
+for _, lang in ipairs(languages) do
+  for _, ft in ipairs(vim.treesitter.language.get_filetypes(lang)) do
+    table.insert(filetypes, ft)
   end
-  local to_install = vim.tbl_filter(isnt_installed, languages)
-  if #to_install > 0 then require('nvim-treesitter').install(to_install) end
+end
+local ts_start = function(ev) vim.treesitter.start(ev.buf) end
+Config.new_autocmd('FileType', filetypes, ts_start, 'Start treesitter')
 
-  -- Enable tree-sitter after opening a file for a target language
-  local filetypes = {}
-  for _, lang in ipairs(languages) do
-    for _, ft in ipairs(vim.treesitter.language.get_filetypes(lang)) do
-      table.insert(filetypes, ft)
+-- LSP
+vim.pack.add({ 'https://github.com/neovim/nvim-lspconfig' })
+vim.lsp.enable({ 'gopls', 'pyright', 'clangd', 'lua_ls' })
+
+-- Conform
+vim.pack.add({ 'https://github.com/stevearc/conform.nvim' })
+
+require('conform').setup({
+  default_format_opts = {
+    lsp_format = 'fallback',
+  },
+  formatters_by_ft = {
+    lua = { 'stylua' },
+    python = { 'ruff_format' },
+    json = { 'deno_fmt' },
+    javascript = { 'deno_fmt' },
+  },
+})
+
+-- Colorscheme
+vim.pack.add({ 'https://github.com/miikanissi/modus-themes.nvim' })
+vim.cmd('colorscheme modus')
+
+-- Snacks
+vim.pack.add({ 'https://github.com/folke/snacks.nvim' })
+
+require('snacks').setup({
+  picker = { enabled = true },
+})
+
+-- Gitsigns
+vim.pack.add({ 'https://github.com/lewis6991/gitsigns.nvim' })
+
+local gitsigns = require('gitsigns')
+gitsigns.setup({
+  on_attach = function(bufnr)
+    local map = function(mode, lhs, rhs, desc)
+      vim.keymap.set(mode, lhs, rhs, { buf = bufnr, desc = desc })
     end
+
+    -- Navigation
+    local next_hunk = function()
+      if vim.wo.diff then
+        vim.cmd.normal({ ']c', bang = true })
+      else
+        gitsigns.nav_hunk('next')
+      end
+    end
+
+    local prev_hunk = function()
+      if vim.wo.diff then
+        vim.cmd.normal({ '[c', bang = true })
+      else
+        gitsigns.nav_hunk('prev')
+      end
+    end
+
+    map('n', ']c', next_hunk, 'Next hunk')
+    map('n', '[c', prev_hunk, 'Previous hunk')
+
+    -- Actions
+    map('n', '<Leader>hs', gitsigns.stage_hunk, 'Stage hunk')
+    map('n', '<Leader>hr', gitsigns.reset_hunk, 'Reset hunk')
+
+    map('v', '<Leader>hs', function()
+      gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+    end, 'Stage region')
+
+    map('v', '<Leader>hr', function()
+      gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
+    end, 'Reset region')
+
+    map('n', '<Leader>hS', gitsigns.stage_buffer, 'Stage buffer')
+    map('n', '<Leader>hR', gitsigns.reset_buffer, 'Reset buffer')
+    map('n', '<Leader>hp', gitsigns.preview_hunk, 'Preview hunk')
+
+    map('n', '<Leader>hb', function()
+      gitsigns.blame_line({ full = true })
+    end, 'Blame line')
+
+    map('n', '<Leader>hq', gitsigns.setqflist, 'Quickfix hunks (buffer)')
+    map('n', '<Leader>hQ', function() gitsigns.setqflist('all') end, 'Quickfix hunks (all)')
+
+    -- Text object
+    map({ 'o', 'x' }, 'ih', gitsigns.select_hunk, 'Select hunk')
   end
-  local ts_start = function(ev) vim.treesitter.start(ev.buf) end
-  Config.new_autocmd('FileType', filetypes, ts_start, 'Start tree-sitter')
-end)
+})
 
--- Language servers ===========================================================
+-- Diffview
+vim.pack.add({ 'https://github.com/sindrets/diffview.nvim' })
 
--- Language Server Protocol (LSP) is a set of conventions that power creation of
--- language specific tools. It requires two parts:
--- - Server - program that performs language specific computations.
--- - Client - program that asks server for computations and shows results.
---
--- Here Neovim itself is a client (see `:h vim.lsp`). Language servers need to
--- be installed separately based on your OS, CLI tools, and preferences.
--- See note about 'mason.nvim' at the bottom of the file.
---
--- Neovim's team collects commonly used configurations for most language servers
--- inside 'neovim/nvim-lspconfig' plugin.
---
--- Add it now if file (and not 'mini.starter') is shown after startup.
-now_if_args(function()
-  add({ 'https://github.com/neovim/nvim-lspconfig' })
+-- Neogit
+vim.pack.add({ 'https://github.com/neogitorg/neogit' })
 
-  -- Use `:h vim.lsp.enable()` to automatically enable language server based on
-  -- the rules provided by 'nvim-lspconfig'.
-  -- Use `:h vim.lsp.config()` or 'after/lsp/' directory to configure servers.
-  -- Uncomment and tweak the following `vim.lsp.enable()` call to enable servers.
-  -- vim.lsp.enable({
-  --   -- For example, if `lua-language-server` is installed, use `'lua_ls'` entry
-  -- })
-end)
+-- Blink
+vim.pack.add({
+  'https://github.com/saghen/blink.lib',
+  'https://github.com/saghen/blink.cmp',
+})
 
--- Formatting =================================================================
+local cmp = require('blink.cmp')
+cmp.build():pwait()
+cmp.setup({
+  sources = { default = { 'lsp', 'path', 'buffer' } },
+  completion = { menu = { auto_show = false } },
+})
 
--- Programs dedicated to text formatting (a.k.a. formatters) are very useful.
--- Neovim has built-in tools for text formatting (see `:h gq` and `:h 'formatprg'`).
--- They can be used to configure external programs, but it might become tedious.
---
--- The 'stevearc/conform.nvim' plugin is a good and maintained solution for easier
--- formatting setup.
-later(function()
-  add({ 'https://github.com/stevearc/conform.nvim' })
+-- Oil
+vim.pack.add({ 'https://github.com/stevearc/oil.nvim' })
 
-  -- See also:
-  -- - `:h Conform`
-  -- - `:h conform-options`
-  -- - `:h conform-formatters`
-  require('conform').setup({
-    default_format_opts = {
-      -- Allow formatting from LSP server if no dedicated formatter is available
-      lsp_format = 'fallback',
-    },
-    -- Map of filetype to formatters
-    -- Make sure that necessary CLI tool is available
-    -- formatters_by_ft = { lua = { 'stylua' } },
-  })
-end)
+local oil = require('oil')
+oil.setup({
+  keymaps = {
+    ['g?'] = 'actions.show_help',
+    ['<CR>'] = 'actions.select',
+    ['<C-v>'] = { 'actions.select', opts = { vertical = true } },
+    ['<C-s>'] = { 'actions.select', opts = { horizontal = true } },
+    ['<C-t>'] = { 'actions.select', opts = { tab = true } },
+    ['<C-p>'] = 'actions.preview',
+    ['<C-c>'] = 'actions.close',
+    ['-'] = 'actions.parent',
+    ['_'] = 'actions.open_cwd',
+    ['<Leader>cd'] = { 'actions.cd', opts = { scope = 'tab' } },
+    ['gs'] = 'actions.change_sort',
+    ['gx'] = 'actions.open_external',
+    ['g.'] = 'actions.toggle_hidden',
 
--- Snippets ===================================================================
+    ['q'] = 'actions.close',
+    ['l'] = 'actions.select',
+    ['h'] = 'actions.parent',
 
--- Although 'mini.snippets' provides functionality to manage snippet files, it
--- deliberately doesn't come with those.
---
--- The 'rafamadriz/friendly-snippets' is currently the largest collection of
--- snippet files. They are organized in 'snippets/' directory (mostly) per language.
--- 'mini.snippets' is designed to work with it as seamlessly as possible.
--- See `:h MiniSnippets.gen_loader.from_lang()`.
-later(function() add({ 'https://github.com/rafamadriz/friendly-snippets' }) end)
-
--- Honorable mentions =========================================================
-
--- 'mason-org/mason.nvim' (a.k.a. "Mason") is a great tool (package manager) for
--- installing external language servers, formatters, and linters. It provides
--- a unified interface for installing, updating, and deleting such programs.
---
--- The caveat is that these programs will be set up to be mostly used inside Neovim.
--- If you need them to work elsewhere, consider using other package managers.
---
--- You can use it like so:
--- now_if_args(function()
---   add({ 'https://github.com/mason-org/mason.nvim' })
---   require('mason').setup()
--- end)
-
--- Beautiful, usable, well maintained color schemes outside of 'mini.nvim' and
--- have full support of its highlight groups. Use if you don't like 'miniwinter'
--- enabled in 'plugin/30_mini.lua' or other suggested 'mini.hues' based ones.
--- Config.now(function()
---  -- Install only those that you need
---  add({
---    'https://github.com/sainnhe/everforest',
---    'https://github.com/Shatur/neovim-ayu',
---    'https://github.com/ellisonleao/gruvbox.nvim',
---  })
---
---   -- Enable only one
---   vim.cmd('color everforest')
--- end)
+    ['gh'] = '<Cmd>edit $HOME<CR>',
+    ['gd'] = '<Cmd>edit $HOME/Downloads<CR>',
+    ['<Leader>ff'] = function() Snacks.picker.files({ cwd = oil.get_current_dir() }) end,
+    ['<Leader>fg'] = function() Snacks.picker.grep({ cwd = oil.get_current_dir() }) end,
+  },
+  use_default_keymaps = false,
+  columns = { 'icon', 'permissions', 'size', 'mtime' },
+  view_options = { show_hidden = true },
+  watch_for_changes = true,
+})
