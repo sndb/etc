@@ -1,11 +1,5 @@
 vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
 
--- Common configuration presets.
-require('mini.basics').setup({
-  options = { basic = false },
-  mappings = { windows = true },
-})
-
 -- Icon provider.
 require('mini.icons').setup()
 

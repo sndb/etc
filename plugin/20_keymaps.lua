@@ -1,6 +1,8 @@
 -- Basic
-vim.keymap.set({ 'n', 'i' }, '<Esc>', '<Cmd>noh<CR><Esc>', { desc = 'Escape and clear highlighting' })
+vim.keymap.set('n', '<Esc>', '<Cmd>noh<CR>', { desc = 'Clear highlighting' })
 vim.keymap.set('n', '<Leader>qq', '<Cmd>qa<CR>', { desc = 'Quit all' })
+vim.keymap.set('n', '<C-s>', '<Cmd>silent! update<CR>', { desc = 'Save file' })
+vim.keymap.set({ 'i', 'x' }, '<C-s>', '<Esc><Cmd>silent! update<CR>', { desc = 'Save file' })
 
 local cd_to_root = function()
   local root = Snacks.git.get_root() or vim.fn.expand('%:p:h')
@@ -8,6 +10,12 @@ local cd_to_root = function()
 end
 
 vim.keymap.set('n', '<Leader>cd', cd_to_root, { desc = 'cd to the project root' })
+
+-- Windows
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = 'Focus on left window' })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = 'Focus on below window' })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = 'Focus on above window' })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = 'Focus on right window' })
 
 -- Utilities
 vim.keymap.set('n', '-', '<Cmd>Oil<CR>', { desc = 'Explorer' })
@@ -19,6 +27,7 @@ vim.keymap.set('n', '<Leader>ff', function() Snacks.picker.files() end, { desc =
 vim.keymap.set('n', '<Leader>fv', function() Snacks.picker.recent() end, { desc = 'Recent' })
 vim.keymap.set('n', '<Leader>fb', function() Snacks.picker.buffers() end, { desc = 'Buffers' })
 vim.keymap.set('n', '<Leader>fg', function() Snacks.picker.grep() end, { desc = 'Grep' })
+vim.keymap.set('n', '<Leader>fl', function() Snacks.picker.lines() end, { desc = 'Lines' })
 vim.keymap.set('n', '<Leader>fd', function() Snacks.picker.diagnostics() end, { desc = 'Diagnostics' })
 vim.keymap.set('n', '<Leader>fh', function() Snacks.picker.help() end, { desc = 'Help' })
 vim.keymap.set('n', '<Leader>fr', function() Snacks.picker.lsp_references() end, { desc = 'References' })

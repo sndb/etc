@@ -86,11 +86,11 @@ gitsigns.setup({
     map('n', '<Leader>hs', gitsigns.stage_hunk, 'Stage hunk')
     map('n', '<Leader>hr', gitsigns.reset_hunk, 'Reset hunk')
 
-    map('v', '<Leader>hs', function()
+    map('x', '<Leader>hs', function()
       gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
     end, 'Stage region')
 
-    map('v', '<Leader>hr', function()
+    map('x', '<Leader>hr', function()
       gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
     end, 'Reset region')
 
