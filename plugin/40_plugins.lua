@@ -177,3 +177,7 @@ oil.setup({
   view_options = { show_hidden = true },
   watch_for_changes = true,
 })
+
+-- Quicker
+vim.pack.add({ 'https://github.com/stevearc/quicker.nvim' })
+require('quicker').setup()
