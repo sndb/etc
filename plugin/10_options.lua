@@ -4,17 +4,17 @@ vim.o.undofile  = true          -- Enable persistent undo
 vim.o.clipboard = 'unnamedplus' -- Always use system clipboard
 
 -- UI
-vim.o.list           = true     -- Show helpful text indicators
-vim.o.pumheight      = 20       -- Make popup menu smaller
-vim.o.pummaxwidth    = 100      -- Make popup menu not too wide
-vim.o.signcolumn     = 'yes'    -- Always show signcolumn (less flicker)
-vim.o.splitbelow     = true     -- Horizontal splits will be below
-vim.o.splitright     = true     -- Vertical splits will be to the right
-vim.o.splitkeep      = 'screen' -- Reduce scroll during window split
-vim.o.scrolloff      = 5        -- Minimum lines above and below cursor
-vim.o.wrap           = false    -- Don't visually wrap lines (toggle with \w)
-vim.o.linebreak      = true     -- Wrap lines at spaces (if 'wrap' is set)
-vim.o.foldenable     = false    -- Open all folds by default
+vim.o.list        = true        -- Show helpful text indicators
+vim.o.pumheight   = 20          -- Make popup menu smaller
+vim.o.pummaxwidth = 100         -- Make popup menu not too wide
+vim.o.signcolumn  = 'yes'       -- Always show signcolumn (less flicker)
+vim.o.splitbelow  = true        -- Horizontal splits will be below
+vim.o.splitright  = true        -- Vertical splits will be to the right
+vim.o.splitkeep   = 'screen'    -- Reduce scroll during window split
+vim.o.scrolloff   = 5           -- Minimum lines above and below cursor
+vim.o.wrap        = false       -- Don't visually wrap lines (toggle with \w)
+vim.o.linebreak   = true        -- Wrap lines at spaces (if 'wrap' is set)
+vim.o.foldenable  = false       -- Open all folds by default
 
 -- Editing
 vim.o.expandtab      = true     -- Convert tabs to spaces
@@ -24,6 +24,20 @@ vim.o.formatoptions  = 'rqn1j'  -- Improve comment editing
 vim.o.ignorecase     = true     -- Ignore case during search
 vim.o.wildignorecase = true     -- Ignore case when completing file names
 vim.o.smartcase      = true     -- Respect case if search pattern has upper case
+
+-- Diff
+vim.opt.fillchars = {
+  diff = '/',
+}
+vim.opt.diffopt = {
+  'internal',
+  'filler',
+  'closeoff',
+  'indent-heuristic',
+  'inline:char',
+  'linematch:60',
+  'algorithm:histogram',
+}
 
 -- Pattern for a start of numbered list (used in `gw`). This reads as
 -- "Start of list item is: at least one special character (digit, -, +, *)
@@ -42,7 +56,7 @@ local print_osc7 = function()
   io.stdout:flush()
 end
 
-Config.new_autocmd('DirChanged', nil, print_osc7, 'Notify the host terminal of cwd changes.')
+Config.new_autocmd('DirChanged', nil, print_osc7, 'Notify the host terminal of cwd changes')
 
 -- Highlight on yank.
 Config.new_autocmd('TextYankPost', '*', function() vim.hl.on_yank() end, 'Highlight yanked text')

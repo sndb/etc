@@ -113,6 +113,20 @@ gitsigns.setup({
 -- Diffview
 vim.pack.add({ 'https://github.com/sindrets/diffview.nvim' })
 
+require('diffview').setup({
+  enhanced_diff_hl = true,
+  use_icons = false,
+  keymaps = {
+    view = {
+      ['<C-c>'] = '<Cmd>DiffviewClose<CR>'
+    },
+    file_panel = {
+      ['<C-c>'] = '<Cmd>DiffviewClose<CR>',
+      ['q'] = '<Cmd>DiffviewClose<CR>',
+    },
+  },
+})
+
 -- Neogit
 vim.pack.add({ 'https://github.com/neogitorg/neogit' })
 
