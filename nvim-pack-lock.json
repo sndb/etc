@@ -8,6 +8,10 @@
       "rev": "fd9a48ebbe6ec30d5dfcc5b42c243941ccdca1aa",
       "src": "https://github.com/saghen/blink.lib"
     },
+    "catppuccin": {
+      "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "conform.nvim": {
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
@@ -23,10 +27,6 @@
     "mini.nvim": {
       "rev": "561751e839b99a4baca36b9d963166b66d2536a6",
       "src": "https://github.com/nvim-mini/mini.nvim"
-    },
-    "modus-themes.nvim": {
-      "rev": "15ffb5ab6a12f72ee1e8393fe5810d5317da2d3e",
-      "src": "https://github.com/miikanissi/modus-themes.nvim"
     },
     "neogit": {
       "rev": "70708be9664b7fcdd010eb07bdc3ebc9311c2027",

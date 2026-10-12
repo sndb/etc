@@ -42,8 +42,8 @@ require('conform').setup({
 })
 
 -- Colorscheme
-vim.pack.add({ 'https://github.com/miikanissi/modus-themes.nvim' })
-vim.cmd('colorscheme modus')
+vim.pack.add({ { src = 'https://github.com/catppuccin/nvim', name = 'catppuccin' } })
+vim.cmd.colorscheme('catppuccin-nvim')
 
 -- Snacks
 vim.pack.add({ 'https://github.com/folke/snacks.nvim' })
