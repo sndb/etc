@@ -1,5 +1,4 @@
 if status is-interactive
-    alias lg 'lazygit'
     alias vim 'nvim'
     alias mkd 'mkdir -vp'
     alias cp 'cp -vi'
@@ -20,9 +19,18 @@ if status is-interactive
         cd $argv && l
     end
 
+    function y
+        set tmp (mktemp -t "yazi-cwd.XXXXXX")
+        command yazi $argv --cwd-file="$tmp"
+        if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+            builtin cd -- "$cwd"
+        end
+        command rm -f -- "$tmp"
+    end
+
     set -gx FZF_CTRL_T_OPTS "--walker file,dir,follow --preview 'bat --plain --color=always {}'"
     set -gx FZF_ALT_C_OPTS "--walker dir,follow"
     fzf --fish | source
 
-    bind \co 'set old_tty (stty -g); stty sane; lfcd; stty $old_tty; commandline -f repaint'
+    zoxide init fish | source
 end
