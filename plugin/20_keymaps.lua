@@ -22,6 +22,7 @@ vim.keymap.set('n', '-', '<Cmd>Oil<CR>', { desc = 'Explorer' })
 vim.keymap.set({ 'n', 't' }, '<C-/>', function() Snacks.terminal.focus() end, { desc = 'Terminal' })
 
 -- Pickers
+vim.keymap.set('n', '<Leader>r', function() Snacks.picker.resume() end, { desc = 'Resume' })
 vim.keymap.set('n', '<Leader><Space>', function() Snacks.picker.smart() end, { desc = 'Smart' })
 vim.keymap.set('n', '<Leader>ff', function() Snacks.picker.files() end, { desc = 'Files' })
 vim.keymap.set('n', '<Leader>fv', function() Snacks.picker.recent() end, { desc = 'Recent' })
@@ -51,9 +52,9 @@ vim.keymap.set('n', '<Leader>bo', function() Snacks.bufdelete.other() end, { des
 vim.keymap.set('n', '<Leader>bi', function() Snacks.bufdelete.invisible() end, { desc = 'Delete invisible buffers' })
 
 -- LSP
-vim.keymap.set('n', '<Leader>la', function() vim.lsp.buf.code_action() end, { desc = 'Actions' })
+vim.keymap.set({ 'n', 'x' }, '<Leader>la', function() vim.lsp.buf.code_action() end, { desc = 'Actions' })
+vim.keymap.set({ 'n', 'x' }, '<Leader>lf', function() require('conform').format() end, { desc = 'Format' })
 vim.keymap.set('n', '<Leader>ld', function() vim.diagnostic.open_float() end, { desc = 'Diagnostic popup' })
-vim.keymap.set('n', '<Leader>lf', function() require('conform').format() end, { desc = 'Format' })
 vim.keymap.set('n', '<Leader>lr', function() vim.lsp.buf.rename() end, { desc = 'Rename' })
 
 -- Notes
