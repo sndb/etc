@@ -9,7 +9,18 @@ local ts_update = function() vim.cmd('TSUpdate') end
 Config.on_packchanged('nvim-treesitter', { 'update' }, ts_update, ':TSUpdate')
 
 -- Auto-install treesitter parsers.
-local languages = { 'vimdoc', 'markdown', 'go', 'gomod', 'python', 'lua' }
+local languages = {
+  'go',
+  'gomod',
+  'javascript',
+  'json',
+  'lua',
+  'markdown',
+  'python',
+  'sql',
+  'vimdoc',
+  'yaml',
+}
 require('nvim-treesitter').install(languages)
 
 -- Enable treesitter for supported languages.
@@ -24,7 +35,7 @@ Config.new_autocmd('FileType', filetypes, ts_start, 'Start treesitter')
 
 -- LSP
 vim.pack.add({ 'https://github.com/neovim/nvim-lspconfig' })
-vim.lsp.enable({ 'gopls', 'pyright', 'clangd', 'lua_ls' })
+vim.lsp.enable({ 'clangd', 'gopls', 'lua_ls', 'pyright' })
 
 -- Conform
 vim.pack.add({ 'https://github.com/stevearc/conform.nvim' })
@@ -34,10 +45,14 @@ require('conform').setup({
     lsp_format = 'fallback',
   },
   formatters_by_ft = {
-    lua = { 'stylua' },
+    javascript = { 'biome' },
     python = { 'ruff_format' },
-    json = { 'deno_fmt' },
-    javascript = { 'deno_fmt' },
+    sql = { 'pg_format' },
+  },
+  formatters = {
+    pg_format = {
+      prepend_args = { '-u', '1', '-f', '1', '-s', '2' },
+    },
   },
 })
 
@@ -142,6 +157,14 @@ cmp.setup({
   sources = { default = { 'lsp', 'path', 'buffer' } },
   completion = { menu = { auto_show = false } },
 })
+
+local exit_snippet = function()
+  if vim.snippet.active() then
+    vim.snippet.stop()
+  end
+end
+
+Config.new_autocmd('InsertLeave', nil, exit_snippet, 'Exit the current snippet')
 
 -- Oil
 vim.pack.add({ 'https://github.com/stevearc/oil.nvim' })
