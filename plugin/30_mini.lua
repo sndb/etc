@@ -10,6 +10,7 @@ require('mini.extra').setup()
 local ai = require('mini.ai')
 ai.setup({
   custom_textobjects = {
+    i = MiniExtra.gen_ai_spec.indent(),
     B = MiniExtra.gen_ai_spec.buffer(),
     F = ai.gen_spec.treesitter({ a = '@function.outer', i = '@function.inner' }),
   },
@@ -32,14 +33,6 @@ hipatterns.setup({
 
     hex_color = hipatterns.gen_highlighter.hex_color(),
   },
-})
-
--- Visualize and work with indent scope.
-local indentscope = require('mini.indentscope')
-indentscope.setup({
-  draw = { animation = indentscope.gen_animation.none() },
-  options = { try_as_border = true },
-  symbol = '│',
 })
 
 -- Move any selection in any direction.
