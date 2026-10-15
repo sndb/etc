@@ -111,7 +111,7 @@ gitsigns.setup({
 
     map('n', '<Leader>hS', gitsigns.stage_buffer, 'Stage buffer')
     map('n', '<Leader>hR', gitsigns.reset_buffer, 'Reset buffer')
-    map('n', '<Leader>hp', gitsigns.preview_hunk, 'Preview hunk')
+    map('n', '<Leader>hp', gitsigns.preview_hunk_inline, 'Preview hunk')
 
     map('n', '<Leader>hb', function()
       gitsigns.blame_line({ full = true })
