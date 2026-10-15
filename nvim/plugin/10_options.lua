@@ -12,7 +12,7 @@ vim.o.splitbelow  = true        -- Horizontal splits will be below
 vim.o.splitright  = true        -- Vertical splits will be to the right
 vim.o.splitkeep   = 'screen'    -- Reduce scroll during window split
 vim.o.scrolloff   = 5           -- Minimum lines above and below cursor
-vim.o.wrap        = false       -- Don't visually wrap lines (toggle with \w)
+vim.o.wrap        = false       -- Don't visually wrap lines
 vim.o.linebreak   = true        -- Wrap lines at spaces (if 'wrap' is set)
 vim.o.foldenable  = false       -- Open all folds by default
 
