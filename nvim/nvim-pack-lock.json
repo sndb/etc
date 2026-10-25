@@ -28,6 +28,10 @@
       "rev": "561751e839b99a4baca36b9d963166b66d2536a6",
       "src": "https://github.com/nvim-mini/mini.nvim"
     },
+    "mkdnflow.nvim": {
+      "rev": "272148c4bd1996380b9b540540758d57667e59c4",
+      "src": "https://github.com/jakewvincent/mkdnflow.nvim"
+    },
     "neogit": {
       "rev": "70708be9664b7fcdd010eb07bdc3ebc9311c2027",
       "src": "https://github.com/neogitorg/neogit"

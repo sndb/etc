@@ -46,6 +46,7 @@ require('conform').setup({
   },
   formatters_by_ft = {
     javascript = { 'biome' },
+    markdown = { 'rumdl' },
     python = { 'ruff_format' },
     sql = { 'pg_format' },
   },
@@ -204,3 +205,25 @@ oil.setup({
 -- Quicker
 vim.pack.add({ 'https://github.com/stevearc/quicker.nvim' })
 require('quicker').setup()
+
+-- Mkdnflow
+vim.pack.add({ 'https://github.com/jakewvincent/mkdnflow.nvim' })
+
+require('mkdnflow').setup({
+  links = {
+    transform_on_create = false,
+  },
+  to_do = {
+    statuses = {
+      complete = {
+        marker = 'x',
+      },
+    },
+  },
+  mappings = {
+    MkdnEnter = { { 'i', 'n', 'v' }, '<CR>' },
+    MkdnIncreaseHeading = false,
+    MkdnDecreaseHeading = false,
+    MkdnUpdateNumbering = false,
+  },
+})

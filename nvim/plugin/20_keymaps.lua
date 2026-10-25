@@ -59,23 +59,47 @@ vim.keymap.set('n', '<Leader>lr', function() vim.lsp.buf.rename() end, { desc = 
 
 -- Notes
 local notes_dir = vim.fn.expand('~/Documents/Notes')
+local notes_inbox = notes_dir .. '/inbox.md'
 
-local create_note = function()
-  vim.ui.input({ prompt = 'Note name: ' }, function(name)
-    if not name or name == '' then
-      return
+vim.keymap.set('n', '<Leader>ni', function()
+  vim.cmd.edit(vim.fn.fnameescape(notes_inbox))
+end, { desc = 'Open inbox' })
+
+vim.keymap.set('n', '<Leader>nf', function()
+  Snacks.picker.files({ cwd = notes_dir })
+end, { desc = 'Find note' })
+
+vim.keymap.set('n', '<leader>ng', function()
+  Snacks.picker.grep({ cwd = notes_dir })
+end, { desc = 'Grep notes' })
+
+vim.keymap.set('n', '<leader>nt', function()
+  Snacks.picker.grep({
+    cwd = notes_dir,
+    search = [[^\s*[-*+]\s+\[[\s-]\]\s+]],
+    regex = true,
+    live = false,
+    title = 'Unfinished tasks',
+  })
+end, { desc = 'Unfinished tasks' })
+
+vim.keymap.set('n', '<leader>nc', function()
+  if vim.fn.filereadable(notes_inbox) == 0 then
+    vim.fn.writefile({ '# Inbox', '' }, notes_inbox)
+  end
+  vim.cmd.edit(vim.fn.fnameescape(notes_inbox))
+  vim.cmd('normal! 2Go- [ ] ')
+  vim.cmd('startinsert!')
+end, { desc = 'Quick capture' })
+
+vim.keymap.set('n', '<leader>nn', function()
+  vim.ui.input({ prompt = 'Note title: ' }, function(title)
+    if not title or title == '' then return end
+    local slug = title:lower():gsub('%s+', '-'):gsub('[^%w%-]', '')
+    local file = string.format('%s/%s.md', notes_dir, slug)
+    if vim.fn.filereadable(file) == 0 then
+      vim.fn.writefile({ '# ' .. title, '' }, file)
     end
-
-    name = name:gsub('%s+', '-'):lower()
-
-    if not name:match('%.%w+$') then
-      name = name .. '.md'
-    end
-
-    local path = notes_dir .. '/' .. name
-    vim.cmd.edit(vim.fn.fnameescape(path))
+    vim.cmd.edit(vim.fn.fnameescape(file))
   end)
-end
-
-vim.keymap.set('n', '<Leader>fn', function() Snacks.picker.files({ cwd = notes_dir }) end, { desc = 'Notes' })
-vim.keymap.set('n', '<Leader>nn', create_note, { desc = 'Create a new note' })
+end, { desc = 'New note' })
